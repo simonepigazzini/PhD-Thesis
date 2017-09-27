@@ -1,0 +1,100 @@
+\documentclass[a4paper,titlepage,11pt,twoside,openright]{book}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[italian,english]{babel}
+
+\usepackage{multirow}
+\usepackage[euler]{textgreek} % upright greek
+
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% \evensidemargin=1.5cm
+% \oddsidemargin=2.5cm
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+%% HEP stuff
+\usepackage{hepunits}
+\providecommand{\mgg}{\ensuremath{m_{\gamma\gamma}}\xspace}
+\providecommand{\phoIso}{\ensuremath{\mathrm{Iso}_\gamma}\xspace}
+\providecommand{\chIso}{\ensuremath{\mathrm{Iso_{Ch}}}\xspace}
+\providecommand{\trkIso}{\ensuremath{\mathrm{N_{Trk}}}\xspace}
+\providecommand{\hoe}{\ensuremath{\mathrm{H/E}}\xspace}
+\providecommand{\sieie}{\ensuremath{\sigma_{i\eta i\eta}}\xspace}
+\providecommand{\sipip}{\ensuremath{\sigma_{i\phi i\phi}}\xspace}
+\providecommand{\rnine}{\ensuremath{R_{9}}\xspace}
+\providecommand{\Grav}{\PXXG\xspace}
+\providecommand{\Ggg}{\ensuremath{\mathrm{\PXXG \rightarrow}\gamma\gamma}\xspace}
+\providecommand{\Zee}{\ensuremath{\mathrm{\cPZ \rightarrow}e^{+}e^{-}}\xspace}
+\providecommand{\Zmmg}{\ensuremath{\mathrm{\cPZ \rightarrow}\mu^{+}\mu^{-}\gamma}\xspace}
+\providecommand{\pT}{\ensuremath{\mathrm{p_{T}}}\xspace}
+\providecommand{\gaga}{\ensuremath{\gamma \gamma}\xspace}
+\providecommand{\gj}{\ensuremath{\gamma j}\xspace}
+\providecommand{\jj}{\ensuremath{jj}\xspace}
+
+\providecommand{\fgaga}{\ensuremath{f_{\gamma \gamma}}\xspace}
+\providecommand{\fgj}{\ensuremath{f_{\gamma j}}\xspace}
+\providecommand{\fjj}{\ensuremath{f_{jj}}\xspace}
+
+\providecommand{\pt}{\pT\xspace}
+\providecommand{\mG}{\ensuremath{\mathrm{m_\Grav}}\xspace}
+\providecommand{\scEta}{\ensuremath{\eta_{SC}}\xspace}
+\providecommand{\DeltaR}{\ensuremath{\Delta\mathrm{R}}\xspace}
+\providecommand{\DeltaEta}{\ensuremath{\Delta\eta}\xspace}
+\providecommand{\expectZ}{\ensuremath{Z^{0}_{expect}}\xspace}
+\providecommand{\Minuit}{{\textsc{minuit}}\xspace\xspace}
+\providecommand{\RS}{{\textsc{RS}}\xspace\xspace}
+\providecommand{\ADD}{{\textsc{ADD}}\xspace\xspace}
+\providecommand{\CLs}{\ensuremath{\mathrm{CL_{s}}}\xspace}
+\providecommand{\chisq}{\ensuremath{\chi^2}\xspace}
+
+\providecommand{\lumisix}{\ensuremath{35.9\invfb}\xspace}
+\providecommand{\lumisixICHEP}{\ensuremath{12.9\invfb}\xspace}
+\providecommand{\lumifif}{\ensuremath{3.3\invfb}\xspace}
+\providecommand{\lumififBon}{\ensuremath{2.7\invfb}\xspace}
+\providecommand{\lumififBoff}{\ensuremath{0.6\invfb}\xspace}
+
+\providecommand{\mgg}{\ensuremath{m_{\gamma\gamma}}\xspace}
+\providecommand{\phoIso}{\ensuremath{\mathrm{Iso}_\gamma}\xspace}
+\providecommand{\chIso}{\ensuremath{\mathrm{Iso_{Ch}}}\xspace}
+\providecommand{\hoe}{\ensuremath{\mathrm{H/E}}\xspace}
+\providecommand{\sieie}{\ensuremath{\sigma_{i\eta i\eta}}\xspace}
+\providecommand{\rnine}{\ensuremath{R_{9}}\xspace}
+\providecommand{\Grav}{\PXXG\xspace}
+\providecommand{\Ggg}{\ensuremath{\mathrm{\PXXG \rightarrow}\gamma\gamma}\xspace}
+\providecommand{\Zee}{\ensuremath{\mathrm{\cPZ \rightarrow}e^{+}e^{-}}\xspace}
+\providecommand{\Zmmg}{\ensuremath{\mathrm{\cPZ \rightarrow}\mu^{+}\mu^{-}\gamma}\xspace}
+\providecommand{\pT}{\ensuremath{\mathrm{p_{T}}}\xspace}
+\providecommand{\gaga}{\ensuremath{\gamma \gamma}\xspace}
+\providecommand{\gj}{\ensuremath{\gamma j}\xspace}
+\providecommand{\jj}{\ensuremath{jj}\xspace}
+
+\providecommand{\fgaga}{\ensuremath{f_{\gamma \gamma}}\xspace}
+\providecommand{\fgj}{\ensuremath{f_{\gamma j}}\xspace}
+\providecommand{\fjj}{\ensuremath{f_{jj}}\xspace}
+
+\providecommand{\pt}{\pT\xspace}
+\providecommand{\mG}{\ensuremath{\mathrm{m_\Grav}}\xspace}
+\providecommand{\scEta}{\ensuremath{\eta_{SC}}\xspace}
+\providecommand{\DeltaR}{\ensuremath{\Delta\mathrm{R}}\xspace}
+\providecommand{\DeltaEta}{\ensuremath{\Delta\eta}\xspace}
+\providecommand{\expectZ}{\ensuremath{Z^{0}_{expect}}\xspace}
+\providecommand{\Minuit}{{\textsc{minuit}}\xspace\xspace}
+\providecommand{\RS}{{\textsc{RS}}\xspace\xspace}
+\providecommand{\ADD}{{\textsc{ADD}}\xspace\xspace}
+\providecommand{\CLs}{\ensuremath{\mathrm{CL_{s}}}\xspace}
+\providecommand{\chisq}{\ensuremath{\chi^2}\xspace}
+
+\providecommand{\pb}{\ensuremath{\mathrm{pb}\xspace}}
+\providecommand{\fb}{\ensuremath{\mathrm{fb}\xspace}}
+
+\begin{document}
+
+\tableofcontents
+
+\mainmatter
+
+\clearpage\input{diphotons}
+
+\end{document}
