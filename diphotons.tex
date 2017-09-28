@@ -59,5 +59,52 @@ jets over the whole $p_T$ spectrum.
 Finally a set of Drell-Yan events ($Z/\gamma* \to e^{+}e^{-}$) is generated with aMC@NLO and is
 used to derive data to simulation scale factors for the selections efficiency.
 
+\section{Events selection}
+Two measurement are needed to build the invariant mass of the diphoton system: the energy of the
+photons and the interaction vertex position. The former is performed with the ECAL as described in
+Section ??? while the latter is reconstructed with tracks produced in the interaction against which
+the diphoton system recoils. Additional information from the tracker and the HCAL are used to discriminate
+genuine photon candidates from QCD jets.
+In the following paragraphs the vertex and photon identification algorithms are presented.
 
+\subsection{Vertex identification}
+The standard CMS reconstruction identify the primary interaction vertex as the one withing each
+bunch crossing that as the largest $\Sum p_T^2$ (where the sum runs over all the charged particles
+coming from the vertex). The method is not fully efficient for diphoton events since the two neutral
+particles carry a significant amount of the transverse energy.
+A dedicated boosted decision tree regression has been trained in the context of the search for the
+Higgs boson decaying into two photons. Inputs to the regression are the $\Sum p_T^2$ and
+other quantities related to the $p_T$ balance between the diphoton system and the charged particles.
 
+\subsection{Photon identification}
+Photons candidates are reconstructed from energy deposit in the ECAL with no associated track. Energetic
+neutral pions found in QCD jets has a similar signature since they decay into two collimated
+photons. A dedicated set of selection is applied to each photon candidate in the analysis to select a pure
+sample of diphotons events. These criteria were optimized for photons with high transverse
+momentum and based on the following variables:
+
+\begin{itemize}  
+\item \chIso: the scalar sum of the transverse momenta of the particle flow charged hadron
+candidates, which are assigned to the chosen primary vertex. Only candidate
+within a radius of $\DeltaR < 0.3$ from the photon in the $\eta$ - $\phi$ plane, which is
+defined as:
+\[
+\DeltaR = \sqrt{(\eta_\gamma-\eta_{cand})^2 + (\phi_\gamma-\phi_{cand})^2}
+  \]
+are considered.
+
+\item \phoIso: the scalar sum of the transverse energies of the particle flow photon candi-
+  dates for which $\DeltaR < 0.3$.
+  
+\item \hoe: ratio of the energy measured in the HCAL and ECAL.
+
+\item \sieie: the weighted spatial second order moment of the photon candidate in the
+  $\eta$-direction, computed as:
+  \[
+\sieie = \sqrt{\frac{\Sum_{i}{}}
+    \]
+
+\end{itemize}
+
+Particle flow charged particles or photons sharing part of their energy with the photon candidates
+are excluded from the \chIso and \phoIso sum. 
