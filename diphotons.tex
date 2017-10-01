@@ -23,7 +23,7 @@ in the calorimeter barrel(endcap) region.
 The trigger is found to be fully efficient for photons with $\pt > 75$ GeV and so an offline
 selection is applied to select these events.
 
-Togher with the main analysis trigger another one is used to select electrons from \Zee decays.
+Together with the main analysis trigger another one is used to select electrons from \Zee decays.
 The \Zee is the primary control sample of the analysis and events compatible with this process
 are recorded with a single electron trigger that selects events with at least one electron of
 $\pt > 27$ GeV and $|\eta| < 2.1$. Tight isolation and identification critaria are applied at trigger
@@ -75,10 +75,41 @@ particles carry a significant amount of the transverse energy.
 A dedicated boosted decision tree regression has been trained in the context of the search for the
 Higgs boson decaying into two photons. Inputs to the regression are the $\Sum p_T^2$ and
 other quantities related to the $p_T$ balance between the diphoton system and the charged particles.
+Using this method the interaction vertex is correctly assigned for about $90\%$ of the signal events.
+
+\subsection{Kinematic selections and event categorization}
+Photons candidates are reconstructed from energy deposit in the ECAL with no associated track.
+A set of kinematic selection is applied to avoid detector inefficiencies and shaping of the mass
+spectrum due to trigger level selections:
+\begin{itemize}
+\item The transverse momentum of each candidate had to be above $75$ GeV.
+\item The absolute value of the pseudorapidity of the supercluster (\absScEta) of both
+candidates had to be below $\absScEta < 2.5$ and not between $1.444 < \absScEta < 1.566$,
+due to the geometric acceptance of the ECAL.
+\item To avoid a distortion of the background shape due to the transverse momentum
+cut, the minimum invariant mass of the diphoton pair had to be $230$ GeV, when
+both photons were detected in the ECAL barrel region (EB, $\absScEta < 1.444$). If one photon candidate
+was detected in the endcap region (EE, $\absScEta > 1.566$), the minimum invariant mass
+had to be $320$ GeV.
+\end{itemize}
+
+If more then one pair of photons satisfies the kinematic selection ($1\%$ of all the events) the pair
+with the highest scalar sum of transverse momentum $p_T^{\gamma\gamma}$ is chosen.
+
+The events are split into two categories accordingly to the topology of the photon system in relation
+with the ECAL segmentation:
+\begin{itemize}
+\item barrel-barrel (EBEB): both photons are detected in the ECAL barrel region $\absScEta < 1.444$.
+\item barrel-endcap (EBEE): one photon is detected in the ECAL barrel region $\absScEta < 1.444$ the other
+  in one of the endcaps $1.566 < \absScEta < 2.5$.
+\end{itemize}
+
+The EEEE category (both photons detected in the endcaps regions) is not considered for the analysis
+since only few percent of the benchmark signal events fall in this category and conversely the SM
+background is considerably higher than in the other categories.
 
 \subsection{Photon identification}
-Photons candidates are reconstructed from energy deposit in the ECAL with no associated track. Energetic
-neutral pions found in QCD jets has a similar signature since they decay into two collimated
+Energetic neutral pions found in QCD jets has a similar signature since they decay into two collimated
 photons. A dedicated set of selection is applied to each photon candidate in the analysis to select a pure
 sample of diphotons events. These criteria were optimized for photons with high transverse
 momentum and based on the following variables:
@@ -108,3 +139,4 @@ are considered.
 
 Particle flow charged particles or photons sharing part of their energy with the photon candidates
 are excluded from the \chIso and \phoIso sum. 
+

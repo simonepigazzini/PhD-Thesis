@@ -1,0 +1,11 @@
+# tmp files
+*~
+#*#
+
+# pdflatex tmp files
+*.aux
+*.log
+*.toc
+
+# pdf files
+*.pdf
