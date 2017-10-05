@@ -133,10 +133,32 @@ are considered.
   $\eta$-direction, computed as:
   \[
 \sieie = \sqrt{\frac{\Sum_{i}{}}
-    \]
+\]
+
+\item Conversion safe electron veto, to reject electrons.
 
 \end{itemize}
 
 Particle flow charged particles or photons sharing part of their energy with the photon candidates
 are excluded from the \chIso and \phoIso sum. 
 
+The thresholds of the identification variables were optimized to give an efficiency flat as a function
+of the mass of the diphoton pair, the chosen working point correspond to an efficiency of $90(85)\%$ for
+photons in the EB(EE).
+The \phoIso distribution is found to depend on the event pile-up and the $p_T$ of the
+photon candidate. These dependencies leads to a variation of the selection efficiency with time and also
+for different values of \mgg. In order to keep a flat effiency a correction is used, its expression is:
+\[
+  \phoIso^{corr} = \phoIso - \kappa\cdot p_T - A \cdot \rho + \alpha
+\]
+
+where $p_T$ is the transverse momentum of the photon candidate, $\rho$ is the event pile-up energy density.
+The values of $A$ and $\kappa$ are chosen such to keep the $90\%$ quantile of the distribution at a constant
+value as a function of $\rho$ and $p_T$, while the $\alpha$ parameter is used to adjust the distribution such
+that the bulk of the corrected isolation distribution for signal photons peaks at zero.
+
+For very energetic photons the ECAL readout electronics can saturate. In such a case the shower shape variable
+\sieie is distorted hence, a different selection value is set for this identification variable in case of saturation.
+
+
+  
