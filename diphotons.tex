@@ -158,7 +158,31 @@ value as a function of $\rho$ and $p_T$, while the $\alpha$ parameter is used to
 that the bulk of the corrected isolation distribution for signal photons peaks at zero.
 
 For very energetic photons the ECAL readout electronics can saturate. In such a case the shower shape variable
-\sieie is distorted hence, a different selection value is set for this identification variable in case of saturation.
+\sieie is distorted, hence a different selection value is set for this identification variable in case of saturation.
+
+\subsection{Selection efficiency measurement}
+The efficiency of the photon identification described in the previous chapter is measured with data
+using the \Zee control sample. The measurement of the selection efficiency in data is then
+compared to the one measured in the simulation and in case of discrepancy the signal normalization
+derived from the simulation is corrected for the measured scale factor.
+
+The efficiency is measured with a tag-and-probe technique exploting the well known Z decay to electrons.
+For this study the response of the ECAL and HCAL is assumed to be identical for electrons and photons.
+The tag-and-probe method is used both for the data and simulation mesurement, the \Zee control sample
+in data is selected using events recorded with a single electron trigger (???). Di-electron candidates
+are further filtered with an invariant mass selection ($70 < \mee < 110$ GeV) centered around the Z mass peak,
+the invariant mass window is applied also to the simulated events.
+
+The method then requires one of the two electrons (the ``tag'') coming from the Z boson to pass a very tight selection
+(this tight working point is developped by a dedicated group within CMS and provide high purity electrons
+with an effiency of $70\%$).
+The second electron is required to pass a loose identification and is assumed to be an unbiased
+with respect the variables being studied (the ``probe''). The photon selection efficiency is studied using
+this unbiased sample inverting the electron veto request.
+
+Since the chosen trigger requires the electron to be within $\absScEta < 2.1$ the tag electron
+is required to be within this region too
+
 
 
   
