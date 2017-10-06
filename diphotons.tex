@@ -10,6 +10,7 @@ collisions at a center of mass energy of 13 TeV. The optimization has been perfo
 data collected during 2015 corresponding to an integrated luminosity of \lumififBon.
 
 \section{Data samples}
+\label{sec:diphotons_data_samples}
 The search is perform in data collected by the CMS experiment during the year 2016. The total
 integrated luminosity is \lumisix. Data are reconstructed witha detector calibration optimized
 for the 2016 p-p collision datataking period.
@@ -181,7 +182,59 @@ with respect the variables being studied (the ``probe''). The photon selection e
 this unbiased sample inverting the electron veto request.
 
 Since the chosen trigger requires the electron to be within $\absScEta < 2.1$ the tag electron
-is required to be within this region too
+is required to be within this region too. The efficiency is studied as a function of the electron $p_T$
+and the event pile-up energy density $\rho$.
+
+The data events are fitted
+simultaneously for passing and failing probes with a signal plus background model.
+The signal is modeled by the Z lineshape as obtained from a QCD NLO (POWHEG)
+generator convolved with a Gaussian, while the background is modeled by an exponential function. As
+the choice of the fit model is one of the dominating systematics, different models were
+studied to assess it [???]. A simple cut-and-count method is applied for the simulation sample
+since the non resonant $pp \to \gamma^* \to e^+e^-$ events are discarded with MC truth information.
+
+FIGURE!
+
+\section{Photon energy scale and resolution corrections}
+The detector simulation takes into account the effects of pilu-up, detector noise and response variation.
+The pile-up distribution is then reweighted to match the one in data as explained in Sec~\ref{sec:diphotons_data_samples}.
+The detector noise and response variation instead varies over the datataking period and so a discrepancy
+in the energy response of the ECAL may arise between data and simulation since in the latter no time evolution
+of the detector conditions is simulated. The effect of this discrepancy translate in shift of the energy
+scale in data with respect to the MC simulation, furthermore any residual mis-calibration of the detector
+is not simulated and thus the energy resolution in data is worse than in the MC simuation.
+These two effects are corrected on one hand
+scaling the photon energy (after being corrected with the method described in ???) in data events
+in order to correct the time dependent scale variations and match the energy scale of the simulation and,
+on the other hand, by smearing the energy in simulated events to match the resolution observed in data.
+
+The time-dependent scale corrections and the smearing are derived with the \Zee control sample.
+Again since the energy for both photons and electrons is primarly reconstructed from the ECAL, electrons
+are used as a proxy of photons.
+
+The corrections are derived in two steps: at first, the energy scale is corrected by
+adjusting the scale in data to match the simulation prediction. The \Zee invariant mass peak is fitted with
+a Breit-Wigner function convolved with a crystal ball (CB) function describing, respectively,
+the theoretical signal line shape of the Z-boson and the detector response.
+The parameters of the Breit-Wigner function for the Z boson are taken from the Particle
+Data Group (PDG) [8]: $m_Z = 91.1876$ GeV and $\Gamma_Z = 2.4952$ GeV.
+By fitting the distribution in data and MC simulation separately, the energy scale offset can be extracted.
+
+Different systematic behaviors of the mean of the CB function ($\Delta_m$) as a function of time and the
+pseudorapidity can be observed. As a result, run dependent energy corrections are
+necessary to correct for the energy scale variations during data-taking. The energy scale
+correction ($\Delta P$) is defined as the relative shift in mass between data and MC prediction:
+\[
+  \Delta P = \frac{\Delta m_{data} - \Delta m_{simulation}}{m_Z}
+\]
+
+After the $\Delta P$ correction is applied, a stable behavior of $\Delta m$ over time within
+0.1 GeV is observed.
+
+In a second step, the residual difference between the observed and predicted electron
+energy was assessed by a maximum likelihood fit to the smeared MC prediction and data:
+the probability density function (PDF) of the super cluster energy E MC was modified
+
 
 
 
