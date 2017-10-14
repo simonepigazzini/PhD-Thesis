@@ -212,7 +212,7 @@ The time-dependent scale corrections and the smearing are derived with the \Zee 
 Again since the energy for both photons and electrons is primarly reconstructed from the ECAL, electrons
 are used as a proxy of photons.
 
-The corrections are derived in two steps: at first, the energy scale is corrected by
+The corrections are derived in two steps: in the first, the energy scale is corrected by
 adjusting the scale in data to match the simulation prediction. The \Zee invariant mass peak is fitted with
 a Breit-Wigner function convolved with a crystal ball (CB) function describing, respectively,
 the theoretical signal line shape of the Z-boson and the detector response.
@@ -231,9 +231,37 @@ correction ($\Delta P$) is defined as the relative shift in mass between data an
 After the $\Delta P$ correction is applied, a stable behavior of $\Delta m$ over time within
 0.1 GeV is observed.
 
-In a second step, the residual difference between the observed and predicted electron
-energy was assessed by a maximum likelihood fit to the smeared MC prediction and data:
-the probability density function (PDF) of the super cluster energy E MC was modified
+In the second step, the residual difference between the observed and predicted electron
+energy is assessed by maximizing the likelihood between the smeared MC distribution and the data.
+
+The smearing of the MC distribution is performed by multiplying \scE distribution by a
+Gaussian distribution, centered at $1 + \Delta P$ and with resolution $\Delta C$.
+The resolution $\Delta C$ denotes the additional constant term of the energy resolution which
+is added to the MC prediction.
+
+The additional constant term needed to match the energy reasolution measured with data varies as a function
+of \etaSc, as the scale correction, but it also different between electrons that showers in the tracker volume
+and those that don't.
+The \rnine variable is used to discriminate between showering and non-showering electrons: this variables is used
+instead of others since can also be applied to dfiscriminate between converted and un-converted photons and
+so is suitable to mantain the analogy between the analysis object (photons) and the control sample ones (electrons).
+Thus maximum likelihood fit is performed in eight categories: four \scEta regions times two \rnine categories.
+
+The comparison between the predicted and observed dielectron invariant mass spectrum around the Z boson peak,
+for events passing the analysis selection (with inverted electron veto) and after all energy corrections have been applied
+is reported if Fig.~???.
+
+Finally the linearity of the ECAL energy response is studied using Z bosons with high transverse momentum
+decaying to electrons. This technique allows to test the linearity for transverse energies up to 150(100) GeV in
+the EB(EE) region.
+The linearity of the response is assessed by comparing the peak position of the
+reconstructed Z mass measured in data and simulation as a function of $H_T = E_{T_1}^2 + E_{T_1}^2$, where
+$E_{T_1,2}^2$ are the transverse energies of the two electrons.
+
+For electrons detected in the barrel part of the detector, the energy scale corrections
+were observed to be stable within $0.4\%$. Electrons detected in the endcap region of the
+detector were found to provide a stability of better than $0.8\%$. More information can be
+found in Ref.~???. A final $1\%$ uncertainty on the energy scale stability is assigned.
 
 
 
