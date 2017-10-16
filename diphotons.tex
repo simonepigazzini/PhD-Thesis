@@ -70,15 +70,16 @@ In the following paragraphs the vertex and photon identification algorithms are 
 
 \subsection{Vertex identification}
 The standard CMS reconstruction identify the primary interaction vertex as the one withing each
-bunch crossing that as the largest $\Sum p_T^2$ (where the sum runs over all the charged particles
+bunch crossing that as the largest $\Sigma p_T^2$ (where the sum runs over all the charged particles
 coming from the vertex). The method is not fully efficient for diphoton events since the two neutral
 particles carry a significant amount of the transverse energy.
 A dedicated boosted decision tree regression has been trained in the context of the search for the
-Higgs boson decaying into two photons. Inputs to the regression are the $\Sum p_T^2$ and
+Higgs boson decaying into two photons. Inputs to the regression are the $\Sigma p_T^2$ and
 other quantities related to the $p_T$ balance between the diphoton system and the charged particles.
 Using this method the interaction vertex is correctly assigned for about $90\%$ of the signal events.
 
 \subsection{Kinematic selections and event categorization}
+\label{subsec:event_cats}
 Photons candidates are reconstructed from energy deposit in the ECAL with no associated track.
 A set of kinematic selection is applied to avoid detector inefficiencies and shaping of the mass
 spectrum due to trigger level selections:
@@ -133,7 +134,7 @@ are considered.
 \item \sieie: the weighted spatial second order moment of the photon candidate in the
   $\eta$-direction, computed as:
   \[
-\sieie = \sqrt{\frac{\Sum_{i}{}}
+\sieie = \sqrt{\frac{\Sigma_{i}{}}{}}
 \]
 
 \item Conversion safe electron veto, to reject electrons.
@@ -240,7 +241,7 @@ The resolution $\Delta C$ denotes the additional constant term of the energy res
 is added to the MC prediction.
 
 The additional constant term needed to match the energy reasolution measured with data varies as a function
-of \etaSc, as the scale correction, but it also different between electrons that showers in the tracker volume
+of \scEta, as the scale correction, but it also different between electrons that showers in the tracker volume
 and those that don't.
 The \rnine variable is used to discriminate between showering and non-showering electrons: this variables is used
 instead of others since can also be applied to dfiscriminate between converted and un-converted photons and
@@ -277,8 +278,33 @@ background model derivation are described. The last part of the chapter is dedic
 the results of the hypothesis test.
 
 \subsection{Signal plus background maximum likelihood fit to data}
+A test statistic is build in order to test the different signal hypothesis, the underling likelihood
+is defined as:
+\begin{equation}
+  \label{eq:likelihood}
+  L(\mu, \theta) = \prod_{i\in Events}\Big[\mu\cdot S(\mgg^{i}|\theta_S) + B(\mgg^{i}|\theta_B)\Big]
+  \cdot Poisson(N_{events}|N_B+\mu\cdot N_S)
+\end{equation}
+
+In this formula, $S$ and $B$ denote the signal and standard model background shape respectively. Both
+models are $p.d.f$ that depends on \mgg and on nuissance parameters ($\theta$) that rappresent the systematic uncertainties.
+
+The selected events are split in two categories as described in Sec.~\ref{subsec:event_cats}.
+Thus two different likelihood are built: each categories has different nuissance parameters, signal and background shapes,
+while the signal strengh $\mu $ is a common parameter.
+A simultaneous fit to the data in the two category is performed.
+
+\subsection{Background parametrization}
+\label{subsec:background}
+The background parametrization is extracted from a fit to the data performed separatelly for the two analysis
+categories. The fit is performed assuming the absence of any signal, so the signal strengh $\mu$ is set
+to zero in the likelihood~\ref{eq:likelihood}.
+The choice of a data-driven techniques to define the background shape eliminates the need of high order
+QCD calculation for simulated samples and also a precise knowledge of the background processes ratios.
+
+A parametric form is chosen out of an arbitrary set of possible function.
+To ensure that the particular choice of the functional form does not introduce any biases in the
+background shape prediction, the accurancy of the chosen function is evaluated with the following
+procedure:
 
 
-
-
-  
