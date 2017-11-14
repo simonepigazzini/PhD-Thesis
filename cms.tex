@@ -153,13 +153,71 @@ are constrained by the ECAL ($R = 1.77$ m) and the surrounding magnet coil
 and scintillating tiles for the energy measurement. The readout is performed via
 optical fibers by hybrid photodiodes.
 
-The HCAL has a thickness equivalent to 11.8 nuclear interaction lengths. A small hadron
+The HCAL effective thickness increases with polar angle as $1/cos\theta$ in the barrel, 
+it varies from 5.82 interaction length at $\eta = 0$ to 10.6 at $\eta = 1.3$ while it is
+costant at about 10 interaction length in the endcap regions.
+An additional  small hadron
 calorimeter is placed behind the solenoid to capture very high energetic hadrons showers not
 contained with the inner calorimeters and the magnetic coil, this additional piece of the HCAL
 is used to reduce the mis-identification of hadronic jets as muons. The
-granularity in the barrel region is $\Delta\eta × \Delta\phi = 0.087 \times 0.087$.
-The endcap regions extend up to $|\eta| = 3$ with a
-granularity of $\Delta\eta × \Delta\phi = 0.17 \times 0.17$, beyond that a Cherenkov-based
-calorimeter (HF) detects hadrons in the region between $\eta = 3.0$ and $\eta = 5.2$.
-This forward calorimeter is placed at a distance in z of 11.2 m from the IP.
+granularity in the barrel region ($|\eta|<1.3$) is $\Delta\eta × \Delta\phi = 0.087 \times 0.087$, while
+in the endcap regions ($1.3<|\eta|<3.0$) it is
+$\Delta\eta × \Delta\phi = 0.17 \times 0.17$. The forward region ($3.0 < \eta < 5.2$)
+is covered by a Cherenkov-based calorimeter (HF), the absorber is made of steel while the
+active medium are quartz fibers.
+This forward calorimeter is placed at a distance in z of 11.2 m from the IP it has been design
+to withstand 10 MGy of absorbed dose and is expected to last for ten years during the LHC operation.
+
+Regarding the HCAL performance, Figure ?? reports the jet energy resolution expected from
+simulation compared to that measured in data within the tracker acceptance as a function of the jet transverse
+momentum $p_T$ [??].
+
+\subsection{The muon system}
+The CMS muon system [??] provides full geometric coverage for muon measurement up to $|\eta| = 2.4$.
+The detectors are embedded in the magnet return yoke, so that muon momentum and charge
+measurements can also exploit the strong magnetic return field. This is particularly important
+for muons with transverse momentum in the $\sim 1$~TeV range, for which the complementary tracker
+measurements degrade.
+
+The CMS muon spectrometer exploit three different detector tecnologies; the need of a fast response for
+generate a muon trigger and that of high spatial resolution for excellent momentum determination could not
+be satisfied by a unique technology.
+Both in the barrel ($|\eta| < 1.2$) and endcaps $0.9 < |\eta| < 2.4$ resistive-plate-chambers (RPC) are used
+to signal the presence of high energy muons at trigger level (up to $|\eta| < 2.1$).
+Drift-tube (DT) and chatode-strip-chambers (CSC) based detectors
+provide the mmomentum measurement in the barrel and endcaps respectively. The angular resolution
+in $\phi $ is of about 1 mrad.
+
+The RPC and DT detectors are alternated in concentric rings at a radius between 4 and 7 m from the IP
+in the barrel region. The rings are arranged in a way that avoids geometrical gaps in the $\phi $ projection, gaps
+in the $\eta $ one are avoided by placing the detectors parallel to the z-axis.
+In the endcaps the CSC are alternated to the RPC detectors in six consecutive disc on each side of the IP, the CSC
+detectors inner region is placed at a radius of 1 m from the beamline.
+
+\subsection{The trigger system}
+The collision rate (40~MHz) is higher that the rate at which event can be recorded and stored for
+offline processing (1~kHz). A two stage trigger system has been implemented to select events containing
+a possible hard scattering within the tens of concurrent collisions happening at each bunch-crossing.
+
+The first level (Level-1 trigger) is hardware  implemented in the readout electronics of each sub-system except for
+the tracker. The hardware used is based custom chips programmed with a dedicated firmware.
+The Level-1 triggers involve the calorimetry and muon systems, as well as some correlation
+of information between these systems. The Level-1 decision is based on the presence of trigger
+primitive objects such as photons, electrons, muons, and jets above adjustable transverse energy thresholds.
+It also employs global sum of $E_T = \sqrt{m^2 + p^2_T$} and $E_T^{miss}$ [??]. Reduced-granularity and
+reduced-resolution data are used to reconstruct trigger candidates.
+The Level-1 trigger reduces the event rate to 100~kHz.
+
+The second level (high level trigger or HLT) reduces the rate to the 1 kHz and performs a simplified and faster
+version of the final event reconstruction. The main idea is run the event reconstruction on demand in cascade for
+different types of objects such that non-interesting events can be discarded without running the whole
+event reconstruction. The HLT runs on commercial CPUs, 
+a set of different trigger algorithm are implemented such that the events are classified accordinlgy
+to their topology (i.e. events with a muon pair, electron pair, large $E_T^{miss}$, ...).
+
+In addition to triggers where all events that satisfies the requirements are saved (unprescaled
+triggers), a set of utility triggers, whose rate would be too high due to band saturation, have
+been developed, where a good event is saved only once every N times (prescaled triggers, with
+a prescale parameter N). These trigger paths are used for detector studies and to study kinematical
+regions of object reconstruction, such as low $p_T$ leptons.
 
