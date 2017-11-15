@@ -644,15 +644,15 @@ The test statistics used to derived exclusion limits on the alternative hypothes
 null one are based on the profile likelihood ratio:
 
 \begin{equation}
-$$ q(\mu) = -log \lambda(\mu) := -log \frac{ L(\mu \cdot S + B | \underline{\hat\theta}_{\mu} ) } {L (\hat\mu
-  \cdot S + B | \underline{\hat\theta} )}$$
-\label{eq:test_stat}
+ q(\mu) = -log \lambda(\mu) := -log \frac{ L(\mu \cdot S + B | \underline{\hat\theta}_{\mu} ) } {L (\hat\mu
+  \cdot S + B | \underline{\hat\theta} )}
 \end{equation}
+\label{eq:test_stat}
 
 Where the likelihood is the one described in Section~\ref{sec:results},
 $S$ and $B$ are the pdf's for the signal and SM processes respectively, $\mu$ is
 the ``signal strength'' parameter and $\underline\theta$ are the nuisance parameters of
-the model. The $\hat{}$. notation indicate best-fit value of the parameters.
+the model. The $\hat{}$ notation indicate best-fit value of the parameters.
 
 The value of $\lambda$ is bounded between 0 and 1, where the latter denotes a good agreement between the
 observed data and the hypothesized value of $\mu$. Consequently, the higher the value of
@@ -668,6 +668,18 @@ for BSM physics at LHC. It is also known
 as the $CL_s$ method [164, 165]. The signal plus background hypothesis ($H_1$) 
 is tested against the alternative, background-only hypothesis ($H_0$). For
 upper limits, the test statistic $q(\mu)$ of Equation~\ref{eq:test_stat} is defined as [163]:
+
+\begin{equation}
+  \tilde{q}(\mu) = \begin{cases}
+    -2~ln(\lambda(\mu)), & 0 \leq \hat\mu \leq \mu. \\
+    0 & \hat\mu > \mu.
+  \end{cases}
+\end{equation}  
+
+the lower bound $\hat\mu \geq 0$ s  dictated  by  physics  (signal  rate  is  positive),  while
+the upper constraint $\hat\mu \leq \mu$ is imposed by hand in order to guarantee a one-sided
+confidence interval which in turn ensures that upward fluctuations in data are not considered as
+evidence against the signal plus background hypothesis.
 
 
 
