@@ -1,5 +1,6 @@
 \documentclass[a4paper,titlepage,11pt,twoside,openright]{book}
 
+\usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8x]{inputenc}
 \usepackage[italian,english]{babel}
@@ -17,6 +18,7 @@
 
 %% HEP stuff
 \usepackage{hepunits}
+\providecommand{\fbinv}{\ensuremath{fb^{-1}\xspace}}
 \providecommand{\mgg}{\ensuremath{m_{\gamma\gamma}}\xspace}
 \providecommand{\mee}{\ensuremath{m_{e^-e^+}}\xspace}
 \providecommand{\phoIso}{\ensuremath{\mathrm{Iso}_\gamma}\xspace}
@@ -42,7 +44,6 @@
 \providecommand{\pt}{\pT\xspace}
 \providecommand{\mG}{\ensuremath{\mathrm{m_\Grav}}\xspace}
 \providecommand{\scE}{\ensuremath{E_{SC}}\xspace}
-\providecommand{\scEta}{\ensuremath{\e]ta_{SC}}\xspace}
 \providecommand{\absScEta}{\ensuremath{|\eta_{SC}|}\xspace}
 \providecommand{\DeltaR}{\ensuremath{\Delta\mathrm{R}}\xspace}
 \providecommand{\DeltaEta}{\ensuremath{\Delta\eta}\xspace}
@@ -99,6 +100,12 @@
 
 \mainmatter
 
+\clearpage\input{cms}
+
 \clearpage\input{diphotons}
+
+\backmatter
+\bibliographystyle{unsrt} 
+\bibliography{biblio}
 
 \end{document}

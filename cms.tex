@@ -26,19 +26,42 @@ The same machine is also used to accelarate and collide proton with ions or ions
 The design of the LHC aims to reach a center of mass energy of 14 TeV and an istantaneous luminosity ($\mathcal{L}$)
 of $10^{34}cm^{-2}s^{-1}$ for $p-p$ collisions. The scientific program span several decades, in the current phase it will
 deliver to the experiments about $300 \fb$ of integrated luminosity, while it will reach $3000 \fb$ during the dacade
-starting in 2025.
+starting in 2025 (Figure~\ref{fig:lhc_plan}). 
+
+\begin{figure}[!h]
+  \includegraphics[width = 1.\textwidth]{figures/cms/Projected_LHC_Performance.png}
+  \caption{Illustration of the foreseen LHC schedule, the current phase ends with long shutdown 3 (LS3). The high
+    luminosity phase (HL-LHC) starts after LS3 and will last for a decade. LHC standard operation includes running
+    periods during spring, summer and fall and a technical stop for small upgrades and mantainance during winter.
+    Larger upgrades are carried out during long shutdowns (LS), a major one will be the upgrade of the LHC and of
+  the experiments during LS3.}
+  \label{fig:lhc_plan}  
+\end{figure}
 
 \section{LHC properties}
-The high beam intensities necessary for reaching a luminosity of $\mathcal{L} = 10^{34} cm^{-2}s{-1}$ make the
+The high beam intensities necessary for reaching the design luminosity make the
 use of two separate proton beams necessary. The collision of two beams of equally charged par-
 ticles requires opposite magnet dipole fields in both beams. The LHC is therefore designed as a
 proton-proton collider with separate magnet fields and vacuum chambers in the main arcs, with 
 common sections only at the insertion regions where the experiments are located.
 The choice to reach at regime centre of mass energies of 14 TeV has forced to have a mag-
-netic field of $\sim 8.3 T$, requiring 9300 liquid Helium cooled superconducting magnets made of a
-Niobium-Titanium compound at a temperature of 1.9 K, by means of super-fluid Helium. Figure ???
+netic field of $\sim 8.3$ T, requiring 9300 liquid Helium cooled superconducting magnets made of a
+Niobium-Titanium compound at a temperature of 1.9 K, by means of super-fluid Helium. Figure \ref{fig:lhc_chain}
 shows all the acceleration steps the particles have to perform in order to reach 14 TeV
-energies. To reach the nominal luminosity, up to 2808 bunches per beam, with about $1.1\times 10^{10}$
+energies. 
+
+\begin{figure}[!h]
+  \includegraphics[width = 1.\textwidth]{figures/cms/LHC_accelarator_complex.jpg}
+  \caption{The CERN accelerators complex. Protons are first extracted from a hydrogen tank and and accellarated up to 50 MeV by
+    a linear accelarator (Linac 2), the Proton syncroton booser (BOOSTER) and Proton syncroton (PS) push the energy up to
+    1.4 GeV and 25 GeV respectively. Protons are then transfered to the Super proton syncroton (SPS) where they are accelerated to
+    450 GeV and injected into the LHC. Others machines are present at CERN complex to provide dedicated beams to various experiments.
+    Furthermore both from the PS and the SPS the proton or ion beam is sent to a fixed target to provide secondary beams of pions, muons and electrons to several areas dedicated to fixed target experiments or R\&D projects. 
+  }
+  \label{fig:lhc_chain}  
+\end{figure}
+
+To reach the nominal luminosity, up to 2808 bunches per beam, with about $1.1\times 10^{10}$
 protons each, are collided every 25 ns.
 On the LHC ring four main experiments are located: CMS ??, ATLAS ??, LHCb ?? and
 ALICE ??. CMS and ATLAS are general purpose experiments, with complementary features
@@ -46,33 +69,40 @@ and detector choices. CMS is described in detail in the next sections. The LHCb 
 aim to perform precision measurements on CP violation and rare decays, in order to reveal
 possible indications for new physics phenomena. ALICE is dedicated to heavy ions physics and the
 goal of the experiment is the investigation of the behaviour of the strongly interacting hadronic
-matter resulting from high energy Pb nuclei collisions. In those extreme energy densities the
+matter resulting from high energy lead nuclei collisions. In those extreme energy densities the
 formation of a new phase of matter, the quark-gluon plasma, is expected.
  
 \section{The CMS experiment}
 
 The CMS experiment is a general purpose detector for particle physics. The detector
 includes several subsystems symmetrically centered around
-the fifth interaction point of LHC. The detector is 22 m long and 15 m wide and is depicted in Figure ??.
-It consists of a central, ’barrel’, part and two forward regions, the ’endcaps’, which
+the fifth interaction point of LHC. The detector is 22 m long and 15 m wide and is depicted in Figure~\ref{fig:CMS}.
+It consists of a central, ``barrel'', part and two forward regions, the ``endcaps'', which
 detect particles at small deflection angles.
 The main detector component is the is the
 superconducting solenoid that generate a magnetic field of 3.8 T. The tracking and calorimeter
-systems are contained within the solenoid as outlined in ??. This design benefits
+systems are contained within the solenoid. This design benefits
 the particle reconstruction as it minimizes the probability for a charged particle to
 generate a shower before reaching the calorimeters while traversing the dense material of
-the solenoid. Most of the detector is supported byy
+the solenoid. Most of the detector is supported by
 a steel skeleton which serves also as the return yoke for the magnetic field of 1.8 T
 present outside the solenoid volume.
 The muon detection system is placed outide the solenoid and inside the return yoke. The CMS detector has a weight
-of about 12,500 tonnes, mainly due to the steel skeleton and the solenoid.
+of about 12500 tonnes, mainly due to the steel skeleton and the solenoid.
+
+\begin{figure}[!h]
+  \includegraphics[width = 1.\textwidth]{figures/cms/cms_layout.png}
+  \caption{Sketch of the Compact Muon Solenoid experiment \cite{cms_sketch}.}
+  \label{fig:CMS}  
+\end{figure}
+
 
 The origin of the right-handed coordinate system of CMS is the central collision point,
 with the z-axis oriented in the anticlockwise-beam direction. The x-axis is oriented
 towards the center of the LHC accelerator ring, the y-axis points upwards.
 
-The azimuthal angle ($\phi$) is depicted on the right side of Figure ??, lies in the x-y plane and is measured
-from the x-axis. A slice of the CMS detector in this x-y plane is shown in Figure ??.
+The azimuthal angle ($\phi$) lies in the x-y plane and is measured
+from the x-axis. A slice of the CMS detector in this x-y plane is shown in Figure~\ref{fig:CMS_xycut}.
 The polar angle ($\theta$) is directed upwards from the z-axis. With the polar angle, the
 pseudorapidity ($\eta$) can be defined:
 
@@ -84,13 +114,20 @@ The paricle mass $m$, momentum in the transverse plane $p_T$ and its $\eta$ and 
 variables to describe the particles produced in hadronic $p-p$ collisions where the fraction
 of momentum carried by each of the colliding parton is in principle unknown.
 
+\begin{figure}[!h]
+  \includegraphics[width = 1.\textwidth]{figures/cms/CMS_Slice.png}
+  \caption{A slice of the CMS detector in the x-y plane. Various particle type detection are depicted, the
+    details of each system are given in the text.}
+  \label{fig:CMS_xycut}  
+\end{figure}
+
 \subsection{Inner tracking detector}
 The tracking detector surrounds the beampipe, the innermost layer is installed
 about 4 cm from the interaction point (IP). It has a length of 5.8 m, a diameter of 2.6 m,
 and covers a range of $|\eta| < 2.5$ with an area of over $200$m$^{2}$ active silicon sensors. It is
 designed to measure the trajectories of particles as highlighted in Figure ??. As such,
-it has to provide a high spatial resolution and a fast signal readout while withstanding a
-harsh radiation environment of about $10^$ particles/( cm$^2$ s) (at a distance of 8 cm from
+it has to provide a high spatial resolution and a fast signal readout while withstanding afluence
+of about $10^6$ particles/( cm$^2$ s) (at a distance of 8 cm from
 the IP).
 The core of the tracking system, the silicon pixel detector, is made of 66 million pixels
 with a size of $100 \times 150 \mu$m$^2$ , enabling the reconstruction of primary and secondary
@@ -112,7 +149,7 @@ thanks to crystal short radiation length ($X_0 = 0.89$ cm) and small Molière ra
 mm), most of an electron or photon energy can be collected within a small matrix of crystals.
 
 As the other CMS sub-detectors the ECAL is devided in two main section:
-\begin{itemize}[label=\color{black}\textbullet]\itemsep5pt
+\begin{itemize}%[label=\color{black}\textbullet]\itemsep5pt
 \item Barrel (EB): it covers the region $|\eta| < 1.4442$ with 61200 crystals arrenged in 170 rings of 360 crystals each.
 \item Endcap (EE): it covers the region $1.556 < |\eta| < 3.0$ with 14648 crystals arrenged in 4 Dees of 3662 crystals each.
 \end{itemize}
@@ -130,14 +167,14 @@ is of $\Delta G/\Delta V = 3.1\% /V$. The APDs gain also depends on temperatures
 $\Delta G/\Delta T = -2.4\% /C^{\circ}$. 
 
 VPTs are more radiation resilient and thus were chosen as photodector in the endcap regions
-but have a gain variation of about 25\% across the endcaps.
+but have a gain variation of about $25\%$ across the endcaps.
 
 ECAL operates with a temperature of $18 C^{\circ}$ which is maintained by a dedicated cooling system ??.
 The temperature dependence of the crystal light yield ($−2\% C^{\circ}$) and of the APD gain
 demand a precise temperature stabilization to the level of $0.05 C^{\circ}$ in the EB. In the
 endcaps, the dependence of the VPT response on the temperature is negligible,
-so a stabilization at the level of $0.1 C%{\circ}$ is sufficient. These specifications limit the contribution
-of temperature variation to the constant term of the energy resolution to be less than 0.2\%.
+so a stabilization at the level of $0.1 C^{\circ}$ is sufficient. These specifications limit the contribution
+of temperature variation to the constant term of the energy resolution to be less than 0.2$\%$.
 
 The ECAL system is complemented by a pre-shower (ES) placed in front of each of the ECAL endcaps.
 The ES is made two layers of silicon strips alternated with passive layers of lead radiators ($2 X_0$ and $1 X_0$)
@@ -204,7 +241,7 @@ the tracker. The hardware used is based custom chips programmed with a dedicated
 The Level-1 triggers involve the calorimetry and muon systems, as well as some correlation
 of information between these systems. The Level-1 decision is based on the presence of trigger
 primitive objects such as photons, electrons, muons, and jets above adjustable transverse energy thresholds.
-It also employs global sum of $E_T = \sqrt{m^2 + p^2_T$} and $E_T^{miss}$ [??]. Reduced-granularity and
+It also employs global sum of $E_T = \sqrt{m^2 + p_T^2}$ and $E_T^{miss}$ [??]. Reduced-granularity and
 reduced-resolution data are used to reconstruct trigger candidates.
 The Level-1 trigger reduces the event rate to 100~kHz.
 
@@ -221,3 +258,21 @@ been developed, where a good event is saved only once every N times (prescaled t
 a prescale parameter N). These trigger paths are used for detector studies and to study kinematical
 regions of object reconstruction, such as low $p_T$ leptons.
 
+\subsection{The event reconstruction}
+Events selected by the HLT trigger are stored and analyzed on a world-wide network of computers.
+Events can be reconstructed several times if a better calibration of the detector or reconstruction algorithm is
+developed. The CMS event reconstruction core is the so called particle-flow algorithm~(PF)~\cite{PF}. The PF main idea
+is to combine information coming from the different systems, for instance charged hadrons are detected both
+in the tracker as tracks and by the HCAL as energy deposit. Combining the momentum measurement of the tracker
+with the energy measurement of the HCAL improves the overall energy resolution on hadronic jets.
+Electrons and photons are primarly reconstructed as energy clusters in the ECAL, the tracker information is
+used to discriminate electrons from photons. A clustering algorithm is used to recover energy loss by bremsstrahlung
+or photon conversion.
+Jets of charged and neutral hadrons are clusterd using various algorithm accordingly to the particular needs of an analysis.
+Leptons and photons are distinguished from jets by requiring isolation criteria.
+Finally the missing transverse energy is calculated as:
+\[
+  -\Sigma \vec{E_T^{miss}}
+\]
+
+where the sum runs over all the objects reconstructed by combining all the system information using the PF algorithm.
