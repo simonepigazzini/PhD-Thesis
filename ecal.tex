@@ -75,7 +75,6 @@ ADC operating at 40 MHz, ten consecutive samples are read out by the front-end e
   \label{fig:multifit_for_dummies}
 \end{figure}
 
-
 The signal amplitude is reconstructed from the set of ten samples measured for each channel at each event.
 The method developed for collisions at 13 TeV and LHC bunch spacing of 25 ns estimates
 the in-time signal amplitude and up to nine out-of-time
@@ -95,4 +94,63 @@ and therefore bias the estimation of the in-time and out-of-time amplitudes.
 In such cases since the in-time signal is usually much larger than the out-of-time ones,
 the amplitude of the sixth sample is taken as measurement of the in-time energy deposit.
 
+\section{The laser monitoring system}
+The optical transmission within crystals at the scintillation wavelengths is affected by the production
+of color centers under ionizing radiation. This transparency loss process is not permanent,
+in fact spontaneous annealing of the colour centers occurs also at room temperature and leads
+to a transmission recovery, which is evident when the crystals are not irradiated, such as during
+machine-fill gaps or winter stops.
+
+Crystals produced for ECAL are optimized to reduce the relative variations in light transmission
+during an LHC collision running period to less than $6\%$ for the barrel
+crystals (dose rates of 0.15 Gy/h) and less than $20\%$ for the endcpas at $|\eta| = 2.5$ (dose rates of
+1.9 Gy/h) [b62].
+
+The laser light pulses are directed to individual crystals via a multi-level optical-fibre distribution
+system. The basic operations for barrel geometry are the following: laser pulses transported via
+an optical fibre are injected at a fixed position at the crystal’s front face, the injected light is
+collected, with the pair of APDs glued to the crystal’s rear face, as for scintillation light from an
+electromagnetic shower. Although the optical light path is different from that taken by shower
+scintillation photons, this design guarantees that the light transmission is measured in the rele-
+vant region. The underlying principle is similar for ECAL endcaps; however, laser light is injected
+at a corner of each endcap crystal’s rear face, and the light is collected (as for scintillation) via
+a VPT glued on the crystal’s rear face. The intensity of the injected laser is monitored at various stages
+of the optical transport line through a set of PN diodes. The ratio between the APDs amplitude and that measured with
+the PN diode is used to monitor the transparency variation. Each PN diode serves a region composed of 100 to 200 crystals.
+
+The energy correction factor extracted by means of the laser monitoring system depends on
+the light collection mechanisms of both electromagnetic showers and injected laser.
+It is possible to define from first principles a relation between
+the APD signal amplitude of a electromagnetic shower ($S$) and the one for injected laser light ($R$) [62].
+The demonstration begins considering the average light optical path ($\Lambda$) and the average light attenuation
+coefficient ($\lambda$), which is directly related to the light transmission. If we consider a shower, with
+initial amplitude $S_0$ , which goes through the crystal, the measured amplitude $S$ is:
+\[
+  S = S_0 e^{-\frac{\Lambda_S}{\lambda_S}}
+\]
+
+a similar relation holds for laser light, although the parameters differ since the optical paths for scintillation
+light and laser light are different:
+\[
+  R = R_0 e^{-\frac{\Lambda_R}{\lambda_R}}
+\]
+
+on average the scintillation light production is isotropic and thus
+the scintillation light travels a lorger path in the crystal before reaching the photodetector than the
+injected laser light, the relation between the two can be written as:
+\begin{equation}
+  \frac{S}{S_0} = \left(\frac{R}{R_0}\right)^{\alpha}
+\end{equation}
+
+where $\alpha = \frac{\Lambda_S \lambda_R}{\Lambda_R \lambda_S}$ is an empiric parameter.
+
+The laser light is injected regularly during the CMS dataking either during periods between LHC fills or
+during the LHC abort gap. The response is thus monitored with a granularity of about 40 minutes.
+Three laser wavelength are available: blue (447 nm), green (527nm) and infrared. The blue laser is
+preferred since it is the closest one to the scintillation spectrum.
+
+Folowing Equation~\ref{eq:light_relation}, the correction for the transparency loss is computed as:
+\[
+  LC(t) = \left(\frac{R(t)}{R(t=0)}\right)^{\alpha}
+\]
 
