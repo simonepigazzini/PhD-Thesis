@@ -1,16 +1,16 @@
-\chapter{The ECAL energy reconstruction and calibration}
+\chapter{ECAL energy reconstruction and calibration}
 
 In this chapter the reconstruction and calibration of the energy measured by the ECAL
 is presented. Photons are detected only by the ECAL and the analysis sensitivity strongly depends
 on the ECAL energy resolution, furthermore some of the variables used to discriminate photons
 from jets (see Section~\ref{sec:dipho_selection}) also relies on ECAL information and the stability
-over the whole dataking of such variables is important to ensure an optimal selection efficiency.
+over the whole data-taking of such variables is important to ensure an optimal selection efficiency.
 
 \section{Energy reconstruction}
 A photon or electron entering the ECAL produces a shower in the \PbWO crystals. The energy of
 these electromagnetic showers is deposited in crystal matrices. On average the electrons/photons
 leave $94\%$ of their total energy in a $3\times3 $ crystal matrix and $97\%$ of their total energy in a $5\times 5$
-crystal matrix sorrounding the crystal hit by the particle.
+crystal matrix surrounding the crystal hit by the particle.
 Electrons are reconstructed combining ECAL and tracker measurements [59],
 while the photon reconstruction relies only on the ECAL [60].
 
@@ -36,27 +36,29 @@ The energy in a supercluster can be expressed as:
   E_{e,\gamma} = F_{e,\gamma} \cdot \left[ G \cdot \sum_{i} ( S_i(t)\cdot C_i \cdot A_i ) + E_{ES} \right]
 \end{equation}
 
-the sum runs over the crystals composing the supercluster and the terms rappresent:
+the sum runs over the crystals composing the supercluster and the terms represent:
 
 \begin{itemize}
 \item $A_i$: the signal amplitude in ADC count estimated with the method explained in Section~\ref{sec:signal_reco}.
 \item $C_i$: the intercalibration coefficient which equalizes relative differences in the crystals response.
 \item $S_i(t)$: the time dependent correction for the loss of transparency explained in Section~\ref{sec:laser}.
-\item $G$: the scale coefficenct to convert the amplitude in ADC count to energy expressed in GeV. It has two values:
+\item $G$: the scale coefficient to convert the digital scale measured in ADC count to energy scale expressed in GeV.
+  It has two values:
   one for the EB and one for the EE set comparing the scale between data and simulation in \Zee events.
 \item $E_{ES}$: Only for electrons or photons in the acceptance region of the ECAL preshower the energy measured
   by the ES is summed to that of the ECAL supercluster.
-\item $F_{e,\gamma}$: superclustter energy correction. Several effect like shower non-containment, pile-up and
-  loss of energy in the tracker are corrected with a regression technique trained on simulation.
+\item $F_{e,\gamma}$: supercluster energy correction. Several effect like shower non-containment, pile-up and
+  loss of energy in the tracker are corrected with a regression technique trained on simulation. The factor also
+  takes into account the slightly different shower development of electron and photons.
 \end{itemize}
 
 \subsection{Signal reconstruction}
 \label{sec:signal_reco}
-The scintillation light, emitted by \PbWO , is measured by the photodetectors as explained in
+The scintillation light, emitted by \PbWO , is measured by the photo-detectors as explained in
 Section~\ref{sec:cms_calo} and read
 out as an analog signal by the front-end electronics. The signal is pre-amplified, shaped
 and processed by a multi-gain amplifier. A dynamic range spanning from
-approximately 50 MeV to 3 TeV [111] is achived thanks to three
+approximately 50 MeV to 3 TeV [111] is achieved thanks to three
 amplifiers that process the signal in parallel: the amplifiers gains are 1, 6 and 12.
 For very high energy photons, the ECAL readout electronic system saturates.
 The dynamic range limit is reached when the energy
@@ -80,7 +82,7 @@ The method developed for collisions at 13 TeV and LHC bunch spacing of 25 ns est
 the in-time signal amplitude and up to nine out-of-time
 amplitudes for each signal pulse by a $\chi^2$-minimization via the non-negative-least-squares
 technique to the ten digitized samples~\cite{Multifit}, the signal shape used to estimate the contribution of each
-energy doposit to each sample is assumed to be the same regardless of when the energy is deposited with respect
+energy deposit to each sample is assumed to be the same regardless of when the energy is deposited with respect
 the in-time one.
 The goal of such approach is to suppress the contributions from OOT energy deposits
 to the measurement of the interesting signals.
@@ -96,10 +98,12 @@ the amplitude of the sixth sample is taken as measurement of the in-time energy 
 
 \section{The laser monitoring system}
 The optical transmission within crystals at the scintillation wavelengths is affected by the production
-of color centers under ionizing radiation. This transparency loss process is not permanent,
+of color centers under ionizing electromagnetic radiation. This transparency loss process is not permanent,
 in fact spontaneous annealing of the colour centers occurs also at room temperature and leads
 to a transmission recovery, which is evident when the crystals are not irradiated, such as during
 machine-fill gaps or winter stops.
+Permanet demage can be induced by hadrons traversing the crystals, its impact on the ECAL energy resolution
+is expected to be below the design limits up to 500\fbinv.
 
 Crystals produced for ECAL are optimized to reduce the relative variations in light transmission
 during an LHC collision running period to less than $6\%$ for the barrel
@@ -111,12 +115,12 @@ system. The basic operations for barrel geometry are the following: laser pulses
 an optical fibre are injected at a fixed position at the crystal’s front face, the injected light is
 collected, with the pair of APDs glued to the crystal’s rear face, as for scintillation light from an
 electromagnetic shower. Although the optical light path is different from that taken by shower
-scintillation photons, this design guarantees that the light transmission is measured in the rele-
-vant region. The underlying principle is similar for ECAL endcaps; however, laser light is injected
+scintillation photons, this design guarantees that the light transmission is measured in the relevant region.
+The underlying principle is similar for ECAL endcaps; however, laser light is injected
 at a corner of each endcap crystal’s rear face, and the light is collected (as for scintillation) via
-a VPT glued on the crystal’s rear face. The intensity of the injected laser is monitored at various stages
-of the optical transport line through a set of PN diodes. The ratio between the APDs amplitude and that measured with
-the PN diode is used to monitor the transparency variation. Each PN diode serves a region composed of 100 to 200 crystals.
+a VPT glued on the crystal’s rear face. The intensity of the injected laser is monitored through a set of PN diodes,
+the ratio between the APDs amplitude and the one measured with
+the PN diode is used to monitor the transparency variation. Each PN diode monitors a region composed by 100 to 200 crystals.
 
 The energy correction factor extracted by means of the laser monitoring system depends on
 the light collection mechanisms of both electromagnetic showers and injected laser.
@@ -141,11 +145,21 @@ injected laser light, the relation between the two can be written as:
 \begin{equation}
   \frac{S}{S_0} = \left(\frac{R}{R_0}\right)^{\alpha}
 \end{equation}
+\label{eq:light_relation}
 
-where $\alpha = \frac{\Lambda_S \lambda_R}{\Lambda_R \lambda_S}$ is an empiric parameter.
+where $\alpha = \frac{\Lambda_S \lambda_R}{\Lambda_R \lambda_S}$ is an empiric parameter, its value
+was measured during the beam test campaigns prior the CMS installation and  
+with data collected during 8 TeV LHC operation for both barrel and endcaps crystals
+and set to 1.52 and 1.16 for the two region respectively. The majority of the ECAL crystals were produced in
+Russia by BCTP while a minor fraction was produced in China by SIC, for these last crystals the value of $\alpha$ was
+measured to be 1. From the same studies the spread of the value of $\alpha$ among crystals of the same producer
+is known to be around $10\%$. 
+The value of $\alpha$ depends on the absolute level of the crystal transparency and also energy of the electromagnetic
+shower. An in-situ measurement of $\alpha$ obtained with data collected during 2016 is reported in Section ???.
 
 The laser light is injected regularly during the CMS dataking either during periods between LHC fills or
-during the LHC abort gap. The response is thus monitored with a granularity of about 40 minutes.
+during the abort gap (a series of several empty bunch crossings during which the special magnets 
+are turned on to dump the beam), the response is monitored with a granularity of about 40 minutes.
 Three laser wavelength are available: blue (447 nm), green (527nm) and infrared. The blue laser is
 preferred since it is the closest one to the scintillation spectrum.
 
@@ -154,3 +168,22 @@ Folowing Equation~\ref{eq:light_relation}, the correction for the transparency l
   LC(t) = \left(\frac{R(t)}{R(t=0)}\right)^{\alpha}
 \]
 
+The reference response is currently set to the one measured at the beginning of 2011 and its history is
+reported in Figure~\ref{fig:laser}.
+
+\begin{figure}
+  \centering
+  \caption{}
+  \label{fig:laser}
+\end{figure}
+
+\section{ECAL single channel intercalibration and response monitoring}
+\label{sec:minchia_la_calibrazione}
+
+The laser monitoring system provide a way to equilize the response over time but does not allow to
+correct for absolute response differences among the ECAL channels. Crystal-by-crystal response variation are
+minimized by means of three techniques, all exploiting collision data:
+
+\begin{itemize}
+\item 
+\end{itemize}
