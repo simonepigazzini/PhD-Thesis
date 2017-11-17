@@ -1,3 +1,7 @@
+\providecommand{\sumEt}{\ensuremath{\sum E_T}\xspace}
+\providecommand{\sumEtring}{\ensuremath{\sum_{\eta-ring} E_T}\xspace}
+\providecommand{\sumEtEB}{\ensuremath{\sum_{EB} E_T}\xspace}
+
 \chapter{ECAL energy reconstruction and calibration}
 
 In this chapter the reconstruction and calibration of the energy measured by the ECAL
@@ -147,15 +151,7 @@ injected laser light, the relation between the two can be written as:
 \end{equation}
 \label{eq:light_relation}
 
-where $\alpha = \frac{\Lambda_S \lambda_R}{\Lambda_R \lambda_S}$ is an empiric parameter, its value
-was measured during the beam test campaigns prior the CMS installation and  
-with data collected during 8 TeV LHC operation for both barrel and endcaps crystals
-and set to 1.52 and 1.16 for the two region respectively. The majority of the ECAL crystals were produced in
-Russia by BCTP while a minor fraction was produced in China by SIC, for these last crystals the value of $\alpha$ was
-measured to be 1. From the same studies the spread of the value of $\alpha$ among crystals of the same producer
-is known to be around $10\%$. 
-The value of $\alpha$ depends on the absolute level of the crystal transparency and also energy of the electromagnetic
-shower. An in-situ measurement of $\alpha$ obtained with data collected during 2016 is reported in Section ???.
+where $\alpha = \frac{\Lambda_S \lambda_R}{\Lambda_R \lambda_S}$ is an empiric parameter.
 
 The laser light is injected regularly during the CMS dataking either during periods between LHC fills or
 during the abort gap (a series of several empty bunch crossings during which the special magnets 
@@ -165,11 +161,25 @@ preferred since it is the closest one to the scintillation spectrum.
 
 Folowing Equation~\ref{eq:light_relation}, the correction for the transparency loss is computed as:
 \[
-  LC(t) = \left(\frac{R(t)}{R(t=0)}\right)^{\alpha}
+  LC(t) = \left(\frac{R(t)}{R(t_0)}\right)^{\alpha}
 \]
 
-The reference response is currently set to the one measured at the beginning of 2011 and its history is
+The reference response $R(t_0)$  is currently set to the one measured at the beginning of 2011 and its history is
 reported in Figure~\ref{fig:laser}.
+The response $R(t)$ is computed as the ratio between the APDs signal and the PN signal ($APD(t)/PN(t)$), as describet above
+a PN diode is used to monitor the intesity of the injected light to avoide response variation due to laser instabilities.
+Since the absolute intensity of the laser light injected in each crystal is unknown and may vary from channel to channel
+(different fibers length, imperfect mechanical and optical matching, ...) it is impossible to estimate the value of $\alpha$
+with a single measurement. Furthermore the value of $\alpha$ depends on the absolute transparency of the crystal, which
+varies under irradiation.
+The average value of $\alpha$ both for barrel and endcaps crystals was determined thanks to a series of measurment perform
+at beam test before the CMS installation and in-situ during the first years of datataking. The limited set of data available
+allowed only to determine the average value for the EB and the EE (1.52 and 1.16 respectively).
+The majority of the ECAL crystals were produced in
+Russia by BCTP while a minor fraction was produced in China by SIC, for these last crystals the value of $\alpha$ was
+measured to be 1. From the same studies the spread of the value of $\alpha$ among crystals of the same producer
+is known to be around $10\%$. 
+An in-situ measurement of $\alpha$ for each single crystal, obtained with data collected during 2016, is reported in Section ???.
 
 \begin{figure}
   \centering
@@ -181,9 +191,90 @@ reported in Figure~\ref{fig:laser}.
 \label{sec:minchia_la_calibrazione}
 
 The laser monitoring system provide a way to equilize the response over time but does not allow to
-correct for absolute response differences among the ECAL channels. Crystal-by-crystal response variation are
-minimized by means of three techniques, all exploiting collision data:
+correct for absolute response differences among the ECAL channels. The crystal-by-crystal response variation
+for crystals at the same $\eta$ ($\eta-ring$) are minimized by means of three techniques, all exploiting collision data:
 
 \begin{itemize}
-\item 
+\item $\Phi$-symmetry: this method is based on the assumption that for a large sample of soft interaction
+events (zero-bias) the total deposited transverse energy (\sumEt) is the same for all the crystals in a
+$\eta$-ring, any observed asymmetry is attributed to a difference in the response of the crystals.
+Intercalibration in $\phi$ is performed by comparing the \sumEt deposited in one crystal
+with the total transverse energy collected by crystals at the same value of $\eta$ (\sumEtring).
+
+\item Intercalibration with $\pi_0 and \eta$ mesons:
+  In order to take advantage of the high rate of $\pi_0$ decays, a specialized HLT trigger stream has
+been developed. In addition, a separate calibration stream has been implemented to select also
+$\eta\to\gamma\gamma$ decays. An iterative procedure is used to determine the intercalibration constants.
+The $\pi_0$/$\eta$ invariant mass distribution is fitted with a Gaussian function, for the signal, and a
+fourth-order polynomial for the background. Then the intercalibration constants are updated
+iteratively to correct the fitted mass value in each channel.
+
+\item Intercalibration with isolated electrons: this method selects high energy electrons coming from the decay of
+  W and Z bosons. As the previous method it uses an iterative algorithm that minimizes the difference $E/p - 1$,
+  where $E$ is the energy measured by the ECAL while $p$ is the momentum measured with the tracker.
+  The crystals belonging to each electron supercluster are intercalibrated during the iterative procedure.
 \end{itemize}
+
+The $\Phi-symmetry$ method is bounded by definition to provide intercalibration coefficients that average to unity
+over an $\eta$-ring, for the other two methods instead this requirements is imposed after the intercalibration is completed.
+Ring-by-ting response variations are corrected using \Zee events, for each electron/positron the most energetic crystal in the
+supercluster determins to which $\eta-ring$ the supercluster belongs to. The ring response is adjusted by fitting the di-electron
+invariant mass distribution around the Z peak selecting electrons pairs belonging to differnent $\eta$-rings.
+
+The three methods have different properties mainly arising from the different energy spectrum used to intercalibrate di ECAL.
+The $\Phi-symmetry$ method profits from the very large sample of soft collisions and allows to derive a set of intercalibration
+constants with just a few hundreds \pbinv but given the low energy of the particles used for the calibration (in the 1-10 GeV range)
+it is also affected by a larger uncertainty when compared with the other two methods. Since as explained in Section ??
+the uncertainty arises from the effect of the material in front of ECAL (the tracker system and its services) the main use of
+the $\Phi$-symmetry in the context of intercalibration is to compute correction factor to adjust the intercalibration values
+over time for effect such the imprecise knowledge of the $\alpha$ parameter. In this case the effect of the material cancels
+out since it does not change with time. A notable exception is when a change in the center of mass energy of the collisions
+occurs as explained in Section ??.
+
+The method exploting $\pi_0$ and $\eta$ is less affected by the presence of material in front of ECAL and
+still count on a large data sample but has a poor selection effiency in the endcaps due to pile-up.
+
+Finally the intercalibration exploiting electrons from W and Z bosons decays although limited by the cross section
+of the decay processes is much less affected by systematics effect and over the whole $\eta $ range has the best
+precision (Figure ??).
+
+All three methods are also used to monitor the ECAL energy response during the data-taking. The monitored quatities are:
+\begin{itemize}
+\item $\Phi$-symmetry: the ratio of the intercalibration coefficient a given time over a reference value ($IC(t)/IC(t_0)$) and
+  the ratio:
+  \[
+F = \frac{\sumEt(t)\sumEtEB(t)}{\sumEt(t_0)\sumEtEB(t_0)}
+\]
+where \sumEt is the the same sum used for the intercalibration procedure while \sumEtEB is the sum over the chosen period of time
+of all the transverse energy deposited in the EB.
+\item $\pi_0$/$\eta$: the peak of the $\pi_0$ invariant mass distribution.
+\item Isolated electrons: the $E/p$ ratio.
+\end{itemize}
+
+The last two can have a very thin time granularity (several points for each LHC fill) but a spatial granularity of no less
+than 200 crystals (the same granularity of the PN diode in the barrel). The monitoring $\Phi$-symmetry
+
+\subsection{The $\Phi$-symmetry method}
+\label{sec:phisym}
+In this section the $\Phi $-symmetry intercalibration method is presented in details together with the results achived
+during the LHC Run 2 (at 13 TeV center-of-mass energy).
+
+The $\Phi$-symmetry intercalibration method profits from the feature of the CMS trigger that provides the possibilty
+to record events at a higher rate than that allowed for standard physics data by storing only a franction of the information
+coming from the detector. For the porpouse of the ECAL intercalibration only the signals coming from ECAL channels with
+and amplitude over a configurable threshold are stored.
+The threshold is set to a value that is, on average, equal to 10 times the RMS of the electronic noise.
+The noise level depends on the level of radiation damage in the APDs while is costant for VPTs, these leads
+to a noise level which raises with time and $\eta$ for channels in the EB (Figure ??) while is stable in the EE (Figure ??).
+
+During 2015 and 2016 the calibration stream recorded events at a variable rate between 1 and 3 kHz with peaks of 20 kHz during
+commisioning periods. The rate is kept under control by prescaling zero-bias events (whose rate is almost 40 MHz).
+
+The loss of transparency occuring in the crystals increases the equivalent noise (expressed in GeV) since the
+signal amplitude in ADC count is multiplied by the transparency correction derived with the laser system.
+For this reason the events used in the intercalibration process
+are required to have an energy above a thresholds ($E_{min}$) that takes into
+account both the noise level and the loss of transparency and to have a transverse energy not grater then
+$E_{min}/cosh(\eta) + 1 GeV$. This higher bound avoids that the energy sum used in the intercalibration is
+biased along a certain $\phi$ direction by energetic deposit coming from hard scatterings which might not be
+$\phi$-symmetric.
