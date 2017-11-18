@@ -210,7 +210,7 @@ fourth-order polynomial for the background. Then the intercalibration constants 
 iteratively to correct the fitted mass value in each channel.
 
 \item Intercalibration with isolated electrons: this method selects high energy electrons coming from the decay of
-  W and Z bosons. As the previous method it uses an iterative algorithm that minimizes the difference $E/p - 1$,
+  W and Z bosons. As the previous method it uses an iterative algorithm [63b] that minimizes the difference $E/p - 1$,
   where $E$ is the energy measured by the ECAL while $p$ is the momentum measured with the tracker.
   The crystals belonging to each electron supercluster are intercalibrated during the iterative procedure.
 \end{itemize}
@@ -235,7 +235,7 @@ occurs as explained in Section ??.
 The method exploting $\pi_0$ and $\eta$ is less affected by the presence of material in front of ECAL and
 still count on a large data sample but has a poor selection effiency in the endcaps due to pile-up.
 
-Finally the intercalibration exploiting electrons from W and Z bosons decays although limited by the cross section
+Finally the intercalibration with electrons from W and Z bosons decays although limited by the cross section
 of the decay processes is much less affected by systematics effect and over the whole $\eta $ range has the best
 precision (Figure ??).
 
@@ -335,5 +335,24 @@ data from the last period of data-taking in 2012 and the first one in 2015) has 
 derived by combining the three methods in 2012 in order to provide a new intercalibration for 2015. The $\eta$-ring
 response variations has also been adjusted with the method described in Section~\ref{sec:minchia_la_calibrazione}.
 
+To obtain the final channels intercalibration for EB channels the $IC$ values from the three methods are combined, the final values
+for each channel is the weighed average of the three. The weight used for the combination is the uncertainty on the $IC$
+measure dby each method and is estimated for each $\eta$-ring by computing the variance of the $IC$ difference for each
+pair of methods. These variances are assumed to be to sum in quadrature of each method uncertainty consequently,
+the precision of each intercalibration set is extracted by solving three simultaneous equations for the three the uncertainties.
+The results on the uncertainties are reported if Figure~\ref{fig_ecal_ic_precision}. Taking advantage of the
+small statistical uncertainty and the reduced impact of the material the $IC$ derived with $\Phi$-symmetry has the best precision
+in all $\eta$-rings. The intercalibration with electrons precision is dominated by the statistical uncertainty which
+is smaller at smaller $\eta$.
 
-  
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/ecal/ICs_precision.pdf}
+  \caption{Residual miscalibration of the ECAL Barrel (EB) channel inter-calibration, as a function of pseudo-rapidity with the dataset recorded during 2015. The red points refer to the intercalibrations derived with Run1 data, extrapolated to 2015 using the laser monitoring system, and corrected using the $\phi$-symmetry of the low energy deposits in the 2015 dataset. The green points refer to intercalibration constants obtained using photons from $\pi_0\to\gamma\gamma$ decays, while the blue points to that obtained using electrons from W and Z decay .The black points represent the residual miscalibration of the combination of the three methods (weighted average). The precision of the $\Phi$-symmetry and $\pi_0$ calibrations is at the level of the systematic errors. The precision of the electron calibration is dominated by the statistical errors with the dataset recorded in 2015 (2.6 \fbinv). References: CMS DP 2013/007}
+  \label{fig:ecal_ic_precision}
+\end{figure}
+
+In the endcaps only intercalibration values from $\Phi$-symmetry and electrons were available and they were combined
+without weights.
+
+\subsection{ECAL energy response monitoring in 2016}
