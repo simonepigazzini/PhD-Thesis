@@ -101,6 +101,7 @@ In such cases since the in-time signal is usually much larger than the out-of-ti
 the amplitude of the sixth sample is taken as measurement of the in-time energy deposit.
 
 \section{The laser monitoring system}
+\label{sec:laser}
 The optical transmission within crystals at the scintillation wavelengths is affected by the production
 of color centers under ionizing electromagnetic radiation. This transparency loss process is not permanent,
 in fact spontaneous annealing of the colour centers occurs also at room temperature and leads
@@ -183,7 +184,15 @@ An in-situ measurement of $\alpha$ for each single crystal, obtained with data c
 
 \begin{figure}
   \centering
-  \caption{}
+  \includegraphics[width = .9\textwidth]{figures/ecal/histories_2011-2012-2015-2016_161212.png}
+  \caption{Relative response to laser light (440 nm in 2011 and 447 nm from
+    2012 onwards) injected in the ECAL crystals, measured by the ECAL
+    laser monitoring system, averaged over all crystals in bins of
+    pseudorapidity, for the 2011, 2012, 2015 and 2016 data taking periods,
+    with magnetic field at 3.8 T. The response change observed in the
+    ECAL channels is up to $10\%$ in the barrel and it reaches up to $50\%$ at $\eta\sim 2.5$,
+    the limit of the tracker acceptance. The response change is up to $90\%$ in the region closest to the beam pipe
+    \cite{laser_and_phisym}.}
   \label{fig:laser}
 \end{figure}
 
@@ -289,7 +298,7 @@ new intercalibration and is computed for each one of the ECAL channels.
 The $k$ parameter is estimated by multiplying the reconstructed energy of each hit by ten known
 mis-calibration values ($m_{true} \in [0.9, 1.1]$), the observed mis-calibration is computed as:
 \[
-  $m_{obs}$ = \frac{\sum E_T(m_{true})}}{\sumEt}
+  m_{obs} = \frac{\sum E_T(m_{true})}{\sumEt}
 \]
 and the $k$ parameter is finally extracted as the slope of the linear fit to the distribution of $m_{obs}-1$ versus $m_{true}-1$
 (Figure ??). The assumption of linearity 
