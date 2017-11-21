@@ -1,4 +1,4 @@
-\chapter{The Hl_LHC upgrade of CMS}
+\chapter{The HL-LHC upgrade of CMS}
 \label{chapter:cms_upgrade}
 
 In this chapter the upgrade of the LHC complex is briefly introduced in Section~\ref{upgrade_lhc}
@@ -68,7 +68,33 @@ coupled with a signal sampling frequency of 160 MHz (four times the current). Th
 frequency is also the key upgrade to provide a time measurement at the $30 ps$ level (Section ??) and
 is limited by overall CMS constrain on data transfer bandwidth and power consumption.
 
-\subsection{The ECAL timing performance}
-To assess the timing capabilities of the ECAL a series of test beams have been carried out during the R\&D phase.
-The test beam goal is to first measure the intrinsic time resolution achievable with \PbWO crystals and
-APD system and at a second stage verify the performance with the sampling frequency of 160MHz.
+% \subsection{The ECAL timing performance}
+% To assess the timing capabilities of the ECAL a series of test beams have been carried out during the R\&D phase.
+% The test beam goal is to first measure the intrinsic time resolution achievable with \PbWO crystals and
+% APD system and at a second stage verify the performance with the sampling frequency of 160MHz.
+
+\subsection{The current ECAL timing performances}
+The time of an electromagnetic shower in the ECAL is defined as the time at which the signal generated
+in the APDs reachs its maximum amplitude. The method to extract this information for the digitized signal
+shape is described in \cite{ecal_time_reco}. The time of the maximum $T_{max}$ is estimated with each
+available pair of samples (up to nine) as:
+\[
+T_{max, i} = T_i - T(R_i)
+\]
+where $i$ is the $i-th$ sample, $T_i$ is acquisition time of the $i-th$ sample and $T(R_i)$ is the time
+corresponding to the amplitude ratio $R_i = A_i/A_{i+1}$ and is extracted from a parametrization whose parameters
+were measured in a test beam prior the installation of CMS. The error ($\sigma_i$) on each $T_{max, i}$ is estimated as
+the product of the derivative of the $T(R)$ function and the uncertainty on $R_i$.
+For signal syncronized with the LHC bunch crossing only four or five of the nine possible amplitude
+ratios are used, samples with very small amplitude are discarded. The unique signal time is computed
+as the weighted average of the  $T_{max, i}$:
+\[
+  T_{max} = \frac{\sum_i T_{max, i}/\sigma_i^2}{\sum 1/\sigma_i^2}
+\]
+and the its error as:
+\[
+  \frac{1}{\sigma_{T_{max}}^2} = \sum_i\frac{1}{\sigma_i^2}
+\]
+
+
+
