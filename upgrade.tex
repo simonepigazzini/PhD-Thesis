@@ -1,5 +1,5 @@
-\chapter{The upgrade of the CMS ECAL}
-\label{chapter:ecal_upgrade}
+\chapter{The Hl_LHC upgrade of CMS}
+\label{chapter:cms_upgrade}
 
 In this chapter the upgrade of the LHC complex is briefly introduced in Section~\ref{upgrade_lhc}
 underlining the physics goal and the expected performace of the machine. The CMS experiment is already planning
@@ -16,24 +16,59 @@ The main objective of the High Luminosity LHC (HL-LHC) upgrade [9] of the LHC ac
 is to make precise measurements of the Higgs boson couplings, the standard model and provide a very
 large dataset ($3000\fbinv$) for new physics searches.
 The design include a substantial upgrade of the accelerator complex with the goal of reaching
-a peak luminosity of $5\times10^{34} cm^{-2}s^{-1}$ (roughly four times as mush as the current value)
+a peak luminosity of $7.5\times10^{34} cm^{-2}s^{-1}$ (roughly four times as mush as the current value)
 The integrated luminosity will about ten times the expected luminosity of the first twelve
 years of the LHC.
 The timeline of LHC and HL-LHC operation is sketched in Figure~\ref{fig:lhc_plan}, showing the planned
 evolution of proton beam intensity through the remaining LHC operating periods (Run 2 and Run 3)
 and the HL-LHC operating period following the upgrade of the accelerator complex in LS3.
-The two periods of operation are termed Phase-1 (LHC) and Phase-2 (HL-LHC).
+%The two periods of operation are termed Phase-1 (LHC) and Phase-2 (HL-LHC).
 
+The peak luminosity will be achieved by increasing the beams intensities and by squeezing more the two beams at the
+interaction points. This will lead to a higher number of collisions occuring within the same bunch crossing, the
+average number of collisions will increase from 40-60 of LHC to 140-200 at HL-LHC.
+The ability of the detectors (ATLAS and CMS) in assagning particles to the correct collision will worsen with the
+increased instantaneous luminosity expetially for energy deposits in the calorimeters.
 
 
 \section{HL-LHC upgrade of CMS}
 \label{upgrade_cms}
-The existing CMS calorimeters, described in Section~\ref{sec:cms_calo},
-were designed [3, 6] to operate over 10 year of LHC operations at an instantaneous luminosity
-of $\mathcal{L} = 1\times10^{34}\fbinv$ resulting in about 500 \fbinv. The HCAL will undergo a firt upgrade
-during LS2 in order to safely operate at $\mathcal{L} = 2\times10^{34}\fbinv$.
+The CMS detector will be upgraded to match the operation environment of HL-LHC in order to fully exploit the
+larger dataset delivered by the accelerator complex.
+The major points are
+the replacement of the entire calorimeters system in the endcaps to cope with the expected level of radiation
+of HL-LHC (more than $1.5\times10^{15} n_{eq}/cm^{2}$ in the parts closer to the beam line),
+the complete replacement of the Level-1 trigger and the proposed installation of a new detector to measure the
+time of charged particles with a precision of about $30 ps$. These three major points also drives upgrades of
+the other existing components: the upgrade of the Level-1 trigger will profit from an extended
+muon system coverage up to $|\eta| = 2.8$, new tracker system cabable of providing information at
+Level-1 and calorimeter system electronics upgraded to match the trigger rate allowed by the Level-1.
+The completely new calorimenter system in the endcaps will provide longitudinal shower development which will
+in turn improve descimination between energy deposits coming from different collisions.
+Finally the time information extracted with the new system will be matched by those of the ECAL barrel and the new
+endcap calorimeter. The ECAL si expected to provide a time information on electromagnetic showers
+with a precision of $30 ps$ for energies above few tens of GeV.
 
-The operating parameters of the High Luminosity
-upgrade of the LHC accelerator complex, defined below, require a re-examination of the ability
-of the detector active material and electronics to meet the requirements of up to 4500 fb − 1 .
-Based on the studies presented in Ref. [8], upgrades to the calorimeters are necessary.
+\section{The ECAL barrel upgrade}
+The primary technical motivation for the ECAL barrel (EB) upgrade is the trigger requirement for
+an increase of the trigger latency from about $4\mu$s in the current system [4] to a maximum of $12.5\mu$s,
+and a Level-1 trigger rate of up to 750 kHz compared to the current 100 kHz.
+The EB electronics Front End (FE) card and all the read-out electronics will be replaced to
+meet these requirements. The current configuration provides trigger information to the Level-1
+with a granularity of five-by-five crystals, the upgraded system will have a single crystal granularity
+enhanching event selection based on isolation information at trigger level which will in turn allow
+to set lower thresholds on the transverse energy of the candidate particles.
+
+The foreseen upgraded FE electronics will also provide a shape discrimination between
+signal compatible with an electromagnetic shower and those originated from hadronic interaction (``spikes'') in
+the photodetector (APD) which have a narrower shape. The increased Level-1 granularity of a single crystals
+will also improve the rejection of such events at trigger level.
+The shape discrimination is made possible by a shorter signal shaping performed by the amplification chain
+coupled with a signal sampling frequency of 160 MHz (four times the current). The increased sampling
+frequency is also the key upgrade to provide a time measurement at the $30 ps$ level (Section ??) and
+is limited by overall CMS constrain on data transfer bandwidth and power consumption.
+
+\subsection{The ECAL timing performance}
+To assess the timing capabilities of the ECAL a series of test beams have been carried out during the R\&D phase.
+The test beam goal is to first measure the intrinsic time resolution achievable with \PbWO crystals and
+APD system and at a second stage verify the performance with the sampling frequency of 160MHz.
