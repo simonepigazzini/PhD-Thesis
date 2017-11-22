@@ -4,7 +4,7 @@
 In this chapter the upgrade of the LHC complex is briefly introduced in Section~\ref{upgrade_lhc}
 underlining the physics goal and the expected performace of the machine. The CMS experiment is already planning
 a series of upgrades, most of which will be installed during LS3 (Figure~\ref{fig:lhc_plan}).
-The overall goal of the CMS upgrade is introduced in Section~\ref{sec:upgrade_cms} while
+The overall goal of the CMS upgrade is introduced in  while
 further details on the upgrade of the CMS ECAL are reported in the rest of the chapter.
 The ECAL upgrade mainly concerns the read-out electronics and trigger system, these are introduced in Section ??
 while in Section ??.
@@ -84,7 +84,9 @@ T_{max, i} = T_i - T(R_i)
 where $i$ is the $i-th$ sample, $T_i$ is acquisition time of the $i-th$ sample and $T(R_i)$ is the time
 corresponding to the amplitude ratio $R_i = A_i/A_{i+1}$ and is extracted from a parametrization whose parameters
 were measured in a test beam prior the installation of CMS. The error ($\sigma_i$) on each $T_{max, i}$ is estimated as
-the product of the derivative of the $T(R)$ function and the uncertainty on $R_i$.
+the product of the derivative of the $T(R)$ function and the uncertainty on $R_i$ which is the sum in quadrature
+of three components: noise fluctuations in each sample, uncertainty on the pedestal value subtracted from the measured amplitued
+and trunction occuring during the 12 bit digitization of the amplitude.
 For signal syncronized with the LHC bunch crossing only four or five of the nine possible amplitude
 ratios are used, samples with very small amplitude are discarded. The unique signal time is computed
 as the weighted average of the  $T_{max, i}$:
@@ -96,5 +98,79 @@ and the its error as:
   \frac{1}{\sigma_{T_{max}}^2} = \sum_i\frac{1}{\sigma_i^2}
 \]
 
+The time resolution can be parametrized as:
+\begin{equation}
+  \sigma^2(t) = \left( \frac{N\cdot\sigma_n}{A} \right)^2 + \left( \frac{S}{\sqrt{A}} \right)^2 + C^2  
+\end{equation}
+\label{eq:general_time_res}
+
+where A is the measured signal amplitude, $\sigma_n$ is the RMS of the noise for each sample and
+N, S, C represent the noise, stochastic, and constant term coefficients, respectively.
+The stochastic term S is related to fluctuations in the colletion times of scintillation photons due to
+the finite time their emission.
+
+% It was verified in \cite{ecal_time_reco} to have a negligible impact on
+% the time resolution expetially when looking at the time difference for two crystals hit by the same electromagnetic
+% shower . 
+
+The time performance of the ECAL has been estimated both during the pre-installation test beam \cite{ecal_time_reco}
+and with data collected during the 8 TeV operation of LHC \cite{delRe_time_ecal}.
+In the test beam measurement the resolution was extracted from the time difference between the two most energetic crystals
+af the same electromagnetic shower, in this configuration the stochastich term that appears in Equation~\ref{eq:general_time_res}
+can be neglected since shower flactuation effects cancels out in the difference, Equation~\ref{eq:general_time_res} thus becomes:
+\begin{equation}
+  \sigma^2(t_1 - t_2) = \left( \frac{N\cdot\sigma_n}{A_{eff}} \right) + 2 \cdot C
+\end{equation}
+\label{eq:ecal_time_res}
+Where $A_{eff} = A_1A_2/\sqrt{A_1^2+A_2^2}$ and $t_{1,2}$, $A_{1,2}$ refers to the times and amplitudes measured by the two crystals. 
+The time resolution $\sigma(t_1-t_2)$ was estimated with a gaussian fit to the time difference.
+The results obtained in the analysis report a constant term of $20 \pm 4$ ps which, together with a noise term $N = 35.1\pm 0.2$ ns,
+gives and expected time resolution better than 100 ps for energy deposits greater than 20 GeV in the barrel.
+
+The prediction was tested wih data collected during 2011 and 2012 from CMS. With collisions events it is possible to
+test the performance of the whole system including the clock distribution. \Zee events where used in \cite{delRe_time_ecal}
+the results show a good performance when measuring the time difference for channels belonging to the same readout unit while
+an increasingly poorer performance for channels in different readout units but same shower and channels belonging to
+the two different superclusters in \Zee events (Figure~\ref{fig:ecal_runI_time}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/t_res_sameRO.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/t_res_diffRO.pdf}\\
+  \includegraphics[width = 0.5\textwidth]{figures/upgrade/ecal_resol_Z.pdf}
+  \caption{Resolution of time difference between the two most energetic crystals of an ECAL cluster as a function of the
+    effective amplitude $A_{eff}$, normalized to the noise in the ECAL Barrel for 2011+2012 data,
+    for crystals belonging to the same readout unit (top left), different readout unit (top right) and the two most
+    energetic crystals in each of the superclusters generated by electron from \Zee decays (bottom).}
+  \label{fig:ecal_runI_time}
+\end{figure}
+
+These results were interpreted to be due to time jitter introduced by the clock distribution system and not corrected by
+the calibration performed with low energy deposits. The clock stability has been measured in 2016 using laser monitoring data
+and while the time resolution constant term is found to be below $40 ps$ even for crystals belonging to different readout unit,
+instabilities of the clock syncronization at the level of $100 ps$ were observed over the course of few days. The
+observed effect is in agreement with the constant term measured using \Zee events that are collected over a long period of time.
+
+\subsection{Test beam results with HL-LHC electronics}
+During 2015 and 2016 a series of tests with electron beam were performed to evaluate the time performance
+for the \PbWO crystal plus APDs photodetectors system readout with the proposed HL-LHC ECAL electronics.
+The tests differ from the ones conducted before the CMS installation since the time of the electron measured by the
+crystal is compared to an external reference provided by a multi-channel-plate based detector (MCP) instead of to an adiacent
+crystal hit by the some shower. 
+
+\subsubsection{Test beam setup}
+The tests were conducted at the CERN SPS north area with a tunable beam of electrons with energies between 20 and 250 GeV.
+The electron beam is a secondary beam created from the primary proton beam, extracted from the SPS, using a conveter.
+The primary beam hits a metallic target producing a variety of particles that are selected through a system of magnets, collimators
+and additional targets. The beam line used for the tests can reach a electron purity of $99\%$ and can also be
+configured to provide a equally pure pion beam to study ``spikes'' in the APDs.
+The beam in the SPS is composed of several bunches that are extracted in an interval of 4-5 s every 14-48 s depending on the
+SPS cycle configuration. The extraction line is configured in a way to destroy the bunch scheme of the SPS beam in order
+to provide a uniform and less intense beam to the test area.
+The energy of the secondary beams of electrons, positron, muons and charged pions can be selected within the 10 to 400 GeV
+range. 
+
+The beam line is complemented by a set of wire chambers and scintillating fibers hodoscopes to measure the position of
+particles hitting the experimental setup
 
 
