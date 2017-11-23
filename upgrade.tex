@@ -1,3 +1,8 @@
+\providecommand{\sixbysix}{\ensuremath{6\times 6\mathrm{~cm}^{2}}\xspace}
+\providecommand{\threebythree}{\ensuremath{3\times 3\mathrm{~cm}^{2}}\xspace}
+\providecommand{\twobytwo}{\ensuremath{2\times 2\mathrm{~cm}^{2}}\xspace}
+\providecommand{\onebyone}{\ensuremath{1\times 1\mathrm{~cm}^{2}}\xspace}
+
 \chapter{The HL-LHC upgrade of CMS}
 \label{chapter:cms_upgrade}
 
@@ -170,7 +175,76 @@ to provide a uniform and less intense beam to the test area.
 The energy of the secondary beams of electrons, positron, muons and charged pions can be selected within the 10 to 400 GeV
 range. 
 
-The beam line is complemented by a set of wire chambers and scintillating fibers hodoscopes to measure the position of
-particles hitting the experimental setup
+The experimental setup included a $5\times 5$ \PbWO crystal matrix identical to those installed in the ECAL barrel
+(with two APDs glued at the back). The APDs signals were amplified with the same $CR-RC$ circuit installed in the current ECAL
+supermodules, the shaping time for some of the channels was set to 21.5 ns (half of the current one) to match the
+one proposed for the HL-LHC upgrade.
+The amplified signal was digitized with a 5 GSample/s commercial digitizer (CAEN V1742 VME board)
+instead of the final design
+DAC with 160 MHz sampling frequency. The same digitizer was used to readout the signals two of Silicon photon multipliers (SiPM)
+arrays glued to the front face of the central crystal.
+The crystal matrix and readout electronics was kept at $18^{\circ}$ inside box to avoid
+light indeced noise in the photodetectors. The reference MCP detector was placed in front of the box. 
+Incoming charged particles produce cherenkov radiation in a quartz window coupled to a photocathode,
+the photoelectrons produced by the cherenkov light hitting
+the photodathode are amplified by two layers of MCP and collected to the anode. 
+The MCP device used in the test was caracterized 
+in a different test [??] and its time resolution measured to be 25 ps. The signal from the MCP was also digitized
+with the same CAEN board.
 
+The setup was complemented by a set of wire chambers and scintillating fibers hodoscopes to measure the position in the plane
+transverse to the beam direction (x-y plane) of particles hitting the experimental setup.
+Each hodoscope is composed by a set of 64 fibers and has a spatial resolution of 0.5 mm and was placed
+3 meter upstream of the crystals box and the MCP. The beam divergence is negligible and thus the impact point on the crystals
+face corresponds to the particle transverse position measured by the hodoscopes (Figure~\ref{fig:crystal_amp_map}).
 
+Incoming particles were also detected by three plastic scintillators placed few meters upstream of the crystals position, the
+three scintillation signal are discriminated and a trigger for the acquisition system is build as a coincidence of the three signals.
+The three scintillators diminsions are \sixbysix, \threebythree, \onebyone, the smallest one selects event impinging at the
+center of the \twobytwo crystal front face.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/upgrade/crystal_amp_map.pdf}
+  \caption{Distribution of the signal amplitude of a single crystals as a function of the transverse inpact position for
+    a 50 GeV electron beam. For alignment porpouses the events shown in the picture
+    were acquired requiring only the coincidence between the \sixbysix and \threebythree scintillators.
+    The crystal front face is a square with 22 mm sides, the area covered by the crystal is clearly visible in the amplitude
+    profile as the light area at the center.}
+  \label{fig:crystal_amp_map}
+\end{figure}
+
+\subsubsection{Amplitude and time reconstruction at the beam test}
+The CAEN digitizer has 32 channels and for each event and channel acquires 1024 samples (one every 200 ns). The
+digital conversion is performed by a 12-bit DAC, the dynamic range of the DAC is 1 V.
+The channels are syncronized at a level better than 5 ps.
+The samples were shipped to a commercial PC through the VME bus and an optical interface, the event
+syncronization between the digitizer, hodoscopes and wire chamber data was performed by software running on the
+acquisition PC.
+
+The MCP signal is very fast, lasting 4 ns, its amplitude is estimated with a second order polinomial fit to the seven samples
+around the maximum one while the time extracted with a constant fraction method to avoid amplitude walk effects.
+The same method is employed to extract the amplitude and time of the SiPM signals.
+
+The amplitude and time of the APD signal are estimated with a template fit to the signal shape where the signal
+amplitude and time of the maximum are free to float.
+The template shape is build as the average of $1\times 10^5$ signals aligned using the time of the MCP signal
+in the same event and scaled by the amplitude estimeted with the same approach used for the MCP signal.
+A different template shape is constructed in this way
+for each crystal. Two template examples are shown in Figure~\ref{fig:apd_templates} for channel with different  
+shaping times. The template fit gives the best time performance for APD signals which has a smaller $dV/dt$ compared
+to the MCP and SiPM ones.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/upgrade/wf_shaping_times.png}
+  \caption{APD signal average shape for 21.5 ns and 43 ns shaping times.}
+  \label{fig:apd_templates}
+\end{figure}
+
+\subsubsection{Beam test results}
+The resolution of the \PbWO crystals plus APDs system is extracted from 
+the distribution of the time difference between the MCP signal and the signal from the crystal hit by the electron
+
+ by comparing the time measured for each
+beam electron by the MCP and the crystal
