@@ -129,9 +129,10 @@ of momentum carried by each of the colliding parton is in principle unknown.
 \subsection{The tracking system}
 The tracking detector surrounds the beampipe, the innermost layer is installed
 about 4 cm from the interaction point (IP). It has a length of 5.8 m, a diameter of 2.6 m,
-and covers a range of $|\eta| < 2.5$ with an area of over $200$m$^{2}$ active silicon sensors. It is
-designed to measure the trajectories of particles as highlighted in Figure ??. As such,
-it has to provide a high spatial resolution and a fast signal readout while withstanding afluence
+and covers a range of $|\eta| < 2.5$ with an area of over $200~\mathrm{m}^{2}$ active silicon sensors, its
+layout is shown in Figure~\ref{fig:cms_tracker_layout}. It is
+designed to measure the trajectories of particles as highlighted in Figure~\ref{fig:CMS_xycut}. As such,
+it has to provide a high spatial resolution and a fast signal readout while withstanding a fluence
 of about $10^6$ particles/( cm$^2$ s) (at a distance of 8 cm from
 the IP).
 The core of the tracking system, the silicon pixel detector, is made of 66 million pixels
@@ -140,7 +141,30 @@ vertices with a precision that ranges between 100 $\mu$m to 1 mm in the z direct
 in the x and y directions. The silicon pixel detector is followed by a silicon strip detector with coarser
 granularity. The track recognition is performed by about 15200 highly sensitive
 modules containing 10 million detector strips. The tracking detector has a radiation length ($X_0$) of 0.4 at $\eta = 0$,
-which increases at larger $\eta$ to approximately 1.8 $X_0$ at $|\eta|$ = 1.4 as visible from Figure ??.
+which increases at larger $\eta$ to approximately 1.8 $X_0$ at $|\eta|$ = 1.4 as visible from Figure~\ref{fig:cms_tracker_material}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 1.\textwidth]{figures/cms/trackerLayout.png}
+  \caption{Schematic cross section through the CMS tracker in the r-z plane. Each line-element represents a detector module.
+    Closely spaced double line-elements indicate back-to-back silicon strip modules,
+    in which one module is rotated through a ``stereo'' angle, so as to permit reconstruction of the hit positions in
+    three dimensions. Within a given layer, each module is shifted slightly in r or z with respect to its neighbouring modules,
+    which allows them to overlap, thereby avoiding gaps in the acceptance \cite{cms_trk}.}
+  \label{fig:cms_tracker_layout}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = .7\textwidth]{figures/cms/MaterialBudget.png}
+  \caption{Total thickness $t$ of the tracker material traversed by a particle produced at the nominal interaction point,
+    as a function of pseudorapidity $\eta$, expressed in units of radiation length $X_0$.
+    The contribution to the total material budget of each of the subsystems that comprise the CMS tracker is shown,
+    together with contributions from the beam pipe and from the support tube that surrounds the tracker~\cite{cms_trk}.
+    The configuration shown in the picture reflects that of the CMS tracker prior the upgrade of the
+    pixel detector in 2017, that significantly reduces the material budget in forward region.}
+  \label{fig:cms_tracker_material}
+\end{figure}
 
 \subsection{The calorimeter system}
 \label{sec:cms_calo}
@@ -162,7 +186,16 @@ As the other CMS sub-detectors the ECAL is devided in two main section:
 
 All the crystals are mounted with a tilt of $3^{\circ}$, both $\eta$ and $\phi$ projections, in
 a quasi-projective geometry to avoid gaps aligned with the particles trajectories. The EB
-is located at $R = 1.3$ m from the IP while the endcaps are installed at $z = \pm 3.10$ m.
+is located at $R = 1.3$ m from the IP while the endcaps are installed at $z = \pm 3.10$ m Figure~\ref{fig:cms_ecal_layout}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 1.\textwidth]{figures/cms/ecal_layout.eps}
+  \caption{Schematic view in the r-z plane of the CMS electromagnetic calorimeter and pre-shower. Only one fourth of the
+    entire system is shown. Only the \PbWO crystals are drawn, without the supporting frame, cooling and readout
+    electronic boards \cite{cms_ecal}.}
+  \label{fig:cms_ecal_layout}
+\end{figure}    
 
 The relatively low light yield of $\sim 30 \gamma/$MeV makes the use of intrinsic high-gain
 photodetector necessary, capable of operating in an high magnetic field. Avalanche PhotoDiodes (APDs) are
@@ -192,11 +225,20 @@ real photons.
 
 
 The HCAL measures the energy of hadrons by stopping them within its
-hermetic volume and reading out the deposited energy. Its dimensions
+hermetic volume and reading out the deposited energy. Its dimensions (Figure~\ref{fig:cms_hcal_layout})
 are constrained by the ECAL ($R = 1.77$ m) and the surrounding magnet coil
 ($R = 2.95$ m). The chosen design is the one of a sampling calorimeter with brass absorbers
 and scintillating tiles for the energy measurement. The readout is performed via
 optical fibers by hybrid photodiodes.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 1.\textwidth]{figures/cms/hcal_layout.png}
+  \caption{Schematic view in the r-z plane of the CMS hadronic calorimeter. Only one fourth of the
+    entire system is shown. All four partitions are visible: the barrel and endcaps part (HB and HE), the
+    tail catcher installed outside the CMS solenoid and the forward calorimeter.}
+  \label{fig:cms_hcal_layout}
+\end{figure}    
 
 The HCAL effective thickness increases with polar angle as $1/cos\theta$ in the barrel, 
 it varies from 5.82 interaction length at $\eta = 0$ to 10.6 at $\eta = 1.3$ while it is
@@ -213,16 +255,23 @@ active medium are quartz fibers.
 This forward calorimeter is placed at a distance in z of 11.2 m from the IP it has been design
 to withstand 10 MGy of absorbed dose and is expected to last for ten years during the LHC operation.
 
-Regarding the HCAL performance, Figure ?? reports the jet energy resolution expected from
-simulation compared to that measured in data within the tracker acceptance as a function of the jet transverse
-momentum $p_T$ [??].
-
 \subsection{The muon system}
 The CMS muon system [??] provides full geometric coverage for muon measurement up to $|\eta| = 2.4$.
 The detectors are embedded in the magnet return yoke, so that muon momentum and charge
-measurements can also exploit the strong magnetic return field. This is particularly important
+measurements can also exploit the strong magnetic return field (Figure~\ref{cms_muon_layout}.
+This is particularly important
 for muons with transverse momentum in the $\sim 1$~TeV range, for which the complementary tracker
 measurements degrade.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = .45\textwidth]{figures/cms/muon_layout.png}
+  \includegraphics[width = .45\textwidth]{figures/cms/muons_xyview.png}
+  \caption{Layout of one quadrant of CMS in the longitudinal (left) and transverse (right) planes.
+    The four DT stations in the barrel (MB1-MB4, green),
+    the four CSC stations in the endcap (ME1-ME4, blue), and the RPC stations (red) are shown.}
+  \label{fig:cms_muon_layout}
+\end{figure}
 
 The CMS muon spectrometer exploit three different detector tecnologies; the need of a fast response for
 generate a muon trigger and that of high spatial resolution for excellent momentum determination could not

@@ -186,8 +186,11 @@ supermodules, the shaping time for some of the channels was set to 21.5 ns (half
 one proposed for the HL-LHC upgrade.
 The amplified signal was digitized with a 5 GSample/s commercial digitizer (CAEN V1742 VME board)
 instead of the final design
-DAC with 160 MHz sampling frequency. The same digitizer was used to readout the signals two of Silicon photon multipliers (SiPM)
-arrays glued to the front face of the central crystal.
+DAC with 160 MHz sampling frequency.
+In order to estimate the impact of fluctuation in the light production depth on the time resolution,
+two of Silicon photon multipliers (SiPM) arrays were glued to the front face of the central crystal.
+The CAEN digitizer was used to readout also the signals two of SiPM.
+
 The crystal matrix and readout electronics was kept at $18^{\circ}$ inside box to avoid
 light indeced noise in the photodetectors. The reference MCP detector was placed in front of the box. 
 Incoming charged particles produce cherenkov radiation in a quartz window coupled to a photocathode,
@@ -297,4 +300,56 @@ be achieved for modetare energies of at least 25 GeV.
     In the left plot the lines are drawn to guide the eye while in the left plot the curve is the result of the
     fit described in the text.}
   \label{fig:results_treso}
+\end{figure}
+
+The impact of fluctuation in the light production depth on the time performance is estimated comparing the
+time performance of the SiPM with that of the APDs. As illustrated in Figure~\ref{fig:light_collection_scheme}, 
+the elctromagnatic shower propagates faster than the scintillation light in the crystal by a factor equal
+to the \PbWO refractive index ($n=2.2$). The different propagation velocity can spoil the time resolution and the
+effect is maximized when collecting the scintillation light on the front face since light produced later, deeper in
+the crystal also travels a longer mimimum path to reach the photodetector on the front face than the one on the rear face.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = .6\textwidth]{figures/upgrade/shower_fluct_cartoon.png}
+  \caption{Illustration of light collection on the front and back face of the \PbWO crystal.}
+  \label{fig:light_collection_scheme}
+\end{figure}
+
+The intrinsic time resolution of the SiPM arrays is estimeted comparing the time measured by the two different arrays using
+the same procedure described for APD and MCP comparison. In this comparison shower depth fluctuations cancels since
+are common to both SiPM arrays.
+The result and the fit are shown in Figure~\ref{fig:sipm_tres},
+the fitted time resolution constant term is 25 ps comparable to that of the APDs.
+The time resolution is worse when comparing the time measured by one of the SiPM arrays to the one recorded by the MCP,
+showing that fluctuation in the light emission depth impact the time resolution adding $\sim 80$ ps in quadrature regardless
+of the shower energy which is clearly not affecting the APD performance.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = .7\textwidth]{figures/upgrade/sipm_50um_intrinsic.pdf}
+  \caption{Front face light collection time performance. The times measured with the two SiPM arrays
+    is compared to the MCP time (grey curves) and one to the other (red curve). SiPM time performance is comparable
+    to the APDs one (red) but is affected by light emission fluctuations when comparing to an external
+    reference (i.e. MCP).}
+  \label{fig:sipm_tres}
+\end{figure}
+
+In 2016 a similar test was conducted with a prototype of the HL-LHC readout electronic installed in place of the
+CR-RC amplification. The signal from the TIA amplifier was digitized with the same VME board used in 2015 and the
+160 MHz sampling ADC is simulated at the analysis level by sampling the signal shape acquired at 5 GHz by the CAEN digitizer.
+The beam test setup included also the same MCP and hodoscopes described~above. 
+
+The event selection and time reconstruction is performed in the same way as for the 2015 beam test.
+The results are reported in Figure~\ref{fig:tia_tres}: the time performance achieved by emulating the
+160 MHz sampling is identical to the one obtained with 5 GHz sampling while at 80 MHz sampling the time resolution
+depends on the sampling phase. ??
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/upgrade/sampling_freq_res_comp.png}
+  \caption{Time resolution performance of HL-LHC ECAL readout electronics for different sampling frequency.
+    The baseline 160 MHz sampling frequency does not limit the time performance while the 80 MHz sampling
+    performance depends on the phase between the electronics clock and the APD signal.}
+  \label{fig:tia_tres}
 \end{figure}
