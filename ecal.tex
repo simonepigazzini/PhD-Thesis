@@ -246,8 +246,8 @@ The method exploting $\pi_0$ and $\eta$ is less affected by the presence of mate
 still count on a large data sample but has a poor selection effiency in the endcaps due to pile-up.
 
 Finally the intercalibration with electrons from W and Z bosons decays although limited by the cross section
-of the decay processes is much less affected by systematics effect and over the whole $\eta $ range has the best
-precision (Figure ??).
+of the decay processes is much less affected by systematic effects and over the whole $\eta $ range has the best
+precision.
 
 All three methods are also used to monitor the ECAL energy response during the data-taking. The monitored quatities are:
 \begin{itemize}
@@ -276,7 +276,21 @@ coming from the detector. For the porpouse of the ECAL intercalibration only the
 and amplitude over a configurable threshold are stored.
 The threshold is set to a value that is, on average, equal to 10 times the RMS of the electronic noise.
 The noise level depends on the level of radiation damage in the APDs while is costant for VPTs, these leads
-to a noise level which raises with time and $\eta$ for channels in the EB (Figure ??) while is stable in the EE (Figure ??).
+to a noise level which raises with time and $\eta$ for channels in the EB (Figure~\ref{ecal_noise_eb})
+while is stable in the EE (Figure~\ref{ecal_noise_ee}).
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/EB_noise_ADC_counts_2011_2012.png}
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/EB_noise_MeV_2011_2012.png} \\
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/EE_noise_ADC_counts_2011_2012.png}
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/EE_noise_MeV_2011_2012.png}
+  \caption{Single channel noise measured on the pre-samples of the laser events taken during
+    standard monitoring sequences in 2011 and 2012. The left plot shows the noise in ADC count prior the
+    correction for the response loss measured with the laser system while the right one the noise in MeV
+    after the correction. Top (bottom) plots inlcudes channels of the ECAL barrel (endcaps)~\cite{ecal_2012}.}
+  \label{fig:ecal_noise_eb}
+\end{figure}
 
 During 2015 and 2016 the calibration stream recorded events at a variable rate between 1 and 3 kHz with peaks of 20 kHz during
 commisioning periods. The rate is kept under control by prescaling zero-bias events (whose rate is almost 40 MHz).
@@ -305,7 +319,7 @@ and the $k$ parameter is finally extracted as the slope of the linear fit to the
 (Figure ??). The assumption of linearity 
 The $k$ parameter depends on the shape of the $E_T$ spectrum so it is computed each time a set of intercalibration
 is derived and for each ECAL channel independently, in this way variation of the spectrum induced by the different transparency
-conditions are taken into account. Typical values for the $k$ parameter are comprised within 2 and 2.5.
+conditions are taken into account. Typical values for the $k$ parameter are within 2 and 2.5.
 
 The statistical precision on the intercalibration values is estimeted by dividing the dataset by even and odd event number
 and by computing the $IC$ for each channel with the two separate sub-dataset.
@@ -325,11 +339,12 @@ As explained in Section~\ref{sec:phisym} the $IC$ values derived with the $\Phi$
 a large systematic uncertainty due to the presence of material in front of the ECAL, such effect cancels when taking
 the ratio of two sets of $IC$ computed with data collected at different times. This cancellation however does not occur
 when the two set of $IC$ are derived with collisions at a different center-of-mass energy.
-The effect of the material on the $IC$ is clearly visible in Figure ??, the presence of support structures and services
-absorbs part of the particles energy which translates in a lower than average \sumEt for the ECAL crystals installed
-behind those structures which leads to a higher $IC$. The material is however uniform along $\eta$ for region belonging
-to the tracker partitions (barrel and endcaps) so corrections for the impact of material are computed averaging
+The effect of the material on the $IC$ is clearly visible in Figure ??: the presence of support structures and services
+absorbs part of the particle energy. This translates into a lower than average \sumEt, and conseguently higher $IC$ value,
+for the ECAL crystals installed behind those structures. The material is however uniform along $\eta$ for crystals within 
+the same tracker partitions (barrel and endcaps), so corrections for the impact of material are computed averaging
 over $\eta$ the measured $IC$ values at same $\phi$ but for two regions in the EB ($|\eta|<1$ and $1<|\eta|<1.442$).
+The correction is
 The $\phi$ profile of the $IC$ is shown if Figure ??, for each point the difference from unity is taken as an effective
 correction for the precence of upstream material assuming that by averaging over several $\eta$-rings the real
 $IC$ value (due to channel-by-channel response variation) is not absorbed into the correction for the material.
@@ -385,12 +400,19 @@ while int the endcaps the resolution is still significantly affected by the stat
   \includegraphics[width = 0.7\textwidth]{figures/ecal/EcalEnergyResolutionShowering.pdf}
   \caption{Relative electron (ECAL) energy resolution unfolded in bins of pseudo-rapidity $\eta$
     for the barrel and the endcaps \cite{ecal_dpg_2015}. Electrons from \Zee decays are used.
+    The vertical dashed lines indicate module boundaries while the grey band around $\eta = 1.5$ denotes the transition
+    between barrel and endcaps.
     The resolution is shown for low (left plot) and high (right plot) bremsstrahlung electrons,
     the categorization is based on the $R_9$ variable ($R9=E_{3x3}/E_{SC}$, where $E_{3x3}$ is the energy
-    deposited in the most energetic crystals in the cluster and the 8 surrounding ones while $E_{SC}$ is the total
+    deposited in the most energetic crystal in the cluster and the 8 surrounding ones while $E_{SC}$ is the total
     supercluster energy as expressed in Equation~\ref{eq:sc_energy})}
   \label{fig:ecal_res_vs_eta}
 \end{figure}
 
+The residual differences between data and simulation
+are due to the statistical uncertainties (endcaps) and other systematic effects described in \cite{run1_egamma}.
+Part of these effects are variation of the response over time that are not corrected using the laser monitoring
+system data. During 2016 thanks to a larger dataset these effects have been investigated in more details as
+described in the next section.
 
 \subsection{ECAL energy response monitoring in 2016}
