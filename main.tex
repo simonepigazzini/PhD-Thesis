@@ -1,6 +1,7 @@
 \documentclass[a4paper,titlepage,11pt,twoside,openright]{book}
 
 \usepackage{graphicx}
+\usepackage[square,numbers]{natbib} 
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8x]{inputenc}
 \usepackage[italian,english]{babel}
@@ -114,7 +115,8 @@
 \clearpage\input{upgrade}
 
 \backmatter
-\bibliographystyle{unsrt} 
+\bibliographystyle{unsrtnat}
+\setcitestyle{numbers}
 \bibliography{biblio}
 
 \end{document}

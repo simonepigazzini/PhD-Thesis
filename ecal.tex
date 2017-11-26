@@ -39,6 +39,7 @@ The energy in a supercluster can be expressed as:
 \begin{equation}
   E_{e,\gamma} = F_{e,\gamma} \cdot \left[ G \cdot \sum_{i} ( S_i(t)\cdot C_i \cdot A_i ) + E_{ES} \right]
 \end{equation}
+\label{eq:sc_energy}
 
 the sum runs over the crystals composing the supercluster and the terms represent:
 
@@ -363,5 +364,33 @@ is smaller at smaller $\eta$.
 
 In the endcaps only intercalibration values from $\Phi$-symmetry and electrons were available and they were combined
 without weights.
+
+The energy resolution achieved with final intercalibration, including the ring to ring
+correction derivend with the method described above, is shown in Figure~\ref{fig:ecal_res_vs_eta}.
+The resolution $\sigma_E/E$ is extracted from an unbinned likelihood fit to \Zee events,
+using a Breit-Wigner function convolved with a Gaussian as description of the Z boson invariant mass peak.
+The resolution is affected by the amount of material in front of the ECAL and is degraded in the vicinity of
+the cracks along the $\eta$ direction between ECAL modules (indicated by the vertical lines in the plot)
+The resolution, especially in the barrel, improves significantly after a dedicated calibration by using
+the transported calibrations derived in 2012 and combining them with the calibrations obtained
+from the 2015 CMS dataset (blue points),
+compared to the prompt reconstruction using only the unmodified 2012 calibrations (black points). 
+The resolution in the central barrel reaches the level achieved in Run1,
+while int the endcaps the resolution is still significantly affected by the statistical precision of the calibration
+(derived with a dataset equivalent to $2.6\fb$).
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/ecal/EcalEnergyResolutionGolden.pdf}
+  \includegraphics[width = 0.7\textwidth]{figures/ecal/EcalEnergyResolutionShowering.pdf}
+  \caption{Relative electron (ECAL) energy resolution unfolded in bins of pseudo-rapidity $\eta$
+    for the barrel and the endcaps \cite{ecal_dpg_2015}. Electrons from \Zee decays are used.
+    The resolution is shown for low (left plot) and high (right plot) bremsstrahlung electrons,
+    the categorization is based on the $R_9$ variable ($R9=E_{3x3}/E_{SC}$, where $E_{3x3}$ is the energy
+    deposited in the most energetic crystals in the cluster and the 8 surrounding ones while $E_{SC}$ is the total
+    supercluster energy as expressed in Equation~\ref{eq:sc_energy})}
+  \label{fig:ecal_res_vs_eta}
+\end{figure}
+
 
 \subsection{ECAL energy response monitoring in 2016}
