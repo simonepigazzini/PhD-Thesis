@@ -11,6 +11,7 @@ from jets (see Section~\ref{sec:dipho_selection}) also relies on ECAL informatio
 over the whole data-taking of such variables is important to ensure an optimal selection efficiency.
 
 \section{Energy reconstruction}
+\label{sec:ecal_reco}
 A photon or electron entering the ECAL produces a shower in the \PbWO crystals. The energy of
 these electromagnetic showers is deposited in crystal matrices. On average the electrons/photons
 leave $94\%$ of their total energy in a $3\times3 $ crystal matrix and $97\%$ of their total energy in a $5\times 5$
@@ -251,13 +252,13 @@ precision.
 
 All three methods are also used to monitor the ECAL energy response during the data-taking. The monitored quatities are:
 \begin{itemize}
-\item $\Phi$-symmetry: the ratio of the intercalibration coefficient a given time over a reference value ($IC(t)/IC(t_0)$) and
-  the ratio:
-  \[
-F = \frac{\sumEt(t)\sumEtEB(t)}{\sumEt(t_0)\sumEtEB(t_0)}
-\]
-where \sumEt is the the same sum used for the intercalibration procedure while \sumEtEB is the sum over the chosen period of time
-of all the transverse energy deposited in the EB.
+\item $\Phi$-symmetry: the ratio of the intercalibration coefficient at a given time over the reference value ($IC(t)/IC(t_0)$).
+%   \begin{equation}
+%     F = \frac{\sumEt(t) / \sumEtEB(t)}{\sumEt(t_0) / \sumEtEB(t_0)}
+%   \end{equation}
+%   \label{eq:eflow_def}
+% where \sumEt is the the same sum used for the intercalibration procedure while \sumEtEB is the sum over the chosen period of time
+% of all the transverse energy deposited in the EB.
 \item $\pi_0$/$\eta$: the peak of the $\pi_0$ invariant mass distribution.
 \item Isolated electrons: the $E/p$ ratio.
 \end{itemize}
@@ -276,8 +277,8 @@ coming from the detector. For the porpouse of the ECAL intercalibration only the
 and amplitude over a configurable threshold are stored.
 The threshold is set to a value that is, on average, equal to 10 times the RMS of the electronic noise.
 The noise level depends on the level of radiation damage in the APDs while is costant for VPTs, these leads
-to a noise level which raises with time and $\eta$ for channels in the EB (Figure~\ref{ecal_noise_eb})
-while is stable in the EE (Figure~\ref{ecal_noise_ee}).
+to a noise level which raises with time and $\eta$ for channels in the EB (Figure~\ref{fig:ecal_noise}, top)
+while is stable in the EE (Figure~\ref{fig:ecal_noise}, bottom).
 
 \begin{figure}
   \centering
@@ -289,7 +290,7 @@ while is stable in the EE (Figure~\ref{ecal_noise_ee}).
     standard monitoring sequences in 2011 and 2012. The left plot shows the noise in ADC count prior the
     correction for the response loss measured with the laser system while the right one the noise in MeV
     after the correction. Top (bottom) plots inlcudes channels of the ECAL barrel (endcaps)~\cite{ecal_2012}.}
-  \label{fig:ecal_noise_eb}
+  \label{fig:ecal_noise}
 \end{figure}
 
 During 2015 and 2016 the calibration stream recorded events at a variable rate between 1 and 3 kHz with peaks of 20 kHz during
@@ -302,11 +303,13 @@ are required to have an energy above a thresholds ($E_{min}$) that takes into
 account both the noise level and the loss of transparency and to have a transverse energy not grater then
 $E_{min}/cosh(\eta) + 1 GeV$. This higher bound avoids that the energy sum used in the intercalibration is
 biased along a certain $\phi$ direction by energetic deposit coming from hard scatterings which might not be
-$\phi$-symmetric.
+$\phi$-symmetric. The $E_{min}$ depends on the level of irradiation ad was set to $0.8$ GeV in 2015 and $0.9$ GeV in 2016, these
+values were optimized to avoid noise induced distortions of the spectrum while keeping the amount of data needed
+to derive an intercalibration close to that recorded in a typical LHC fill.
 Selecting only depoists in a fixed energy window overestimates any response mis-calibration. This effect in taken into
 account by introducing a scaling parameter ($k$) in the intercalibration formula to correct the ratio $\sumEt/\sumEtring$:
 \[
-  IC = \left( \left( \frac{\sumEt}{\sumEtring} - 1 \right) \cdot \frac{1}{k} + 1 \right)^{-1}
+  IC = \left( \frac{\sumEt}{\sumEtring}  \cdot \frac{1}{k} \right)^{-1}
 \]
 $IC$ is the correction factor to be applied to the original intercalibration coefficient in order to obtain the
 new intercalibration and is computed for each one of the ECAL channels.
@@ -315,7 +318,7 @@ mis-calibration values ($m_{true} \in [0.9, 1.1]$), the observed mis-calibration
 \[
   m_{obs} = \frac{\sum E_T(m_{true})}{\sumEt}
 \]
-and the $k$ parameter is finally extracted as the slope of the linear fit to the distribution of $m_{obs}-1$ versus $m_{true}-1$
+and the $k$ parameter is finally extracted as the slope of the linear fit to the distribution of $m_{obs}$ versus $m_{true}$
 (Figure ??). The assumption of linearity 
 The $k$ parameter depends on the shape of the $E_T$ spectrum so it is computed each time a set of intercalibration
 is derived and for each ECAL channel independently, in this way variation of the spectrum induced by the different transparency
@@ -344,13 +347,59 @@ absorbs part of the particle energy. This translates into a lower than average \
 for the ECAL crystals installed behind those structures. The material is however uniform along $\eta$ for crystals within 
 the same tracker partitions (barrel and endcaps), so corrections for the impact of material are computed averaging
 over $\eta$ the measured $IC$ values at same $\phi$ but for two regions in the EB ($|\eta|<1$ and $1<|\eta|<1.442$).
-The correction is
-The $\phi$ profile of the $IC$ is shown if Figure ??, for each point the difference from unity is taken as an effective
-correction for the precence of upstream material assuming that by averaging over several $\eta$-rings the real
-$IC$ value (due to channel-by-channel response variation) is not absorbed into the correction for the material.
+The $IC$ values are scaled for the average supermodule $IC$ and the correction for the $j-th$ $\phi$-row is defined as:
+\[
+C_j = \frac{1}{IC_{<\eta >}}
+\]
+The correction derived in this way are assumed to correct only for crystal-by-crystal variations introduced by the
+presence of material in front of ECAL and not for real channel response variations.
+The assumption is testet
+comparing the correction values derived separately for $\eta <0$ ($C_j^+$) and $\eta > 0$ ($C_j^+$)
+(Figure~\ref{fig:material_corrections})
+and checking that the pull distribution $(C_j^+ - C_j^-)/\sqrt{\sigma_j^{+ 2}+\sigma_j^{- 2}}$
+has a standard deviation equal to $1$ (Figure~\ref{fig:correction_pull}). This confirms that the observed variations
+are independent of $\eta$ (in the two region defined above) within uncertainties while a channel mis-calibration
+would appear as a systematic variation of the pull.
+In total 720 correction values are computed (360 $\phi$-row for two $\eta$ regions) 
 The correction computed in this way also correct for gaps in the $\phi$ direction present at the boundary of the ECAL barrel
-supermodules (Figure ??). Gaps along $\eta$ are also present as shown in Figure ?? but are irrelevant when computing
+supermodules (Figure ??). Crystals in supermodules installed in the positive and negative $\eta$ sides of the barrel
+have opposite tilt angles, for this reason the effect of the gaps is on the last crystal of a supermodule for the positive
+side while on the first one in negative side.
+Gaps along $\eta$ are also present as shown in Figure ?? but are irrelevant when computing
 the $IC$.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_profile_2012_innerEB.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_profile_2015_innerEB.pdf}\\
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_profile_2012_outerEB.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_profile_2015_outerEB.pdf}
+  \caption{Material effect corrections for the barrel inner ($|\eta| < 1$, top row) and outer ($1 < |\eta| < 1.442$, bottom row)
+    regions described in the text, the blue (red) curve refers to the negative (positive) $\eta$ side of the barrel.
+    Plots on the left(right) side show the corrections for the 2012(2015) $IC$.
+    Supermodules gaps affect the $IC$ of the first or last crystal in the supermodule if it is located on the negative or
+    positive $\eta$ side respectively. The correction for gaps can be seen in plot as positive correction of about $6\%$
+    every 20 $\phi$-rows while. The magnitude of the correction for material effect il larger for 13 TeV collisions (2015)
+    than for 8 TeV ones, this can be clearly observed in crystals located behind the main tracker support structures located
+    at the 10-th and 190-th $\phi$-rows. The correction for gaps at the supermodule boundaries are on the other end
+  independent of the collisions energy since they only depend on the acceptance variation induced by the gaps.}
+  \label{fig:material_corrections}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_pull_2012_innerEB.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_pull_2015_innerEB.pdf}\\
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_pull_2012_outerEB.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_pull_2015_outerEB.pdf}
+  \caption{Pull distribution of the correction difference between the positive and egative $\eta$ side of the ECAL barrel.
+    Plots in the top and bottom row show the pull for inner ($|\eta| < 1$, top row) and outer ($1 < |\eta| < 1.442$
+    respectively. Left (right) side refers to corrections for 2012 (2015) $IC$ set. Crystals located at supermodule
+    boundaries are excluded from the pull since the gaps are, in principle, unrelated between the positive and negative
+  barrel side.}
+  \label{fig:correction_pull}
+\end{figure}
+
 
 The same material induced effects are observed in the endcaps but no way to factorize it from real channel-to-channel
 variations has been found and a larger uncertainty has thus been attributed to the $IC$ values derived with $\Phi$-symmetry.
@@ -370,7 +419,7 @@ small statistical uncertainty and the reduced impact of the material the $IC$ de
 in all $\eta$-rings. The intercalibration with electrons precision is dominated by the statistical uncertainty which
 is smaller at smaller $\eta$.
 
-\begin{figure}[!h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width = 0.7\textwidth]{figures/ecal/ICs_precision.pdf}
   \caption{Residual miscalibration of the ECAL Barrel (EB) channel inter-calibration, as a function of pseudo-rapidity with the dataset recorded during 2015. The red points refer to the intercalibrations derived with Run1 data, extrapolated to 2015 using the laser monitoring system, and corrected using the $\phi$-symmetry of the low energy deposits in the 2015 dataset. The green points refer to intercalibration constants obtained using photons from $\pi_0\to\gamma\gamma$ decays, while the blue points to that obtained using electrons from W and Z decay .The black points represent the residual miscalibration of the combination of the three methods (weighted average). The precision of the $\Phi$-symmetry and $\pi_0$ calibrations is at the level of the systematic errors. The precision of the electron calibration is dominated by the statistical errors with the dataset recorded in 2015 (2.6 \fbinv). References: CMS DP 2013/007}
@@ -394,7 +443,7 @@ The resolution in the central barrel reaches the level achieved in Run1,
 while int the endcaps the resolution is still significantly affected by the statistical precision of the calibration
 (derived with a dataset equivalent to $2.6\fb$).
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width = 0.7\textwidth]{figures/ecal/EcalEnergyResolutionGolden.pdf}
   \includegraphics[width = 0.7\textwidth]{figures/ecal/EcalEnergyResolutionShowering.pdf}
@@ -416,3 +465,141 @@ system data. During 2016 thanks to a larger dataset these effects have been inve
 described in the next section.
 
 \subsection{ECAL energy response monitoring in 2016}
+Given the relative short break between the two data-taking periods (compared to the LS1)
+the calibration obtained with data in 2015, corrected for the response variation
+due to transparency gain observed with the laser system, was used as baseline
+for the energy reconstruction during the 2016 data-taking period.
+The energy reconstruction algorithm described in Section~\ref{sec:ecal_reco} was found to depend on both
+the crystal-by-crystal noise level and signal shape used in the fitting procedure, thus a monitoring and prompt adjustment
+of both quatities was develloped during the data-taking. The energy calibration process described in this section
+is based on data reconstructed with the updated and time-dependent reconstruction. 
+
+A drift over time of the energy scale was however observed during the year as variation of the Z boson
+invariant mass peak in the di-electron spectrum, together with a constant worsening of the resolution.
+As explained in Section~\ref{sec:laser}, the transparency variation observed with the laser system differs
+from the one affecting the scintillation light collection by an exponetial factor $\alpha$.
+
+The per-crystal $\alpha$ parameter can be measured using the same low energy particles from soft collisions
+use for the $\Phi$-symmetry intercalibration method. The measurement is performed by minimizing the $\chi^2$:
+\begin{equation}
+  \chi^2 = \sum_{t=0}^n \left( \frac{F(t) \cdot \left(\frac{R(t)}{R(t_0)}\right)^{\Delta\alpha}}{\sigma_{F(t)}} \right)^2
+\end{equation}
+\label{eq:chi2_fit_alpha}
+
+where $R(t)/R(t_0)$ is the relative response variation to laser light described in Section~\ref{sec:laser},
+$F(t)$ is the ratio defined in Equation~\ref{eq:eflow_def} and $\sigma_{F(t)}$ is the uncertainty on $F(t)$.
+The $F(t)$ ratio contains the same truncated transverse energy sum used to intercalibrate with the $\Phi$-symmetry method, thus
+the $k$ parameter used to translate the obeserved mis-calibration into the real one is also applied here:
+\begin{equation}
+F(t) = \frac{ \frac{\sumEt(t)}{\sumEtEB(t)}  \cdot \frac{1}{k(t)}} { \frac{\sumEt(t_0)}{\sumEtEB(t_0)}  \cdot \frac{1}{k(t_0)}}
+\end{equation}
+\label{eq:eflow_def}
+where \sumEt is the the same sum used for the intercalibration procedure while \sumEtEB is the sum over the chosen period of time
+of all the transverse energy deposited in the EB.
+Since the uncertainties on \sumEtEB and \sumEtring are both negligible with respect ot the crystal \sumEt,
+the uncertainty $\sigma_{F(t)}$ is set to equal to the precision on the $IC$ estimated by dividing the data in each calibration
+period $t$ in even and odd events (about $0.4\%$, see Section~\ref{sec:calib_2015}).
+
+The $\chi^2$ (\ref{eq:chi2_fit_alpha}) is minimized with respect to the $\Delta\alpha$ parameter which is the difference
+between the ``true'' crystal $\alpha$ and the average value used in the standard reconstruction. The \sumEtEB normalization
+chosen to compensate for variations in the istantaneous luminosity or trigger rate, also absorbs variation common
+to all crystals in the barrel, thus preventing the possibility of measuring a coherent variation of $\alpha$ among all crystals
+in the ECAL barrel or a global scale variation of ECAL. The $F(t)$ variation over time together with the value of $1/LC(t)$
+and the $F(t)$ derived with the fitted crystal $\alpha$ are shown in Figure~\ref{fig:eflow_examples} for two crystals
+in the ECAL barrel.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = .45\textwidth]{figures/ecal/history_eb_good_BTCP.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/history_eb_good_SIC.pdf}
+  \caption{Example of $F(t)$ variation over time for two crystals in the ECAL barrel, produced by BTCP (left) and SIC (right).
+    The open red dots are the $F(t)$ values obtain with the constant $\alpha$ value (reported as $\alpha_{db}$ in the figures),
+    while the full red dots are the $F(t)$ values computed using the per-crystal $\alpha$ obtained from the fit described in the
+    text (reported as $\alpha_{fit}$). The inverse of the correction for laser response variation is also shown (black full dots).
+    For the BTCP crystal the $\alpha_{db}$ gives a stable response while the SIC crystal response varies up to $5\%$
+    with respect the average ECAL barrel response. The corrected response is reported as closure test of the procedure.}
+  \label{fig:eflow_examples}
+\end{figure}
+
+
+The fit results are shown in Figure~\ref{fig:alpha_fit}, the precision on the value of $\Delta\alpha$ extracted from the fit
+varies between $1.8\%$ and $2\%$. The measured relative variation of the crystal-by-crystal $\alpha$ varies between
+$\pm 20\%$ for the majority of the barrel crystals. A notable exception is rappresented by crystals produced by the SIC company
+for which an  $\alpha$ value of one was measured at the pre-installation beam tests, the value extracted from the fit
+with 2016 data is on average $1.4$. The same fit has been performed also for crystals in the ECAL endcaps but due to the
+different injection point of the laser light, which makes the response to laser and scintillation light more similar, and
+the convolved effect of the VPT aging the uncertainty is larger ($10\%$) and the results compatible with the constant $\alpha$
+used in the standard reconstruction.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/EB_delta_alphas.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/EB_chi2.pdf} \\
+  \includegraphics[width = 0.7\textwidth]{figures/ecal/mapEB_delta_alpha.pdf}
+  \caption{Measured $\Delta\alpha$ values for crystals in the barrel (top left) and fit $\chi^2$ (top left),
+    each distribution is normalized to its area.
+    The $\Delta\alpha$ values are reported as relative variations from the $\alpha_{db}$ value of 1.52(1) used
+    in the energy reconstruction for BTCP(SIC) crystals.
+    The bottom plot shows the distribution of the relative $\Delta\alpha$ in the $\eta$-$\phi$ plane (where instead
+    of the absolute $\eta$ and $\phi$ coordinates the discrete crystal indices $i\eta$, $i\phi$ are used).
+    The map highlights the SIC crystals (red region at high $|\eta|$) and the block structures described in the text.}
+  \label{fig:alpha_fit}
+\end{figure}
+
+The measured $\Delta\alpha$ values present block patterns in the $\eta$-$\phi$ plane (Figure~\ref{fig:alpha_fit} bottom)
+compatible with the granularity of the PN sensors described in the Section~\ref{laser}, with a variation of $\alpha$
+within such blocks much smaller than the block to block variations. The observed behaviour is compatible with a linear drift
+of the PN electronics response and thus unrelated to the crystal $\alpha$.
+The effect has been investigated also using electron from Z and W boson decays, highlighting the same block pattern
+and an overall coherent drift of the barrel scale, to which the $F(t)$ is insensibile for the reason explained above.
+For this reason an effective correction to each PN block response has been prefered for the final 2016 erconstruction.
+The correction was derived using the measured average $\alpha$ value of $1.4$ for the SIC crystals and by performing
+a linear fit to the $E/p$ peak variation as a funtion of time with a granularity of one LHC fill. An example fit for
+one PN block is shown in Figure~\ref{fig:pn_fit}, the measured drifts are equivalent to a scale variation
+between $0.1\% / 30 days$ and $0.2\% / 30 days$ depending on the average $|\eta|$ of the PN block, with larger drift
+at larger $|\eta|$.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = .7\textwidth]{figures/ecal/EoP_PNfit_example.pdf}
+  \caption{Example fit of a region of 200 crystals monitored by the same PN diode. The $p1$ parameter rappresent
+    the slope of the linear fit and is equivalent to $0.18\% / 30 days$}
+  \label{fig:pn_fit}
+\end{figure}
+
+
+The final energy scale stability and resolution are shown in Figure~\ref{final_2016}: although a good stability on
+the energy scale is achived (better than $0.5\%$) the resolution still get worse during the data-taking period, underlining
+a residual channel-to-channel response variation.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/scale-Cal_Mar2017_PNcorr_v2-EB.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/ecal/resolution-Cal_Mar2017_PNcorr_v2-EB.pdf}
+  \caption{ECAL energy scale and resolution stability during the 2016 data-taking period. With the
+    optimized calibration discussed in the text (black) and the calibration of 2015 (red).
+    The energy scale (resulution) stability is displayed on the left (right) and is measured with \Zee events in
+    which both electrons are detected in the barrel. The peak estimator is the median of the Z invariant mass peak, while
+    the resolution is estimated as the minimal symmetric interval including $68\%$ of the events around the peak and is
+    reported in the plot in fraction of the estimated Z boson mass value in each period.}
+  \label{fig:final_2016}
+\end{figure}
+
+
+\section{Summary}
+The ECAL energy response is subject to eveloution over time mainly due to the loss of transparency following irradiation.
+Although a powerful monitoring system based on the injection of laser light allows to correct for the transparency loss,
+a residual mis-calibration affects the energy measurement. A new ECAl calibration was derived in 2015 after a 2 year long
+LHC shutdown combining the three intercalibration methods developped during the first collison period of LHC,
+resulting in an energy resolution at the level fo $1\%$ for non showering electrons in the barrel and $2.5\%$ in the
+endcaps comparable to that achived during the first running period of LHC.
+During 2016 the time evolution of the detector response was studied in great detail, a method to measure a
+per-crystal $\alpha$ parameter was successfully implemented.
+The same study lead to the observation of unexpected drift in
+the laser monitoring electronics which were corrected using electrons from Z and W boson decays. The procedure defined in
+2016 will serve as a roadmap for future energy calibration of the ECAL.
+    
+    
+  
+  
+  
