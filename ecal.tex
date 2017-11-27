@@ -373,7 +373,7 @@ the presence of support structures and services
 absorbs part of the particle energy. This translates into a lower than average \sumEt, and consequently higher $IC$ value,
 for the ECAL crystals installed behind those structures. The material is however uniform along $\eta$ for crystals within 
 the same tracker partitions (barrel and endcaps), so corrections for the impact of material are computed averaging
-over $\eta$ the measured $IC$ values at same $\phi$ but for two regions in the EB ($|\eta|<1$ and $1<|\eta|<1.442$).
+over $\eta$ the measured $IC$ values at same $\phi$ but for two regions in the EB ($|\eta|<1$ and $1<|\eta|<1.4442$).
 The $IC$ values are scaled for the average supermodule $IC$ and the correction for the $j-th$ $\phi$-row is defined as:
 \[
 C_j = \frac{1}{IC_{<\eta >}}
@@ -412,7 +412,7 @@ the $IC$ whose average along an $\eta$-ring is forced to be equal to one.
   \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_profile_2012_outerEB.pdf}
   \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_profile_2015_outerEB.pdf}
   \caption{Material effect corrections for the barrel inner ($|\eta| < 1$, $i\eta < 60$, top row)
-    and outer ($1 < |\eta| < 1.442$, bottom row)
+    and outer ($1 < |\eta| < 1.4442$, bottom row)
     regions described in the text, the blue (red) curve refers to the negative (positive) $\eta$ side of the barrel.
     Plots on the left(right) side show the corrections for the 2012(2015) $IC$.
     Supermodules gaps affect the $IC$ of the first or last crystal in the supermodule if it is located on the negative or
@@ -431,7 +431,7 @@ the $IC$ whose average along an $\eta$-ring is forced to be equal to one.
   \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_pull_2012_outerEB.pdf}
   \includegraphics[width = 0.45\textwidth]{figures/ecal/corr_pull_2015_outerEB.pdf}
   \caption{Pull distribution of the correction difference between the positive and negative $\eta$ side of the ECAL barrel.
-    Plots in the top and bottom row show the pull for inner ($|\eta| < 1$, top row) and outer ($1 < |\eta| < 1.442$
+    Plots in the top and bottom row show the pull for inner ($|\eta| < 1$, top row) and outer ($1 < |\eta| < 1.4442$
     respectively. Left (right) side refers to corrections for 2012 (2015) $IC$ set. Crystals located at supermodule
     boundaries are excluded from the pull since the gaps are, in principle, unrelated between the positive and negative
   barrel side.}
@@ -442,7 +442,7 @@ the $IC$ whose average along an $\eta$-ring is forced to be equal to one.
 The same material induced effects are observed in the endcaps but no way to factorize it from real channel-to-channel
 variations has been found and a larger uncertainty has thus been attributed to the $IC$ values derived with $\Phi$-symmetry.
 
-The corrected barrel $IC$ values are shown in Figure~\ref{fig_ic_corrected},
+The corrected barrel $IC$ values are shown in Figure~\ref{fig:ic_corrected},
 the channel-by-channel ratio of the two $IC$ set %(computed with
 % data from the last period of data-taking in 2012 and the first one in 2015)
 has been used as ``transport factor'' to translate the intercalibration
@@ -469,7 +469,7 @@ for each channel is the weighed average of the three. The weight used for the co
 measure by each method and is estimated for each $\eta$-ring by computing the variance of the $IC$ difference for each
 pair of methods. These variances are assumed to be to sum in quadrature of each method uncertainty consequently,
 the precision of each intercalibration set is extracted by solving three simultaneous equations for the three the uncertainties.
-The results on the uncertainties are reported if Figure~\ref{fig_ecal_ic_precision}. Taking advantage of the
+The results on the uncertainties are reported in Figure~\ref{fig:ecal_ic_precision}. Taking advantage of the
 small statistical uncertainty and the reduced impact of the material the $IC$ derived with $\Phi$-symmetry has the best precision
 in all $\eta$-rings. The intercalibration with electrons precision is dominated by the statistical uncertainty which
 is smaller at smaller $\eta$.

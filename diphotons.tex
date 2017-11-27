@@ -2,11 +2,12 @@
 \label{chapter:diphotons}
 
 In this chapter the search for resonant BSM production of photons pairs is presented.
-First the the analysis approach and event selections optimization are described, then
+First the analysis approach and event selections optimization are described, then
 the statistical analysis and finally the results.
 
 The analysis has been optimized for searches performed on data collected from proton-proton
-collisions at a center of mass energy of 13 TeV.
+collisions at a center of mass energy of 13 TeV and the results are obtained from the analysis
+of \lumisix of p-p collisions colelcted by the CMS experiment during 2016. 
 
 % The optimization has been performed with
 % data collected during 2015 corresponding to an integrated luminosity of \lumififBon.
@@ -15,7 +16,17 @@ collisions at a center of mass energy of 13 TeV.
 \label{sec:diphotons_data_samples}
 The search is perform in data collected by the CMS experiment during the year 2016. The total
 integrated luminosity is \lumisix. Data are reconstructed with a detector calibration optimized
-for the 2016 p-p collision datataking period.
+for the 2016 p-p collision datataking period using data collected in 2015 with the method described in
+Section~\ref{sec:calib_2015}. The calibration described in Section~\ref{sec:calib_2016}
+provides an improved ECAL energy scale stability which in turn leads through a better resolution
+to a higher sensitivity of the analysis to narrow resonances and also to an improved stabilty
+of some the variables included in the photon identification. However the technique was developed
+well after the end of the data-taking and given the limited number of analysis that could potentially
+profit from the improved performance a reconstruction with the new calibration was delayed and will become
+available by the end of 2017. The response variations observed in 2016 and described in details in Section~\ref{sec:calib_2016}
+are corrected with another method described in Section~\ref{sec:dipho_energy},
+which does not correct for the PN diode blocks as the improved technique but only for global scale variations, separatelly
+for the ECAL barrel and endcaps.
 
 The events were recorded with a trigger designed to select events containing a pair of
 energetic photons with $E_T > 60$ GeV. The energy of each photon candidate is computed as
@@ -44,7 +55,7 @@ are re-weighted to match the pileup energy density distribution measured in data
 \RS gravitons are chosen as a reference for the spin-2 resonance search. SM-like Higgs bosons of high mass and
 fixed widths are used for the spin-0 case.
 A set of simulation samples is used to model the detector response to resonant production of two photons.
-Such samples are generated with PYTHIA8 in the mass range $500 < \mgg < 7000$ GeV in steps of 250 GeV for
+Such samples are generated with PYTHIA8 [???] in the mass range $500 < \mgg < 7000$ GeV in steps of 250 GeV for
 masses below 4 TeV and 500 GeV above it. An additional set of samples without simulation of the detector
 response are used to model the signal spectrum and the acceptance of the kinematic selections.
 Three relative width hypothesis $\Gamma/\mgg$ are taken as benchmarks: $0.1\%$, $1\%$ and $5.6\%$ which,
@@ -54,10 +65,11 @@ used in the analysis is found to be fully efficient for signal events at all mas
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width = .7\textwidth]{figures/diphotons/eff_dipho60_EBEB_vs_mass.pdf}
-%  \includegraphics[width = .5\textwidth]{figures/diphotons/eff_dipho60_EBEE_vs_mass.pdf}
+  \includegraphics[width = .45\textwidth]{figures/diphotons/eff_dipho60_EBEB_vs_mass.pdf}
+  \includegraphics[width = .45\textwidth]{figures/diphotons/eff_dipho60_EBEE_vs_mass.pdf}
   \caption{HLT trigger selection efficiency as a function of the simulated resonance mass. Only events where the two photons are
-  in the detector acceptance are considered.}
+    in the detector acceptance are considered. The left (right) plot refers to events in the EBEB (EBEE)
+    category (see Section~\ref{sec:event_cats}}
   \label{fig:trig_eff_sig}
 \end{figure}
 
@@ -70,13 +82,14 @@ jets over the whole $p_T$ spectrum.
 
 \subsection{Drell-Yan production of electron-positron pairs}
 Finally a set of Drell-Yan events ($Z \to e^{+}e^{-}$) is generated with aMC@NLO and is
-used to derive data to simulation scale factors for the selections efficiency.
+used to derive data to simulation scale factors for the selections efficiency. This sample is genereted
+as a pure, unphysical, set of Z boson decays, negletting the interference with the photon.
 
 \section{Events selection}
 \label{sec:dipho_selection}
 Two measurement are needed to build the invariant mass of the di-photon system: the energy of the
 photons and the position of the primary interaction. The former is performed with the ECAL as described in
-Section ??? while the latter is reconstructed with tracks produced in the hard scatering against which
+Section~\ref{sec:ecal_reco} while the latter is reconstructed with tracks produced in the hard scatering against which
 the di-photon system recoils. Additional information from the tracker and the HCAL are used to discriminate
 genuine photon candidates from QCD jets.
 In the following paragraphs the vertex and photon identification algorithms are presented.
@@ -87,7 +100,7 @@ that as the largest $\Sigma p_T^2$ within each bunch crossing (where the sum run
 coming from the vertex). The method is not fully efficient for di-photon events since the two neutral
 particles carry a significant amount of the transverse energy.
 A dedicated boosted decision tree regression has been trained in the context of the search for the
-Higgs boson decaying into two photons. Inputs to the regression are the $\Sigma p_T^2$ and
+Higgs boson decaying into two photons [??]. Inputs to the regression are the $\Sigma p_T^2$ and
 other quantities related to the $p_T$ balance between the di-photon system and the charged particles.
 Using this method the interaction vertex is correctly assigned for about $90\%$ of the signal events.
 
@@ -99,13 +112,13 @@ spectrum due to trigger level selections:
 \begin{itemize}
 \item The transverse momentum of each candidate greater than $75$ GeV.
 \item The absolute value of the pseudorapidity of the supercluster (\absScEta) of both
-candidates is required to be below $\absScEta < 2.5$ and not between $1.444 < \absScEta < 1.566$,
+candidates is required to be below $\absScEta < 2.5$ and not between $1.4442 < \absScEta < 1.566$,
 due to the geometric acceptance of the ECAL. Photons in the region $2.5 < |\eta| < 3.0$ are still detected by the ECAL
 but the absence of tracker coverage limits the discrimination between photons and jets, furthermore signal photons
 are more likely to be produced in the central region of the detector.
 \item To avoid a distortion of the background shape due to the transverse momentum
   cut, the minimum invariant mass of the di-photon pair has to be $230$ GeV, when
-both photons are detected in the ECAL barrel region (EB, $\absScEta < 1.444$). If one photon candidate
+both photons are detected in the ECAL barrel region (EB, $\absScEta < 1.4442$). If one photon candidate
 is detected in the endcap region (EE, $\absScEta > 1.566$), the minimum invariant mass
 has to be $330$ GeV.
 \end{itemize}
@@ -114,10 +127,10 @@ If more then one pair of photons satisfies the kinematic selection ($1\%$ of all
 with the highest scalar sum of transverse momentum $p_T^{\gamma\gamma}$ is chosen.
 
 The events are split into two categories accordingly to the topology of the photon system in relation
-with the ECAL segmentation:
+to the ECAL segmentation:
 \begin{itemize}
-\item barrel-barrel (EBEB): both photons are detected in the ECAL barrel region $\absScEta < 1.444$.
-\item barrel-endcap (EBEE): one photon is detected in the ECAL barrel region $\absScEta < 1.444$ the other
+\item barrel-barrel (EBEB): both photons are detected in the ECAL barrel region $\absScEta < 1.4442$.
+\item barrel-endcap (EBEE): one photon is detected in the ECAL barrel region $\absScEta < 1.4442$ the other
   in one of the endcaps $1.566 < \absScEta < 2.5$.
 \end{itemize}
 
@@ -133,7 +146,7 @@ momentum and based on the following variables:
 
 \begin{itemize}  
 \item \chIso: the scalar sum of the transverse momenta of the particle flow charged hadron
-candidates, which are assigned to the chosen primary vertex. Only candidate
+candidates (see Section~\ref{sec:cms_pf}) , which are assigned to the chosen primary vertex. Only candidate
 within a radius of $\DeltaR < 0.3$ from the photon in the $\eta$ - $\phi$ plane, which is
 defined as:
 \[
@@ -148,8 +161,13 @@ are considered.
 \item \sieie: the weighted spatial second order moment of the photon candidate in the
   $\eta$-direction, computed as:
   \[
-\sieie = \sqrt{\frac{\Sigma_{i}{}}{}}
+    \sieie = \sqrt{ \frac 
+      { \sum_{i \in 5\times5} \left( \eta_i - \bar \eta \right )^2 w_i
+      } {\sum_{i \in 5\times5} w_i} }, ~~~~ 
+    w_i = \max \left( 0, 4.7 + \log(E_i / E_{5\times5}) \right )
 \]
+
+% \item \rnine: the ratio between the energy of the 3x3 crystals around the most energetic crystal and the energy of the whole supercluster.
 
 \item Conversion safe electron veto, to reject electrons.
 
@@ -158,13 +176,37 @@ are considered.
 Particle flow charged particles or photons sharing part of their energy with the photon candidates
 are excluded from the \chIso and \phoIso sum. 
 
+The selection value are reported in the following table:
+
+\begin{table}[h!]
+    \centering 
+    \begin{tabular}{l|r|r|r|r}
+        \hline
+        photon category       & \chIso cut (\GeV) & $\phoIso^{corr}$ cut (\GeV)& \hoe cut & \sieie  cut \\
+        \hline
+        $\scEta<1.4442$ non-sat.  & 5                 & 2.75  &  $5 \times 10^{-2}$ & 0.0105 \\
+        $\scEta<1.4442$ sat.      & 5                 & 2.75  &  $5 \times 10^{-2}$ & 0.0112 \\
+        $\scEta>1.566$  non-sat.  & 5                 & 2.0  &  $5 \times 10^{-2}$ & 0.028 \\
+        $\scEta>1.566$  sat.      & 5                 & 2.0  &  $5 \times 10^{-2}$ & 0.030 \\
+		\multicolumn{5}{l}{conversion-safe electron veto applied for all categories} \\
+		\hline
+    \end{tabular}
+    \caption{\label{tab:photon_id}
+      Photon identification criteria used in the analysis. $\phoIso^{corr}$ is the corrected \phoIso value described
+      at the end of this section.
+    }
+\end{table}
+
+For very energetic photons the ECAL readout electronics can saturate. In such a case the shower shape variable
+\sieie is distorted, hence a different selection value is set for this identification variable in case of saturation.
+
 The thresholds of the identification variables were optimized to give an efficiency flat as a function
 of the mass of the di-photon pair, the chosen working point correspond to an efficiency of $90(85)\%$ for
 photons in the EB(EE).
 The \phoIso distribution is found to depend on the event pile-up and the $p_T$ of the
 photon candidate (Figure~\ref{fig:phoiso_qtiles}).
 These dependencies leads to a variation of the selection efficiency with time and also
-for different values of \mgg. In order to keep a flat effiency a correction is used, its expression is:
+for different values of \mgg. In order to keep a flat effiency an effective correction is used, its expression is:
 \[
   \phoIso^{corr} = \phoIso - \kappa\cdot p_T - A \cdot \rho + \alpha
 \]
@@ -179,16 +221,38 @@ that the bulk of the corrected isolation distribution for signal photons peaks a
   \includegraphics[width = .45\textwidth]{figures/diphotons/qtiles_phoIso03_outerEB.png}
   \includegraphics[width = .45\textwidth]{figures/diphotons/qtiles_phoIso03_outerEB.png}
   \caption{\phoIso quintiles distribution as a function of the pile-up energy density for canditates in th EB  (left) and
-    EE (right). The lines are fit to the points and are used to derive the correction described in the text.}
+    EE (right). The lines are fit to the points and are used to derive the correction described in the text.
+  The slope at the 0.9 quitile is steeper than the one of the median, thus the need of the scale parameter $\alpha$}
   \label{fig:phoiso_qtiles}
 \end{figure}
 
-For very energetic photons the ECAL readout electronics can saturate. In such a case the shower shape variable
-\sieie is distorted, hence a different selection value is set for this identification variable in case of saturation.
+The values of the correction parameters are reported in Table~\ref{tab:pho_iso_corr}, $A$ is derived in five
+bins of $|\eta|$ while two bins (barrel and endcaps) are sufficient for $\kappa$ and $\alpha$
+to fully correct the $\rho$ and $\pt$ dependency of \phoIso.
+
+\begin{table}[h!]
+    \centering 
+    \begin{tabular}{l|r|r|r}
+        \hline
+        region                & $\alpha$ (\GeV) & A     &  $\kappa$ ($1/\GeV)$ \\
+        \hline                                          
+        $\scEta<0.9$          & 0.99             & 0.15  &  $1.6  \times 10^{-3}$  \\
+        $0.9<\scEta<1.4442$   & 0.99             & 0.13  &  $1.6  \times 10^{-3}$  \\
+        $1.566<\scEta<2.0$    & 1.52             & 0.093 &  $0.75 \times 10^{-3}$  \\
+        $2.0<\scEta<2.2$      & 1.52             & 0.15  &  $0.75 \times 10^{-3}$  \\
+        $2.2<\scEta<2.5$      & 1.52             & 0.21  &  $0.75 \times 10^{-3}$  \\
+        
+		\hline
+    \end{tabular}
+    \caption{\label{tab:pho_iso_corr}
+      Corrections factors for the \phoIso variable.
+    }
+\end{table}
+
 
 \subsection{Selection efficiency measurement}
 \label{sec:dipho_eff}
-The efficiency of the photon identification described in the previous chapter is measured with data
+The efficiency of the photon identification described in the previous chapter is measured in data
 using the \Zee control sample. The measurement of the selection efficiency in data is then
 compared to the one measured in the simulation and in case of discrepancy the signal normalization
 derived from the simulation is corrected for the measured scale factor.
@@ -216,7 +280,8 @@ The signal is modeled by the Z lineshape as obtained from a QCD NLO (POWHEG)
 generator convolved with a Gaussian, while the background is modeled by an exponential function. As
 the choice of the fit model is one of the dominating systematics, different models were
 studied to assess it. A simple cut-and-count method is applied for the simulation sample
-since the non resonant $pp \to \gamma^* \to e^+e^-$ events are discarded with MC truth information.
+since the non resonant $pp \to \gamma^* \to e^+e^-$ events can be discarded with MC truth information and
+are anyway not simulated in the sample used for this analysis.
 
 The efficiency measurement is summarized in Figure~\ref{fig:tnp}: a good agreement between data and simulation is
 observed across the whole probe electron $p_T$ spectrum and both for probes in the  ECAL barrel and endcaps, thus no scale factor
@@ -236,21 +301,27 @@ is applied to the predicted signal yield.
 
 \section{Photon energy scale and resolution corrections}
 \label{sec:dipho_energy}
-The detector simulation takes into account the effects of pilu-up, detector noise and response variation.
-The pile-up distribution is then reweighted to match the one in data as explained in Sec~\ref{sec:diphotons_data_samples}.
-The detector noise and response variation instead varies over the datataking period and so a discrepancy
+The detector response is simulated with fixed pile-up distribution, detector noise and transparency loss.
+The pile-up distribution is reweighted to match the one in data as explained in Sec~\ref{sec:diphotons_data_samples}.
+The detector noise and crystal trnasparency instead varies over the datataking period and so a discrepancy
 in the energy response of the ECAL may arise between data and simulation since in the latter no time evolution
 of the detector conditions is simulated. The effect of this discrepancy translate in shift of the energy
-scale in data with respect to the MC simulation, furthermore any residual mis-calibration of the detector
+scale in data with respect to the MC simulation (as described in Section~\ref{calib_2016}),
+furthermore any residual mis-calibration of the detector
 is not simulated and thus the energy resolution in data is worse than in the MC simuation.
-These two effects are corrected on one hand
-scaling the photon energy (after being corrected with the method described in ???) in data events
-in order to correct the time dependent scale variations and match the energy scale of the simulation and,
+These two effects are corrected on one hand by
+scaling the photon energy in data events
+to correct the time dependent energy scale variations (see Section~\ref{sec:calib_2016})
+and match the energy scale of the simulation and,
 on the other hand, by smearing the energy in simulated events to match the resolution observed in data.
 
 The time-dependent scale corrections and the smearing are derived with the \Zee control sample.
 Again since the energy for both photons and electrons is primarly reconstructed from the ECAL, electrons
-are used as a proxy of photons.
+are used as a proxy of photons. The reader may notice that the energy reconstruction formula outlined in
+Equation~\ref{eq:sc_energy} differs for electrons and photons in the supercluster energy correction term ($F_{e,\gamma}$).
+Electrons used to derive the corrections described in this section are reconstructed the electron $F_e$ correction,
+while both electrons used in the final data to simulation comaprison and photons selected for the analysis
+are reconstructed with the $F_{\gamma}$ correction factor.
 
 The corrections are derived in two steps: in the first, the energy scale is corrected by
 adjusting the scale in data to match the simulation prediction. The \Zee invariant mass peak is fitted with
@@ -312,10 +383,35 @@ The linearity of the response is assessed by comparing the peak position of the
 reconstructed Z mass measured in data and simulation as a function of $H_T = E_{T_1}^2 + E_{T_1}^2$, where
 $E_{T_1,2}^2$ are the transverse energies of the two electrons.
 
-For electrons detected in the barrel part of the detector, the energy scale corrections
-were observed to be stable within $0.4\%$. Electrons detected in the endcap region of the
-detector were found to provide a stability of better than $0.8\%$. More information can be
-found in Ref.~???. A final $1\%$ uncertainty on the energy scale stability is assigned.
+For electrons detected in the barrel part of the detector, the corrected energy scale
+is found to be stable within $0.5\%$. Electrons detected in the endcap region of the
+detector are found to provide a stability of better than $0.8\%$.
+A final $1\%$ uncertainty on the energy scale stability is assigned.
+The smearing terms applied to the simulation in order to match the resolution observed in data are reported in
+Table~\ref{esmear_2016}. The additional constant term on the energy resolution varies from $0.96\%$ for
+non-showering electrons in the barrel to $2.61\%$ for showering electrons in the forward region.
+
+\begin{table}[!h]
+ \begin{center}
+   \begin{tabular}{|l|r|r|}
+     \hline
+     Category                   & $\Delta$C[\%] & $\Delta_{stat}$C[\%] \\ \hline
+ $|\eta| < 1$ $R9 > 0.94$       & 0.96          & 0.07 \\
+ $|\eta| < 1$ $R9 < 0.94$       & 1.03          & 0.11 \\
+ $1 < |\eta| < 1.5$ $R9 > 0.94$ & 1.36          & 0.14 \\
+ $1 < |\eta| < 1.5$ $R9 < 0.94$ & 1.82          & 0.05 \\
+ $1.5 < |\eta| < 2$ $R9 > 0.94$ & 1.91          & 0.07 \\
+ $1.5 < |\eta| < 2$ $R9 < 0.94$ & 2.20          & 0.13 \\
+ $|\eta| > 2$ $R9 > 0.94$       & 2.53          & 0.13 \\
+ $|\eta| > 2$ $R9 < 0.94$       & 2.61          & 0.10 \\
+   \hline
+   \end{tabular}
+   \caption{Smearing values with uncertainty applied to the simulation in order to match the resolution measured in data.
+     The values are extracted with the procedure described in the text and the uncertainties are of statistical nature
+     and comes from results of the fit.}
+    \label{tab:esmear_2016}
+  \end{center}
+\end{table}
 
 \section{Statistical interpretation of the results}
 \label{sec:results}
