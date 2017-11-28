@@ -61,7 +61,8 @@ upgrades in most of the subdetectors electronics to provide informations with th
 The current calorimeter system present in the endcaps will not survive till the end of HL-LHC due to radiation
 damage (more than $1.5\times10^{15} n_{eq}/cm^{2}$ in the parts closer to the beam line) affecting the active components of
 ECAL (\PbWO crystals) and HCAL (scintillating tiles and photodetectors).
-The two calorimeters will be replaced with a silicon based sampling calorimeter with tungsten absorbers in the
+The two calorimeters will be replaced with a silicon based high granularity sampling calorimeter (HGCAL)
+with tungsten absorbers in the
 electromagnetic part and lead absorbers in the hadronic one. The lungitudinal segmentation will provide
 discrimination between overlapping energy deposits.
 
@@ -113,8 +114,50 @@ although already operational at LHC cannot survive the higher irradiation level 
 The CMS ECAL on the other end is currently limited by clock distribution as explained in Section~\ref{sec:ecal_time_run1}
 but is capable of an intrinsic time performance of better than $30$ ps (see~\ref{sec:ecal_time_run1}.
 
+A series of beam test were conducted during 2015 and 2016 to establish the time performances of detector
+technologies suitable to be operated in CMS during the HL-LHC phase. These detectors includes silicon
+pads for the HGCAL, devices optimized for time measurement of minimum ionazing particles (MIP) and also the study of
+the ECAL \PbWO crystals and its HL-LHC readout electronics time performance. Most of the test were performed at
+the CERN SPS North area at the H2 and H4 beam lines (more details are given in Section~\ref{sec:tb_2015}) with
+a data acquisition system (DAQ), reconstruction and analysis software developed specifically for the needs of
+these tests. The reconstruction software is optimized for signals digitized at high frequency (5 GHz),
+different algorithms are implemented to extract the amplitude and time information from the peculiar signal shapes of
+each of the tested detectors.
+
 During beam test conducted during 2015 the time performance of silicon sensors suitable to be installed
-in the future CMS endcap calorimeter has been measured~\cite{hgcal_tb_time}.
+in the future CMS endcap calorimeter has been measured~\cite{hgcal_tb_time}. Several sensors of different
+tickness were tested, all of which were $p$-type ($n-on-p$) $5\times 5$ mm$^2$ in effective area.
+The results (Figure~\ref{fig:hgcal_time_res}) shows an excellent time resolution for showering electrons with an
+energy of 50 GeV. The resolution is found to be better than 20 ps for signals with a $S/\sigma_n > 20$,  where
+$S$ is the signal amplitude and $\sigma_n$ is the noise RMS. This figure in the final HGCAL will be achived for
+energy depositions equivalent to 10 MIP. The HGCAL time measurement will also profit from the longitudinal segmentation that will
+allow to combine more than one time measurement. Simulation studies shows that a resolution better than 20 ps is
+achived for electromagnetic showers with energies above 20 GeV.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/upgrade/hgcal_timing.png}
+  \caption{The distribution of the time difference between the signals from a pair of silicon sensors ($\Delta t = t_1 - t_2$),
+    133-μm (bottom), 211-μm (middle), and 285-μm (top) thick,
+    as a function of three different signal ranges as indicated on the upper left corner of each plot.
+    The solid lines represent Gaussian fits to the data points.
+    The sensors were placed behind a $4X_9$ lead absorber and the electron beam energy was 50 GeV.~\cite{hgcal_tb_time}}
+  \label{fig:hgcal_time_res}
+\end{figure}
+  
+The study on the ECAL time performance is reported in details in the next sections. The results show that,
+given a clock distribution precision better than 10 ps, a time resolution of 30 ps is achived at energies
+of at least 25 GeV at the beginning of HL-LHC.
+
+These results show the case for the installation of a dedicated detector for the time measurement of charged particles:
+none of the existing or foreseen detectors is cabable of provide timing information for MIP particles.
+Furthermore as discussed in Section ?? the MIP timing detector acceptance should cover both the barrel and endcaps
+regions of CMS. Given the different irradiation levels and installation schedule constrains, two different
+technoloegies will be adopted for the barrel and endcap timing detectors. In the endcaps two planes of
+Low-Gain Avalanche Detectors (LGAD) silicon sensors have been proposed since this is the only technology
+to survive a dose of $1.7\times 10^{15} n_{eq}/cm^2$ 
+(corresponding to the irradiation level reached after 4000 \fbinv)
+while still providing a 50 ps single sensor time resolution.
 
 \section{The ECAL barrel upgrade}
 The primary technical motivation for the ECAL barrel (EB) upgrade is the trigger requirement for
