@@ -9,7 +9,7 @@ The analysis has been optimized for searches performed on data collected from pr
 collisions at a center of mass energy of 13 TeV and the results are obtained from the analysis
 of \lumisix of p-p collisions colelcted by the CMS experiment during 2016. 
 
-% The optimization has been performed with
+% The photon identification optimization has been performed with
 % data collected during 2015 corresponding to an integrated luminosity of \lumififBon.
 
 \section{Data samples}
@@ -299,6 +299,11 @@ is applied to the predicted signal yield.
   \label{fig:tnp}    
 \end{figure}
 
+% The analysis performed with \Zee events proves a good agreement between data and simulation up to 300 GeV of the electron
+% $p_T$, at higher energies the efficiency is measured using 
+% while the energy range explored by the main analysis extend to much higher energies. The effiency of the photon identification
+% is measured  
+
 \section{Photon energy scale and resolution corrections}
 \label{sec:dipho_energy}
 The detector response is simulated with fixed pile-up distribution, detector noise and transparency loss.
@@ -475,7 +480,28 @@ procedure:
       \item The procedure is repeated with several alternative functional and for both EBEB and EBEE category separately.
 \end{itemize}
 
-A representative set of alternative functions is selected within the set of families shown in Table~\ref{tab:bias_func}.
+The chosen background parametrization has the form:
+\begin{equation}
+  g(\mgg) = \mgg^{a+b \cdot log(\mgg)}
+\end{equation}
+\label{eq:bkg_dijet}
+This parametrization gives the least bias among the whole invariant mass spectrum.
+The $a$ and $b$ coefficients maximized by a likelihoodfit of \mgg in data, for each event category and each dataset separately. The coefficients entered the hypotheses tests as unconstrained nuisance parameters and are of statistical
+nature.
+The background only fit to the data in the two event categories is shwon in Figure~\ref{fig:bkg_fits}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/diphotons/bkg_fit_bkg_EBEB016.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/diphotons/bkg_fit_bkg_EBEE016.pdf}  
+  \caption{Observed mass spectrum in the EBEB (left) and EBEE (right) categories. The result of the parametric fit is
+    superimposed to the points, together with bands representing the statistical uncertainties on
+    the knowledge of the background shape.}
+  \label{fig:bkg_fits}
+\end{figure}
+
+A representative set of alternative functions, used to evaluate the accurancy of the chosen parametrization,
+is selected within the set of families shown in Table~\ref{tab:bias_func}.
 First, for a given family, the lowest order function in that family is fit to a single category. Then, the next highest order function is fit to the data in the same category and the difference $2 \Delta NLL_{N+1} = 2(NLL_{N+1} - NLL_{N})$, indicates whether or not the data support the hypothesis of the higher order function. This is quantitatively expressed using the fact that $ 2 \Delta NLL_{N+1}$ should be distributed as a $\chi^2$ with M degrees of freedom where M is the difference in the number of free parameters in the N + 1 function and N function. For example, for exponentials, $M = 4 - 2 = 2$, while for the polynomials $M = 3 - 2 = 1$. A p-value is then calculated as
 
 $$ \text{p-value} = p(2 \Delta NLL > 2 \Delta NLL_{N+1}| \chi^2(M)). $$
@@ -508,7 +534,7 @@ $g(\mgg)$ is considered accurate if, for all the windows $j$, the following rela
     \label{eq:bias_criterion}
 \end{equation}
 Choosing a threshold of 0.5 for $b^{j}$ is equivalent to allowing the uncertainty on the
-mean number of estimated background events to be underestimated by at most 10\%.
+mean number of estimated background events to be underestimated by at most $10\%$.
 
 If the criterion from Eq.~\ref{eq:bias_criterion} is not met for, the pull test statistics
 is modified as follows:
@@ -605,6 +631,23 @@ Figure~\ref{fig:profile_bias_EBEE} for the EBEE category, respectively.
       \label{fig:profile_bias_EBEE}
 }
 \end{figure}
+
+The size of the background mismodeling enters the hypothesis test as the only
+systematic uncertainty on the background model. The shape of this additional bias is
+assumed to have a similar form as the signal PDF (S(\mgg)) and is therefore modeled
+as a Gaussian of mean zero and with a width, that reflected the size of the bias. It is
+added to the background description via the following equation in which $N_{bkg} (N_{\beta})$ are
+the number of background (bias) events:
+
+\begin{equation}
+    \tilde{g}_{sig}(\mgg|\theta_{\beta}) \cdot Pdf(\theta_{\beta}) = \left ( \frac{
+          N_{bkg} - \theta_{\beta} N_{\beta}(sig) } {N_{bkg}} g(\mgg) + \frac
+    {\theta_{\beta} N_{\beta}(sig)} {N_{bkg}} s(\mgg) \right ) \cdot Norm(\theta)
+\label{eq:bkgspurious}
+\end{equation}
+
+Where $N_{\beta}(sig) = \int \beta(\mgg) \cdot s(\mgg) \sim \beta(m_{G}) \cdot FWHM(sig)$,
+$S(\mgg)$ is the signal PDF and $Norm(x)$ is the normal distribution.
 
 %% SIGNAL
 \clearpage
@@ -710,8 +753,17 @@ The total combined efficiency and acceptance ($\epsilon\times A$)
 varies between 0.5 and 0.7 (0.6) for the spin-2 (spin-0) model and is shown in Figure~\ref{fig:eff_times_acc}. The EBEB
 category has a higher sensitivity than the EBEE category and contributes to the overall
 $\epsilon\times A$ with more than $50\%$ for lower $m_X$ values and up to $85\%$ for high $m_X$ values. Since
-the diphoton selection efficiency stays flat over the \mgg spectrum, any
+the diphoton selection efficiency stays flat over the \mgg spectrum (Figure~\ref{fig:eff_reco_sig}), any
 visible trends are mainly driven by the signal acceptance.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/diphotons/avg_eff_reco.png}
+  \caption{Di-photon identification selection efficiency as a function of the generated resonance mass.
+    The effiency used in the signal model normalization is parametrized with a second order polinomial (black curve)
+    separetely for the EBEB (red) and EBEE (blue) categories.}
+  \label{fig:eff_reco_sig}
+\end{figure}
 
 The acceptance of the spin-0 signal model is mostly flat over the $m_X$ spectrum,
 whereas for the spin-2 RS-Graviton signal it rises with larger $m_X$ values.
@@ -737,8 +789,7 @@ the effect is compensated by a larger production through quark-antiquark annihil
 \end{figure}
 
 \subsection{Results on the search for BSM resonant di-photon production}
-The test statistics used to derived exclusion limits on the alternative hypothesis or the
-null one are based on the profile likelihood ratio:
+The standard LHC test statistic $q(\mu)$ is used to provide a statistical interpretation of the results:
 
 \begin{equation}
  q(\mu) = -log \lambda(\mu) := -log \frac{ L(\mu \cdot S + B | \underline{\hat\theta}_{\mu} ) } {L (\hat\mu
@@ -758,7 +809,7 @@ hypothesized signal model with signal strength $\mu$.
 The discovery of a new di-photon resonance would appear as a localized excess of events.
 The SM background only hypothesis is the null hypothesis in the test and correspond to $\mu = 0$.
 
-Since significant deviation from the SM prediction is observed in data in the search region ($\mgg > 500$ GeV)
+Since no significant deviation from the SM prediction is observed in data in the search region ($\mgg > 500$ GeV)
 Upper exclusion limits on the resonant di-photon production rate under different signal
 hypotheses are set using the modified frequentist method, which is a standard method among searches
 for BSM physics at LHC. It is also known
