@@ -9,17 +9,15 @@
 In this chapter the upgrade of the LHC complex is briefly introduced in Section~\ref{upgrade_lhc}
 underlining the physics goal and the expected performace of the machine. The CMS experiment is already planning
 a series of upgrades, most of which will be installed during LS3 (Figure~\ref{fig:lhc_plan}).
-The overall goal of the CMS upgrade is introduced in  while
-further details on the upgrade of the CMS ECAL are reported in the rest of the chapter.
-The ECAL upgrade mainly concerns the read-out electronics and trigger system, these are introduced in Section ??
-while in Section ??.
+The overall upgrade project of CMS upgradeand its scope are reported in ??, with further details on the
+foreseen inclusion of time information in the event reconstruction given throughout the rest of the chapter.
 
 \section{High Luminosity LHC}
 \label{upgrade_lhc}
 
 The main objective of the High Luminosity LHC (HL-LHC) upgrade [9] of the LHC accelerator complex
-is to make precise measurements of the Higgs boson couplings, the standard model and provide a very
-large dataset ($3000\fbinv$) for new physics searches.
+is to make precise measurements of the Higgs boson couplings, other rare standard model process (like the vector boson scattering)
+and provide a very large dataset ($3000\fbinv$) for new physics searches.
 The design include a substantial upgrade of the accelerator complex with the goal of reaching
 a peak luminosity of $7.5\times10^{34} cm^{-2}s^{-1}$ (roughly four times as mush as the current value)
 The integrated luminosity will about ten times the expected luminosity of the first twelve
@@ -30,29 +28,93 @@ and the HL-LHC operating period following the upgrade of the accelerator complex
 %The two periods of operation are termed Phase-1 (LHC) and Phase-2 (HL-LHC).
 
 The peak luminosity will be achieved by increasing the beams intensities and by squeezing more the two beams at the
-interaction points. This will lead to a higher number of collisions occuring within the same bunch crossing, the
+interaction points where ATLAS and CMS are located.
+This will lead to a higher number of collisions occuring within the same bunch crossing, the
 average number of collisions will increase from 40-60 of LHC to 140-200 at HL-LHC.
-The ability of the detectors (ATLAS and CMS) in assagning particles to the correct collision will worsen with the
-increased instantaneous luminosity expetially for energy deposits in the calorimeters.
+The ability of the detectors (ATLAS and CMS) in assagning particles to the correct collision within the same bunch crossing
+will worsen with the increased instantaneous luminosity. In order to take advantage of the increased dataset
+both experiments are planning to upgrade their detectors to improve the event reconstruction and also improve
+the radiation resistance of the detectors components.
 
 
 \section{HL-LHC upgrade of CMS}
 \label{upgrade_cms}
 The CMS detector will be upgraded to match the operation environment of HL-LHC in order to fully exploit the
 larger dataset delivered by the accelerator complex.
-The major points are
-the replacement of the entire calorimeters system in the endcaps to cope with the expected level of radiation
-of HL-LHC (more than $1.5\times10^{15} n_{eq}/cm^{2}$ in the parts closer to the beam line),
-the complete replacement of the Level-1 trigger and the proposed installation of a new detector to measure the
-time of charged particles with a precision of about $30 ps$. These three major points also drives upgrades of
-the other existing components: the upgrade of the Level-1 trigger will profit from an extended
-muon system coverage up to $|\eta| = 2.8$, new tracker system cabable of providing information at
-Level-1 and calorimeter system electronics upgraded to match the trigger rate allowed by the Level-1.
-The completely new calorimenter system in the endcaps will provide longitudinal shower development which will
-in turn improve descimination between energy deposits coming from different collisions.
-Finally the time information extracted with the new system will be matched by those of the ECAL barrel and the new
-endcap calorimeter. The ECAL si expected to provide a time information on electromagnetic showers
-with a precision of $30 ps$ for energies above few tens of GeV.
+The major points are the complete replacement of the current tracker~\cite{trk_phase2_tdr}, the new system will mantain
+the same comcept of an all silicon detector with four pixel layers for the precise vertex reconstruction
+surrounded by silicon strips devoted to the measurement of the charged particle momentum, but the new detector
+will have a finer granularity and an extend pseudorapidity coverage (from the current $|\eta|=2.5$ to $4$).
+The finer granularity will mitigate the increased tracks overlap while the extended coverage will provide
+a larger acceptance for analysis of interest in the context of HL-LHC.
+Contrary to the current system the new tracker will provide information to the Level-1 trigger system,
+the information will be exploited to compute isolation quantities and to improve the energy resolution on jets
+and $E_T^{miss}$. This improvements are expected to provide a way to control the trigger rate
+by imporving the event selection already at the Level-1 trigger even with energy thresholds lower than the ones
+currently in use, resulting again in an acceptance gain expetially for precision measurement of rare standard
+model processes.
+
+The Level-1 itself will also be upgraded with a completely new dedicated electronics, the trigger rate
+will increase from 100 kHz of LHC to 750 kHz of HL-LHC. The upgrade of the trigger will be matched with
+upgrades in most of the subdetectors electronics to provide informations with the higher rate.
+
+The current calorimeter system present in the endcaps will not survive till the end of HL-LHC due to radiation
+damage (more than $1.5\times10^{15} n_{eq}/cm^{2}$ in the parts closer to the beam line) affecting the active components of
+ECAL (\PbWO crystals) and HCAL (scintillating tiles and photodetectors).
+The two calorimeters will be replaced with a silicon based sampling calorimeter with tungsten absorbers in the
+electromagnetic part and lead absorbers in the hadronic one. The lungitudinal segmentation will provide
+discrimination between overlapping energy deposits.
+
+The muon system acceptance will also be extened up to $|\eta| = 2.8$~\cite{muon_phase2_tdr} with the insertion in
+the magnet return yoke of GEM based detectors. This will be beneficial for precision measurement of the Higgs boson
+properties through its decay in four muons ($H\to ZZ\to 4 \mu$).
+
+The CMS experiment is also investigating the possible benefits arising from the inclusion of the particles
+time of flight information into the event reconstruction. The gain is related to the fact that
+collisions overlaps in space within the luminous region but can be seperated in time provided a resolution of the
+order of $10 ps$ (Figure~\ref{hllhc_beamspot}.
+From the knowledge of the production time at the interaction point that of the energy deposits from neutral
+particles in the calorimeters these are assigned to the correct collision exploiting the time information.
+The improvements is thus bounded to
+to measurements: the reconstruction of the time of flight of charged particles to reconstruct the time
+of the interaction vertex and the time of energy deposits in the calorimeters. For this reason a new detector
+has been propose to measure the time of flight of charged particles while the upgrade of the ECAL barrel and
+the design of the new endcap calorimeter are being optimized to provide a time measurement with a precision
+of $30$ ps for electrons and photons with an energy greater than $20$ GeV.
+
+Description of the detector technologies and measurements of their time performance are reported in Sections ???,
+while examples of performance improvement obtain with simulation studies are described in Section ??.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/HLLHC_beamspot_T.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/HLLHC_beamspot_Z.pdf} \\
+  \includegraphics[width = .7\textwidth]{figures/upgrade/HLLHC_beamspot_TZ.pdf}
+  \caption{Collision vertex density in the HL-LHC luminous region for one of the possible beam optics configuration.
+    The vertex time distribution is shown in the top left plot, the time of the vertex is measured with respect
+    the nominal buch crossing time provided by the LHC clock. The spatial distribution along the beam axis is shown in
+    the top right figure while the two dimensional distribution is shown in the bottom plot.
+    The distribution are rappresentative of peak instantaneous luminosity of $5\times10^{34} cm^{-2}s^{-1}$ impling
+    an average number of collision per bunch crossing of 140. The ultimate HL-LHC performance will reach an average of 200
+    concurrent collisions, which will translate in a peak line density of $1.9$mm$^{-1}$ challenging the ability
+    of the tracker to correctly assign charged particles to the correct vertex.}
+  \label{fig:hllhc_beamspot}
+\end{figure}
+
+
+\section{Detector R\&D for precise time measurement in CMS}
+Sub nanosecond precision has already been achived in high energy physics experiments and at LHC.
+The current best performances are from the ALICE Time Of Flight system~\cite{alice_tof}, the LHCb TORCH
+detector~\cite{lhcb_torch} and the CMS ECAL as described in the following section. The ALICE TOF is
+based on the Multi-gap Resistive Plate Chambers cabable of a resolution of $80$ ps. The LHCb TORCH
+can reach a precision of $50$ ps using Micro Channel Plate (MCP) photo-detectors. Both system are
+designed for low energy particle discrimination at low luminosity collider experiments, thus both tecnology
+although already operational at LHC cannot survive the higher irradiation level of CMS during HL-LHC.
+The CMS ECAL on the other end is currently limited by clock distribution as explained in Section~\ref{sec:ecal_time_run1}
+but is capable of an intrinsic time performance of better than $30$ ps (see~\ref{sec:ecal_time_run1}.
+
+During beam test conducted during 2015 the time performance of silicon sensors suitable to be installed
+in the future CMS endcap calorimeter has been measured~\cite{hgcal_tb_time}.
 
 \section{The ECAL barrel upgrade}
 The primary technical motivation for the ECAL barrel (EB) upgrade is the trigger requirement for
@@ -79,6 +141,7 @@ is limited by overall CMS constrain on data transfer bandwidth and power consump
 % APD system and at a second stage verify the performance with the sampling frequency of 160MHz.
 
 \subsection{The current ECAL timing performances}
+\label{sec:ecal_time_run1}
 The time of an electromagnetic shower in the ECAL is defined as the time at which the signal generated
 in the APDs reachs its maximum amplitude. The method to extract this information for the digitized signal
 shape is described in \cite{ecal_time_reco}. The time of the maximum $T_{max}$ is estimated with each
@@ -266,6 +329,7 @@ to the MCP one.
 \end{figure}
 
 \subsubsection{Beam test results}
+\label{sec:tb_2015_results}
 The resolution of the \PbWO crystals plus APDs system is extracted from 
 the distribution of the time difference between the time measured by the MCP ($t_{MCP}$) and the crystal ($t_{APD}$)
 hit by the electron.
