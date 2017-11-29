@@ -122,7 +122,7 @@ the CERN SPS North area at the H2 and H4 beam lines (more details are given in S
 a data acquisition system (DAQ), reconstruction and analysis software developed specifically for the needs of
 these tests. The reconstruction software is optimized for signals digitized at high frequency (5 GHz),
 different algorithms are implemented to extract the amplitude and time information from the peculiar signal shapes of
-each of the tested detectors.
+each of the tested detectors (see Section~\ref{sec:tb_2015}).
 
 During beam test conducted during 2015 the time performance of silicon sensors suitable to be installed
 in the future CMS endcap calorimeter has been measured~\cite{hgcal_tb_time}. Several sensors of different
@@ -131,8 +131,8 @@ The results (Figure~\ref{fig:hgcal_time_res}) shows an excellent time resolution
 energy of 50 GeV. The resolution is found to be better than 20 ps for signals with a $S/\sigma_n > 20$,  where
 $S$ is the signal amplitude and $\sigma_n$ is the noise RMS. This figure in the final HGCAL will be achived for
 energy depositions equivalent to 10 MIP. The HGCAL time measurement will also profit from the longitudinal segmentation that will
-allow to combine more than one time measurement. Simulation studies shows that a resolution better than 20 ps is
-achived for electromagnetic showers with energies above 20 GeV.
+allow to combine more than one time measurement. Simulation studies shows that a resolution at the level of 20 ps is
+achived for electromagnetic showers with energies above 10 GeV and for hadrons above 20 GeV.
 
 \begin{figure}[h!]
   \centering
@@ -141,7 +141,7 @@ achived for electromagnetic showers with energies above 20 GeV.
     133-μm (bottom), 211-μm (middle), and 285-μm (top) thick,
     as a function of three different signal ranges as indicated on the upper left corner of each plot.
     The solid lines represent Gaussian fits to the data points.
-    The sensors were placed behind a $4X_9$ lead absorber and the electron beam energy was 50 GeV.~\cite{hgcal_tb_time}}
+    The sensors were placed behind a $4X_9$ lead absorber and the electron beam energy was 50 GeV.~\cite{hgcal_time_tb}}
   \label{fig:hgcal_time_res}
 \end{figure}
   
@@ -150,14 +150,44 @@ given a clock distribution precision better than 10 ps, a time resolution of 30 
 of at least 25 GeV at the beginning of HL-LHC.
 
 These results show the case for the installation of a dedicated detector for the time measurement of charged particles:
-none of the existing or foreseen detectors is cabable of provide timing information for MIP particles.
-Furthermore as discussed in Section ?? the MIP timing detector acceptance should cover both the barrel and endcaps
-regions of CMS. Given the different irradiation levels and installation schedule constrains, two different
-technoloegies will be adopted for the barrel and endcap timing detectors. In the endcaps two planes of
+none of the existing or foreseen detectors is cabable of provide timing information for MIP particles with an
+acceptance covering up to $|\eta|\sim 3$ and $p_T > 0.7$ GeV (barrel) or $p > 0.7$ GeV (endcaps).
+
+Given the different irradiation levels and installation schedule constrains, two different
+technoloegies will be adopted for the barrel and endcap timing detectors. In the endcaps (ETL) two planes of
 Low-Gain Avalanche Detectors (LGAD) silicon sensors have been proposed since this is the only technology
-to survive a dose of $1.7\times 10^{15} n_{eq}/cm^2$ 
-(corresponding to the irradiation level reached after 4000 \fbinv)
-while still providing a 50 ps single sensor time resolution.
+to survive a dose of $2\times 10^{15} n_{eq}/cm^2$ 
+(corresponding to the irradiation level reached after 4000 \fbinv at $|\eta|=3.0$)
+while still providing a 50 ps single sensor time resolution~\cite{lgad1, lgad2}. The detector will have
+a pseudorapidity acceptance from about $|\eta| = 1.6$ to $|\eta| = 2.9$.
+
+In the barrel region the timing detector (BTL) proposed location is between the silicon tracker and the ECAL, inside the
+tracker support structure. This location poses severe constrains on the developent and construction of the
+timing detector since it will be mounted in the support structure before the tracker sensors. For this reason a
+different technology has been chosen for the barrel sensors. LYSO crystals with Ce doping
+with a surface of $12\times 12$ and a variable tickness between 3 and 4 mm coupled to Silicon photon multipliers (SiPM)
+will form the basic cell of the barrel timing detector. This technology has already been extensively tested
+for medical applications (PET), the challenging environment of HL-LHC anyway will require a different optimization
+of the geometry. The radiation dose accumulated during HL-LHC will be a order of magnitude lower in the barrel than
+in the endcaps making the choice of LYSO crystals and SiPM viable for the BTL but not for the ETL.
+Beam test results shows (Figure~\ref{fig:btl_time_res}) that a time resolution of 30 ps is achived with
+a sensor that matches the power consumption and radiation hardness constrains of HL-LHC operation. The test beam
+were conducted using the same setup described for the ECAL tests, in particular the same SiPM readout chip was used.
+This chip does not provide sufficient radiation tollerance to be operated at HL-LHC. The final readout chip
+will be adapted from an existing chip for medical applications.
+The time measurement in the barrel sensors is found to depend on the MIP impact position, as shown in Figure~\ref{fig:btl_time_res}
+the effect can be corrected to reach a 30 ps time resolution with a spatial precition of 1 mm on the impact point.
+Such precition is achived only for tracks with $p_T > 2$ GeV thus altervative geometries are being investigated.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/c_posProfile.png}
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/c_CTR_posCorr.png}
+  \caption{Difference between the time measurements in LYSO+SiPM cell and in a reference MCP
+    as a function of the MIP impact point on the crystal surface (left).
+    Time resolution before and after the application of a position dependent correction (right).}
+  \label{fig:btl_time_res}
+\end{figure}
 
 \section{The ECAL barrel upgrade}
 The primary technical motivation for the ECAL barrel (EB) upgrade is the trigger requirement for
@@ -173,10 +203,9 @@ The foreseen upgraded FE electronics will also provide a shape discrimination be
 signal compatible with an electromagnetic shower and those originated from hadronic interaction (``spikes'') in
 the photodetector (APD) which have a narrower shape. The increased Level-1 granularity of a single crystals
 will also improve the rejection of such events at trigger level.
-The shape discrimination is made possible by a shorter signal shaping performed by the amplification chain
-coupled with a signal sampling frequency of 160 MHz (four times the current). The increased sampling
-frequency is also the key upgrade to provide a time measurement at the $30 ps$ level (Section ??) and
-is limited by overall CMS constrain on data transfer bandwidth and power consumption.
+The shape discrimination is made possible by a shorter signal shaping performed by the new trans-impedence amplifier
+(TIA) and by an ADC with sampling frequency of 160 MHz (four times the current one). The TIA and the increased sampling
+frequency is also the key upgrade to provide a time measurement at the $30 ps$ level.
 
 % \subsection{The ECAL timing performance}
 % To assess the timing capabilities of the ECAL a series of test beams have been carried out during the R\&D phase.
@@ -186,7 +215,7 @@ is limited by overall CMS constrain on data transfer bandwidth and power consump
 \subsection{The current ECAL timing performances}
 \label{sec:ecal_time_run1}
 The time of an electromagnetic shower in the ECAL is defined as the time at which the signal generated
-in the APDs reachs its maximum amplitude. The method to extract this information for the digitized signal
+in the APDs reachs its maximum amplitude. The method to extract this information from the digitized signal
 shape is described in \cite{ecal_time_reco}. The time of the maximum $T_{max}$ is estimated with each
 available pair of samples (up to nine) as:
 \[
@@ -264,17 +293,15 @@ and while the time resolution constant term is found to be below $40 ps$ even fo
 instabilities of the clock syncronization at the level of $100 ps$ were observed over the course of few days. The
 observed effect is in agreement with the constant term measured using \Zee events that are collected over a long period of time.
 
-\subsection{Test beam results with HL-LHC electronics}
+\subsubsection{Beam test setup}
+\label{sec:tb_2015}
 During 2015 and 2016 a series of tests with electron beam were performed to evaluate the time performance
-of the \PbWO crystal plus APDs photodetectors system (2015 beam test, Section~\ref{sec:tb_2015})
-and that of the proposed HL-LHC ECAL electronics (2016 beam test, ??).
-The tests differ from the ones conducted before the CMS installation since the time of the electron measured by the
+of the \PbWO crystal plus APDs photodetectors system and that of the proposed HL-LHC ECAL electronics.
+The tests differ from the one conducted before the CMS installation since the time of the electron measured by the
 crystal is compared to an external reference provided by a multi-channel-plate based detector (MCP) instead of to an adiacent
 crystal hit by the some shower.
 
-\subsubsection{Test beam setup}
-\label{sec:tb_2015}
-The first test was conducted in 2015 at the CERN SPS north area with a tunable beam of electrons with energies between 20 and 250 GeV.
+The tests were conducted at the CERN SPS north area with a tunable beam of electrons with energies between 20 and 250 GeV.
 The electron beam is a secondary beam created from the primary proton beam, extracted from the SPS, using a conveter.
 The primary beam hits a metallic target producing a variety of particles that are selected through a system of magnets, collimators
 and additional targets. The beam line used for the tests can reach a electron purity of $99\%$ and can also be
@@ -287,15 +314,18 @@ range.
 
 The experimental setup included a $5\times 5$ \PbWO crystal matrix identical to those installed in the ECAL barrel,
 with two APDs glued at the back (A schematic view of the setup is shown in Figure~\ref{fig:tb_setup}.
-The APDs signals were amplified with the same $CR-RC$ circuit installed in the current ECAL
+In a first beam test, the APDs signals were amplified with the same $CR-RC$ circuit installed in the current ECAL
 supermodules, the shaping time for some of the channels was set to 21.5 ns (half of the current one) to match the
 one proposed for the HL-LHC upgrade.
 The amplified signal was digitized with a 5 GSample/s commercial digitizer (CAEN V1742 VME board)
-instead of the final design
-DAC with 160 MHz sampling frequency.
+instead of the final design DAC with 160 MHz sampling frequency.
 In order to estimate the impact of fluctuation in the light production depth on the time resolution,
-two of Silicon photon multipliers (SiPM) arrays were glued to the front face of the central crystal.
+two of SiPM arrays were glued to the front face of the central crystal.
 The CAEN digitizer was used to readout also the signals two of SiPM.
+In a second test a prototype of the HL-LHC readout electronic was installed in place of the
+CR-RC amplification. The signal from the TIA amplifier was digitized with the same VME board and the
+160 MHz sampling ADC simulated at the analysis level by sampling the signal shape acquired at 5 GHz by the CAEN digitizer.
+This second setup included also two identical MCP to directly estimate their time resolution.
 
 The crystal matrix and readout electronics was kept at $18^{\circ}$ inside box to avoid
 light indeced noise in the photodetectors. The reference MCP detector was placed in front of the box. 
@@ -303,8 +333,8 @@ Incoming charged particles produce cherenkov radiation in a quartz window couple
 the photoelectrons produced by the cherenkov light hitting
 the photodathode are amplified by two layers of MCP and collected to the anode. 
 The MCP device used in the test was caracterized 
-in a different test [??] and its time resolution measured to be 25 ps constant for electron energies
-above 20 GeV. The signal from the MCP was also digitized with the same CAEN board.
+in a different tests [??] and its time resolution measured to be $25\pm5$ ps.
+The signal from the MCP was also digitized with the same CAEN board.
 
 \begin{figure}[h!]
   \centering
@@ -392,11 +422,10 @@ the MCP time resolution and $N$, $C$ are the noise and constant term of the ECAL
 As expected, for the same beam energy, the shorter 21.5 ns shaping has a larger amplitude than the 43 ns shaping one,
 however in the fit data from both configurations are used.
 
-The measured constant term is $27 \pm 1 ps$ close to the $20 \pm 4 ps$ value measured at the pre-installation test beam comparing the
-time of two crystals inside the some electromagnetic shower.
-The single channel noise at the test beam setup was found to be eight time as much the one measured in the current ECAL barrel
-($A/\sigma_{noise} \sim 800$ for a 50 GeV electron or photon in ECAL), proving that a precision better than 50 ps could
-be achieved for modetare energies of at least 25 GeV.
+The measured constant term is $27 \pm 5 ps$ compatible with the $20 \pm 4 ps$ value measured at the
+pre-installation test beam comparing the time of two crystals inside the some electromagnetic shower.
+The uncertainty on the constant term measured in the 2015 beam test takes into account the 5 ps uncertainty
+on the MCP resolution.
 
 \begin{figure}[h!]
   \centering
@@ -407,6 +436,23 @@ be achieved for modetare energies of at least 25 GeV.
     In the left plot the lines are drawn to guide the eye while in the left plot the curve is the result of the
     fit described in the text.}
   \label{fig:results_treso}
+\end{figure}
+
+The test with the HL-LHC electronics prototype again proves a time resolution with a constant term
+better than $20$ ps ($17.9\pm 0.1$ ps, Figure~\ref{fig:tia_tres}) with also an improved noise term, as expected
+from the TIA.
+As explained above the TIA output signal was digitized at 5 GHz and the lower sampling frequncy were emulated at the
+analysis level. In Figure~\ref{fig:tia_res} the different sampling frequency performance are comapred:
+the 160 MHz sampling is identical to the one obtained with 5 GHz while at 80 MHz the time resolution
+depends on the sampling phase as expected given the typical APD signal frequncy spectrum. 
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/upgrade/sampling_freq_res_comp.png}
+  \caption{Time resolution performance of HL-LHC ECAL readout electronics for different sampling frequency.
+    The baseline 160 MHz sampling frequency does not limit the time performance while the 80 MHz sampling
+    performance depends on the phase between the electronics clock and the APD signal.}
+  \label{fig:tia_tres}
 \end{figure}
 
 The impact of fluctuation in the light production depth on the time performance is estimated comparing the
@@ -430,7 +476,8 @@ The result and the fit are shown in Figure~\ref{fig:sipm_tres},
 the fitted time resolution constant term is 25 ps comparable to that of the APDs.
 The time resolution is worse when comparing the time measured by one of the SiPM arrays to the one recorded by the MCP,
 showing that fluctuation in the light emission depth impact the time resolution adding $\sim 80$ ps in quadrature regardless
-of the shower energy which is clearly not affecting the APD performance.
+of the shower energy. The effect is not seen in the APD performance, proving that the light collection from the rear crystal
+face gives the best timing performance.
 
 \begin{figure}[h!]
   \centering
@@ -442,21 +489,76 @@ of the shower energy which is clearly not affecting the APD performance.
   \label{fig:sipm_tres}
 \end{figure}
 
-In 2016 a similar test was conducted with a prototype of the HL-LHC readout electronic installed in place of the
-CR-RC amplification. The signal from the TIA amplifier was digitized with the same VME board used in 2015 and the
-160 MHz sampling ADC is simulated at the analysis level by sampling the signal shape acquired at 5 GHz by the CAEN digitizer.
-The beam test setup included also the same MCP and hodoscopes described~above. 
+\section{Impact of a time-aware reconstruction on physics analysis at HL-LHC}
+The inclusion of per-particle time measurement provide benefits for various physics analysis that are part of
+the HL-LHC physics scope.
 
-The event selection and time reconstruction is performed in the same way as for the 2015 beam test.
-The results are reported in Figure~\ref{fig:tia_tres}: the time performance achieved by emulating the
-160 MHz sampling is identical to the one obtained with 5 GHz sampling while at 80 MHz sampling the time resolution
-depends on the sampling phase. ??
+The time information, as explained at the beginning of the chapter, will improve the vertex reconstruction as
+well as the particle to vertex association, in particular the MIP time detector (MTD) will reduce the
+number of tracks wrongly assigned to the primary vertex (PV) of each bunch-crossing.
+In the context of the CMS technical proposal for HL-LHC the impact of timing on the objects reconstruction and
+identification has been studied together with the resulting gain for analysis that are part of the physics scope
+of HL-LHC.
+Improvements are found in many areas:
+\begin{itemize}
+\item Pile-up jet suppresion: the number of pile-up jets is reduced by $20\%$ in the barrel and $40\%$ in the endcaps
+  while retaining full efficiency on signal jets like those produced in VBS events.
+\item Improved jet and $E_T^{miss}$ resolution: the rate of events with $E_T^{miss}>130$ GeV is reduced by
+  $40\%$ providing less background for SUSY and Dark matter searches.
+\item Thanks to a better primary and secondary vertex reconstruction standard b-tagging algorithms reach
+  a performance comparable to that of zero pile-up. The b-tagging improved performance translates into
+  a direct gain for the measurement of the Higgs boson self coupling since the most sensitive channels
+  are $HH\to b\bar{b}b\bar{b}$ and $HH \to b\bar{b}\gamma\gamma$. 
+\item Lepton identification through a better resolution on the charged isolation (Section~\ref{sec:muon_iso}.
+\item Reconstruction of the di-photon interaction vertex in $H\to\gamma\gamma$ events thanks to both the photon time
+  provided by the ECAL and the vertex time from charged particles detected in the MTD. Search for long lived particles
+  decaying in a photon and undetected particle will also profit from the precise idetification of the primary and
+  secondary vertex position. 
+\end{itemize}
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width = 0.7\textwidth]{figures/upgrade/sampling_freq_res_comp.png}
-  \caption{Time resolution performance of HL-LHC ECAL readout electronics for different sampling frequency.
-    The baseline 160 MHz sampling frequency does not limit the time performance while the 80 MHz sampling
-    performance depends on the phase between the electronics clock and the APD signal.}
-  \label{fig:tia_tres}
-\end{figure}
+% Object level improvements translates into an increased sensitivity for the physics analysis, either in the form
+% of reduced background, extend acceptance or through the use of the pure time information to reconstruct quatities
+% otherwise inaccessible. A summary of the impact of timing is reported in Table~\ref{tab:timing_analysis_gain},
+% the table also underlines the contribution from the various detectors involved in the time measurement.
+
+In the following sections two of the reconstruction improvements outlined above are described in details:
+the muon charged isolation and di-photon vertexing.
+
+\subsection{Muon isolation with precision timing}
+As explained at the beginning of the chapter one of the goals of the HL-LHC is the precise measurment
+of the Higgs boson properties. The four muons final state is the purest decay mode from the experimental point of
+view as already demonstrated by the analysis that contributed to the first observation of the Higgs boson.
+Furthermore the direct decay of the Higgs boson in two muons is the only decay to second generation
+particles that can be observed at hadronic colliders.
+
+The MTD will provide an additional information for muon identification by filtering the charged particles
+recorded in each event based on their time compatibility with the muon production vertex.
+
+Simulation studies have been performed to assess the gain in muon identification and background rejection.
+Prompt muons from Z boson decays are taken as signal sample while non-prompt muons from hadronic $t\bar{t}$ decays are
+cosnidered rappresentative of non-isolated, background muons. Muons coming from the decay of the W boson  produced
+by the top quark decay are rejected when selecting the non-prompt sample.
+
+The simulation includes a modelling of the future CMS detector with the tracker acceptance extend to $|\eta|=4$ and
+a muon system coverage up to $|\eta|=2.8$. The simulated beamspot has a gaussian distribution both in space ($z$ direction)
+and in time with an RMS of $4.2$ cm along the $z$-axis and one of $150$ ps in time.
+A common method within CMS is to assign tracks to a primary vertex (PV) based on the distance between the two. A typical selection
+requires $\Delta z(track, PV) < 1$ mm, which means that for collision closer than 1 mm the reconstructed tracks are
+considered as if they were originating from the same interaction. This directly affect the discrimination power of
+isolation variables since tracks from an unrelated vertex are not excluded from the isolation cone of a particle coming
+from the real hard interaction.
+The vertex line density distribution for various scenario is shown in Figure~\ref{fig:vtx_density}, the ultimate
+performance of the HL-LHC is expected to give a maximum line density of $1.9$mm$^{-1}$. This scenario is the one simulated
+for this study.
+
+The time of the charged particles is computed by applying a smearing of 30 ps to the simulated production time, such time
+can be directly used to reconstruct the vertex time without correcting for different time of flights as one should do
+in the real detector. The standard CMS vertex reconstruction is extended to include the time information.
+
+
+
+
+
+
+
+  
