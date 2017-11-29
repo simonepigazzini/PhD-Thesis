@@ -2,6 +2,7 @@
 \providecommand{\threebythree}{\ensuremath{3\times 3\mathrm{~cm}^{2}}\xspace}
 \providecommand{\twobytwo}{\ensuremath{2\times 2\mathrm{~cm}^{2}}\xspace}
 \providecommand{\onebyone}{\ensuremath{1\times 1\mathrm{~cm}^{2}}\xspace}
+\providecommand{\refChIso}{\ensuremath{Ch_{iso}/p_T^{muon}}}
 
 \chapter{The HL-LHC upgrade of CMS}
 \label{chapter:cms_upgrade}
@@ -489,7 +490,7 @@ face gives the best timing performance.
   \label{fig:sipm_tres}
 \end{figure}
 
-\section{Impact of a time-aware reconstruction on physics analysis at HL-LHC}
+\section{Impact of timing on physics analysis at HL-LHC}
 The inclusion of per-particle time measurement provide benefits for various physics analysis that are part of
 the HL-LHC physics scope.
 
@@ -510,50 +511,199 @@ Improvements are found in many areas:
   a direct gain for the measurement of the Higgs boson self coupling since the most sensitive channels
   are $HH\to b\bar{b}b\bar{b}$ and $HH \to b\bar{b}\gamma\gamma$. 
 \item Lepton identification through a better resolution on the charged isolation (Section~\ref{sec:muon_iso}.
-\item Reconstruction of the di-photon interaction vertex in $H\to\gamma\gamma$ events thanks to both the photon time
+\item Reconstruction of the diphoton interaction vertex in $H\to\gamma\gamma$ events thanks to both the photon time
   provided by the ECAL and the vertex time from charged particles detected in the MTD. Search for long lived particles
   decaying in a photon and undetected particle will also profit from the precise idetification of the primary and
   secondary vertex position. 
 \end{itemize}
 
-% Object level improvements translates into an increased sensitivity for the physics analysis, either in the form
-% of reduced background, extend acceptance or through the use of the pure time information to reconstruct quatities
-% otherwise inaccessible. A summary of the impact of timing is reported in Table~\ref{tab:timing_analysis_gain},
-% the table also underlines the contribution from the various detectors involved in the time measurement.
-
 In the following sections two of the reconstruction improvements outlined above are described in details:
-the muon charged isolation and di-photon vertexing.
+the muon charged isolation and diphoton vertexing. The time-aware event reconstruction and the implementation
+of the simulation used are first introduced in the next section.
+
+\subsection{MTD simulation and time-aware event reconstruction}
+The simulation used to assess the performance gain brought to the CMS HL-LHC physics program
+includes a modelling of the future CMS detector with the tracker acceptance extend to $|\eta|=4$ and
+a muon system coverage up to $|\eta|=2.8$. 
+Although the MTD detector is simulated, the time of the charged particles
+is computed by applying a smearing of 30 ps to the simulation time recorded in the last tracker layer and by
+correcting for the time of flight known from the simulation. A time is associated to each track within the acceptance of the BTL
+and ETL, while for all other tracks the time is set to zero and an uncertainty of 150 ps is assigned to it (equal to time
+spread of the beamspot).
+The vertex reconstruction in the $tz$-plane, i.e. in time and position along the
+beam line, is done using a time-aware extension of the deterministic
+annealing technique adopted in vertex reconstruction by the CMS experiment~\cite{Chatrchyan:2014fea}.
+
+The method used to assign tracks to a primary vertex (PV) based on the distance between the two. This is a common
+method within CMS, a typical selection 
+requires $|\Delta z(track, PV)| < 1$ mm, which means that for collision closer than 1 mm the reconstructed tracks are
+considered as if they were originating from the same interaction. The time selection is introduced in a similar
+fashion by requiring $|\Delta t(track, PV)| < N\times\sigma_t$, where $\sigma_t = sqrt{\sigma_t^{track 2}+\sigma_t^{vertex 2}}$
+and $N=3$ is chosen for the current study.
+
+One of the benefits of the time-aware event reconstruction is to separate in time events not resolved by
+the tracker. Since the probability of vertex merging strongly depends on the density along the beam $z$-axis the
+results are presented as a function of the vertex line density.
+The vertex line density distributions for the current LHC beamspont and
+two possible HL-LHC scenarios are shown in Figure~\ref{fig:vtx_density}, the ultimate
+performance of the HL-LHC is expected to give a maximum line density of $1.9$mm$^{-1}$. This scenario is the one simulated
+for the studies presented in the following sections, the beamspot distribution
+has a gaussian shape both in $z$ and $t$ directions, with standard deviations of $4.2$ cm and $150$ ps.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/VertexSpot.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/VertexDensityPDF.pdf}
+  \caption{Spread of the vertices along the beam direction at LHC and HL-LHC with 140 and 200 pileup events. 
+    The solid (dashed) line refers to the start (end) of the LHC fill (left).
+    Probability density function of the vertex density along the beam axis:
+    the modes and the means of the three distributions are 0.3, 1.3, and 1.9~mm$^{-1}$ and 0.2, 0.9, and 1.4~mm$^{-1}$ (right).} 
+\label{fig:vtx_density}
 
 \subsection{Muon isolation with precision timing}
-As explained at the beginning of the chapter one of the goals of the HL-LHC is the precise measurment
+As explained at the beginning of the chapter one of the goals of the HL-LHC is the precise measurement
 of the Higgs boson properties. The four muons final state is the purest decay mode from the experimental point of
 view as already demonstrated by the analysis that contributed to the first observation of the Higgs boson.
 Furthermore the direct decay of the Higgs boson in two muons is the only decay to second generation
-particles that can be observed at hadronic colliders.
+leptons that can be observed at HL-LHC.
 
-The MTD will provide an additional information for muon identification by filtering the charged particles
-recorded in each event based on their time compatibility with the muon production vertex.
+The vertex mergin occuring with $\Delta z$-based association criterion described in the previous section
+directly affects the discrimination power of isolation variables since tracks from an unrelated vertex are
+not excluded from the isolation cone of a particle coming from the real hard interaction.
+This study focuses only on the charged component of the isolation since charged particles comprise
+the largest fraction of hadronic activity in $p-p$ collisions and therefore are the most important contrinution
+to isolation sums in the context of identifying isolated leptons.
 
-Simulation studies have been performed to assess the gain in muon identification and background rejection.
-Prompt muons from Z boson decays are taken as signal sample while non-prompt muons from hadronic $t\bar{t}$ decays are
-cosnidered rappresentative of non-isolated, background muons. Muons coming from the decay of the W boson  produced
-by the top quark decay are rejected when selecting the non-prompt sample.
+%Simulation studies have been performed to assess the gain in muon identification and background rejection.
+Signal muons are selected within a sample of prompt muons originated by a Z boson decay by geometrically matching the reconstructed
+muon to a true generetor-level muon
+Non-prompt muons from semileptonic decays of heavy flavour hadrons in $t\bar{t}$ events are
+considered rappresentative of non-isolated, background muons. Muons coming from the decay of the W boson produced
+by the top quark decay are rejected based on generetor-level information and only muons matching a generator-level
+hadronic jet are retained.
 
-The simulation includes a modelling of the future CMS detector with the tracker acceptance extend to $|\eta|=4$ and
-a muon system coverage up to $|\eta|=2.8$. The simulated beamspot has a gaussian distribution both in space ($z$ direction)
-and in time with an RMS of $4.2$ cm along the $z$-axis and one of $150$ ps in time.
-A common method within CMS is to assign tracks to a primary vertex (PV) based on the distance between the two. A typical selection
-requires $\Delta z(track, PV) < 1$ mm, which means that for collision closer than 1 mm the reconstructed tracks are
-considered as if they were originating from the same interaction. This directly affect the discrimination power of
-isolation variables since tracks from an unrelated vertex are not excluded from the isolation cone of a particle coming
-from the real hard interaction.
-The vertex line density distribution for various scenario is shown in Figure~\ref{fig:vtx_density}, the ultimate
-performance of the HL-LHC is expected to give a maximum line density of $1.9$mm$^{-1}$. This scenario is the one simulated
-for this study.
+The algorithm for the choice of the PV currently in use in CMS is inefficient at 200 pile-up, for this reason
+the PV is chosen as reconstructed vertex closer to the simulated position of the hard interaction, this procedure
+is done independently for the collection of vertices reconstructed with and without the time information.
+This choice provide a fair comparison by decoupling the track-vertex association from the correct choice of the PV.
 
-The time of the charged particles is computed by applying a smearing of 30 ps to the simulated production time, such time
-can be directly used to reconstruct the vertex time without correcting for different time of flights as one should do
-in the real detector. The standard CMS vertex reconstruction is extended to include the time information.
+Muons are selected with a set of criteria based on the current CMS muon reconstruction and identification, with
+selection optimized for the HL-LHC conditions. Both prompt and non-prompt muons are required to have $|\eta|<2.8$
+(muon system acceptance), $p_T > 20$ GeV and a point-of-closest-approach to the primary vertex that is within 1 mm in the
+$z$-direction. In the case of the time-aware reconstruction an additional $|\Delta t(muon, vertex)| < 3\times\sigma_t|$
+is imposed.
+
+The charged isolation ($Ch_{iso}$) is computed as the sum of the $p_T$ of all tracks within a cone of radius $R=0.3$ centered
+around the muon direction excluding the muon track itself. Only tracks with $p_T > 5$ GeV are considered in the sum.
+The isolation selection requirement is set on the relative charged isolation value $Ch_{iso}/p_T^{muon}$.
+
+The $\Delta z$ selection value is optimized by comparing the ROC curves for different selection values.
+The ROC (receiver operating characteristic) curve is obtained by plotting the efficiency for
+non-prompt muons ($\epsilon_{non-prompt}$) versus prompt muons ($\epsilon_{prompt}$) for a spectrum of possible
+\relChIso thresholds.
+The 1 mm and 2 mm values are found to provide the best performances, as shown in Figure~\ref{fig:muon_dz_comp}, both
+for barrel and endcap muons. The 1 mm selection is chosen as baseline for the study since it also provide the
+best performances for jets and $E_T^{miss}$ studies.
+
+%\begin{figure}[h!]
+
+The comparison between the timing and no-timing scenario is shown in Figures~\ref{fig:roc_iso_ratio} and highlight
+a clear benefit from the use of timing for working points with $\epsilon_{prompt}> 80\%$.
+The performance gain can be expressed either in terms of reduced non-prompt rate a constant prompt efficiency
+(bottom panels of Figures~\ref{fig:roc_iso_ratio}) or equivalently as prompt efficiency gain at constant non-prompt
+efficiency (right panels of Figures~\ref{fig:roc_iso_ratio}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 1.\textwidth]{figures/upgrade/roc_iso_and_ratios_BTL.pdf}
+  \includegraphics[width = 1.\textwidth]{figures/upgrade/roc_iso_and_ratios_ETL.pdf}
+  \caption{ROC curves calculated for a cut-off scan in relative charged isolation for muon candidates
+    in the BTL (left) and ETL (right) acceptance.}
+  \label{fig:roc_iso_ratio}
+\end{figure}
+
+The results as a function of the vertex line density are reported in Figure~\ref{fig:muon_iso_vs_density} and show,
+as expected, a higher impact of the MTD for the high density bins. The use of time in the \relChIso computation
+gives a $10\%$ increase in the $\epsilon_{prompt}$ with a marginal deterioration of the non-prompt rejection.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/upgrade/comparison_fixed_wp0p05.pdf}
+  \caption{The efficiency for prompt and non-prompt muons as a function of the event density
+    for a representative operating point selection value common to the MTD and no-MTD scenarios.}
+  \label{fig:muon_iso_vs_density}
+\end{figure}
+
+Different MTD time resolution performances are compared in Figure~\ref{fig:muon_iso_res_comp}: the gain on $\epsilon_{prompt}$
+is retained even for a degraded detector performance of 50-70 ps, comparable to that expected at the end of the HL-LHC era.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{figures/upgrade/comp_t_resolution_wp0p05.pdf}
+  \caption{Muon efficiency for relative charged isolation cut-off of 0.05 for different time resolution assumptions, as
+    a function of line density.}
+  \label{fig:muon_iso_res_comp}
+\end{figure}
+
+The improvement on the charged isolation efficiency are projected onto the $H \to 4\mu$ analysis in terms of
+an increased signal acceptance and thus increased of equivalent integrated luminosity.
+Both the BTL and ETL contribute significantly to the signal gain shown in Figure~\ref{fig:H_4mu_gain}. The
+projection are for a charged isolation working point that provides $\epsilon_{prompt}= 90\%$ in the no-MTD case.
+The gain introduced by the use of timing is equivalent to a $20\%$ increase in the signal over square-root of the background
+ratio.
+
+\begin{itemize}
+  \centering
+  \includegraphics[width = 1.\textwidth]{figures/upgrade/HZZRapidity_TimingStudy_200PU.pdf}
+  \caption{Projections for yield enhancement in $H\toZZ\to4\mu$ as a function of the Higgs boson rapidity.
+    The distributions are normalized to the no-timing case.}
+  \label{fig:H_4mu_gain}
+\end{figure}
+
+\subsection{Diphoton vertex identification}
+The clean diphoton signature is a prime tool to study the Higgs boson properties
+The sensitivity of the measurement depends on the invariant mass resolution of the diphoton pair
+and on the quality of the photon identification.
+The mass resolution, as explained in Chapter~\ref{chapter:diphotons} in the equivalent context of the search for resonances,
+is subordinated to the precision on two measurment: the energy resolution of the ECAL and the precision on the
+angle between the two photons related to the indentification of the diphoton vertex.
+If the longitudinal position of the diphoton vertex is known to better than about 10 mm, the opening angle
+resolution contributes negligibly to the diphoton mass resolution~\cite{Khachatryan:2014ira}.
+For the reasons detailed in the previous sections this channel will
+benefit from the improved acceptance for isolated objects and improved vertex identification
+capability provided by track and photon timing information.
+
+
+
+
+
+
+
+\section{Summary}
+\label{sec:upgrade_summary}
+
+The HL-LHC era will prived an unprecedented amount of data to the ATLAS and CMS experiments through a record
+instantaneous luminosity four times higher than the current LHC maximum. CMS is preparing an upgrade of its
+detector to match the radiation hardness requirements of HL-LHC and to fully exploit the larger dataset to
+perform precision measurement of rare standard model (SM) processes and extend the searches for new phenomena described by
+models beyond the SM.
+
+The inclusion of the time imformation in the event reconstruction has been proved, through simulation studies,
+to provide a unique way to mitigate the deterioration of performance due to pile-up and also open the possibility
+to measure observables otherwise inaccessible (mass of long lived SUSY particles). The same simulation
+studies underline the importance of an hermetic timing measurement charged particles.
+
+During the past two years a series of beam test have proven the timing capabilities of the existing
+ECAL barrel sensors and also those proposed for the implementation of the MTD (LYSO crystal with SiPM photodetectors for
+the barrel and silicon sensors for the endcaps). All the technologies are capable of a resolution better than
+30 ps when combined into the CMS reconstruction they provide time measurement for charged particles, high energy photons
+and neutral hadrons (endcaps only).
+
+Both the tests described above and examples of performance gain have been discussed in this chapter.
+
+
+
+
 
 
 
