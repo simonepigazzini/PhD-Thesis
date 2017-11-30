@@ -37,7 +37,7 @@ will worsen with the increased instantaneous luminosity. In order to take advant
 both experiments are planning to upgrade their detectors to improve the event reconstruction and also improve
 the radiation resistance of the detectors components.
 
-
+\clearpage
 \section{HL-LHC upgrade of CMS}
 \label{upgrade_cms}
 The CMS detector will be upgraded to match the operation environment of HL-LHC in order to fully exploit the
@@ -103,7 +103,7 @@ while examples of performance improvement obtain with simulation studies are des
   \label{fig:hllhc_beamspot}
 \end{figure}
 
-
+\clearpage
 \section{Detector R\&D for precise time measurement in CMS}
 \label{sec:tming_rnd}
 Sub nanosecond precision has already been achieved in high energy physics experiments and at LHC.
@@ -191,9 +191,10 @@ Such precision is achieved only for tracks with $p_T > 2$ GeV thus alternative g
   \label{fig:btl_time_res}
 \end{figure}
 
+\clearpage
 \section{The ECAL barrel upgrade}
 The primary technical motivation for the ECAL barrel (EB) upgrade is the trigger requirement for
-an increase of the trigger latency from about $4\mu$s in the current system [4] to a maximum of $12.5\mu$s,
+an increase of the trigger latency from about $4\mu$s in the current system to a maximum of $12.5\mu$s,
 and a Level-1 trigger rate of up to 750 kHz compared to the current 100 kHz.
 The EB electronics Front End (FE) card and all the read-out electronics will be replaced to
 meet these requirements. The current configuration provides trigger information to the Level-1
@@ -208,6 +209,7 @@ will also improve the rejection of such events at trigger level.
 The shape discrimination is made possible by a shorter signal shaping performed by the new trans-impedance amplifier
 (TIA) and by an ADC with sampling frequency of 160 MHz (four times the current one). The TIA and the increased sampling
 frequency is also the key upgrade to provide a time measurement at the $30 ps$ level.
+More information about the ECAL HL-LHC upgrade can be found in~\cite{calo_phase2_tdr}
 
 % \subsection{The ECAL timing performance}
 % To assess the timing capabilities of the ECAL a series of test beams have been carried out during the R\&D phase.
@@ -491,6 +493,7 @@ face gives the best timing performance.
   \label{fig:sipm_tres}
 \end{figure}
 
+\clearpage
 \section{Impact of timing on physics analysis at HL-LHC}
 \label{sec:timing_perormance}
 The inclusion of per-particle time measurement provide benefits for various physics analysis that are part of
@@ -504,12 +507,12 @@ identification has been studied together with the resulting gain for analysis th
 of HL-LHC.
 Improvements are found in many areas:
 \begin{itemize}
-\item Pile-up jet suppression: the number of pile-up jets is reduced by $20\%$ in the barrel and $40\%$ in the endcaps
+\item pileup jet suppression: the number of pileup jets is reduced by $20\%$ in the barrel and $40\%$ in the endcaps
   while retaining full efficiency on signal jets like those produced in VBS events.
 \item Improved jet and $E_T^{miss}$ resolution: the rate of events with $E_T^{miss}>130$ GeV is reduced by
   $40\%$ providing less background for SUSY and Dark matter searches.
 \item Thanks to a better primary and secondary vertex reconstruction standard b-tagging algorithms reach
-  a performance comparable to that of zero pile-up. The b-tagging improved performance translates into
+  a performance comparable to that of zero pileup. The b-tagging improved performance translates into
   a direct gain for the measurement of the Higgs boson self coupling since the most sensitive channels
   are $HH\to b\bar{b}b\bar{b}$ and $HH \to b\bar{b}\gamma\gamma$. 
 \item Lepton identification through a better resolution on the charged isolation (Section~\ref{sec:muon_iso}.
@@ -585,7 +588,7 @@ considered representative of non-isolated, background muons. Muons coming from t
 by the top quark decay are rejected based on generator-level information and only muons matching a generator-level
 hadronic jet are retained.
 
-The algorithm for the choice of the PV currently in use in CMS is inefficient at 200 pile-up, for this reason
+The algorithm for the choice of the PV currently in use in CMS is inefficient at 200 pileup, for this reason
 the PV is chosen as reconstructed vertex closer to the simulated position of the hard interaction, this procedure
 is done independently for the collection of vertices reconstructed with and without the time information.
 This choice provide a fair comparison by decoupling the track-vertex association from the correct choice of the PV.
@@ -618,10 +621,10 @@ efficiency (right panels of Figures~\ref{fig:roc_iso_ratio}).
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width = 1.\textwidth]{figures/upgrade/roc_iso_and_ratios_BTL.pdf}
-  \includegraphics[width = 1.\textwidth]{figures/upgrade/roc_iso_and_ratios_ETL.pdf}
+  \includegraphics[width = .7\textwidth]{figures/upgrade/roc_iso_and_ratios_BTL.pdf}
+  \includegraphics[width = .7\textwidth]{figures/upgrade/roc_iso_and_ratios_ETL.pdf}
   \caption{ROC curves calculated for a cut-off scan in relative charged isolation for muon candidates
-    in the BTL (left) and ETL (right) acceptance.}
+    in the BTL (top) and ETL (bottom) acceptance.}
   \label{fig:roc_iso_ratio}
 \end{figure}
 
@@ -657,17 +660,18 @@ ratio.
 
 \begin{figure}
   \centering
-  \includegraphics[width = 1.\textwidth]{figures/upgrade/HZZRapidity_TimingStudy_200PU.pdf}
+  \includegraphics[width = .7\textwidth]{figures/upgrade/HZZRapidity_TimingStudy_200PU.pdf}
   \caption{Projections for yield enhancement in $H\to ZZ\to 4\mu$ as a function of the Higgs boson rapidity.
     The distributions are normalized to the no-timing case.}
   \label{fig:H_4mu_gain}
 \end{figure}
 
+\clearpage
 \subsection{Diphoton vertex identification}
 The clean diphoton signature is a prime tool to study the Higgs boson properties
 The sensitivity of the measurement depends on the invariant mass resolution of the diphoton pair
 and on the quality of the photon identification.
-The mass resolution, as explained in Chapter~\ref{chapter:diphotons} in the equivalent context of the search for resonances,
+The mass resolution, as explained in Chapter~\ref{chapter:diphotons} in the equivalent context of the search for BSM resonances,
 is subordinated to the precision on two measurement: the energy resolution of the ECAL and the precision on the
 angle between the two photons related to the identification of the diphoton vertex.
 If the longitudinal position of the diphoton vertex is known to better than about 10 mm, the opening angle
@@ -676,12 +680,157 @@ For the reasons detailed in the previous sections this channel will
 benefit from the improved acceptance for isolated objects and improved vertex identification
 capability provided by track and photon timing information.
 
+In low pileup conditions such as those of the current LHC the diphoton vertex identification exploits
+the kinematic properties of the tracks associated with the reconstructed vertices and their correlation with the diphoton
+kinematics as explained in Section~\ref{sec:dipho_selection}.
+For the \Hgg decay vertex the identification efficiency if this method is less $80\%$ at 30 pileup events,
+as shwon in Figure~\ref{fig:hgg_vtx_run2}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{figures/upgrade/vtxeff.pdf}
+  \caption{Efficiency for correct vertex assignment as a function of the number of reconstructed
+    vertices in \Hgg decays at a centre-of-mass energy of 13 TeV and for vertex multiplicities
+    corresponding to LHC operations in 2016.}
+  \label{fig:hgg_vtx_run2}
+\end{figure}
+
+According to simulation, at 140 pileup events, the efficiency drops below $40%$ for \Hgg events
+produced through gluon fusion (the main contribution to the total Higgs boson cross-section),
+and it degrades to about $30%$ at 200 pileup events.
+This efficiency loss can be mitigated by means of a precise measurement of the time of both photons,
+which enables the vertex position along the beam direction to be determined via triangulation.
+% The procedure is qualitatively illustrated in Figure~\ref{fig:dipho_triang},
+The vertex position
+is located with a precision better than 1 cm only for events in which the opening angle between the two
+photons is such that the $\eta$ separation is more than 0.8. For events in which $|\Delta\eta|<0.8$ the position
+resolution achived through tringulation only is comparable to the beamspot size (Figure~\ref{fig:dipho_deta}.
+For this sample, photon timing alone does not provide sufficient information to locate the \Hgg
+decay vertex.
+The ability to correctly identify the vertex in events with a small pseudorapidity gap between
+the two photons is recovered by additionally requiring a triple coincidence between the photon
+time calculated at the location of each track-reconstructed vertex and the vertex time.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/vtxResolLargeDetaCaloOnly.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/vtxResolSmallDetaCaloOnly_CrossOnly.pdf}
+  \caption{Distribution of the distance between the vertex reconstructed with time aware
+    triangulation and the true vertex position along the beam direction, in \Hgg events.
+    Decay into photons with pseudorapidity gap of $|\Delta\eta| > 0.8$ and
+    $|\Delta\eta| < 0.8$ are shown in the left and right panel
+    respectively.}
+  \label{fig:dipho_deta}
+\end{figure}
+
+A quantitative measure of  the compatibility of the photon pair with
+the space-time position of each reconstructed vertex is obtained from
+a $\chi^2$ statistics defined as:
+% \[
+
+%   \]
+The simulation parameters differs slightly from the one described in the previous section:
+a 20 ps vertex time resolution is simulated by smearing the generator-level time instead of
+performing the full space-time vertex reconstruction described above. This is however
+comparable to the resolution achived with the full simulation of the track timing.
+The ECAL time resolution is assumed to be 30 ps for every photon regardless of their $p_T$. This
+is in agreement with the beam test results reported in Section~\ref{sec:tb_2015} given that only
+events in which the two photons have $p_T>30$ GeV are considered in the analysis.
+The beamspot configuration is also different with a spread in time of 160~ps (RMS) and 5~cm along the $z$-axis and
+a mean number of pileup events of 140 instead of 200.
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.48\linewidth]{figures/upgrade/chi2.pdf}
+\includegraphics[width=0.48\linewidth]{figures/upgrade/Rank.pdf}
+\caption{Distribution of the $\chi^2$ (left) ofthe true \Hgg (red) and pileup vertices (blue) for 30~ps
+  time resolution in the calorimeters, 20~ps resolution in vertex timing,
+  and a $|\Delta\eta|<0.8$ between the two photons. Fraction
+  of events in which the diphoton vertex has a rank equal or lower
+  than the rank in the horizontal axis, for 140 pileup events (right).} 
+\label{fig:chi2Hgg}
+\end{figure}
+
+The $\chi^2$ distributions for the true diphoton vertex, known from
+simulation, and for all the other vertices are shown in the left panel
+of Figure~\ref{fig:chi2Hgg} (left).  
+Only events with a $|\Delta\eta|<0.8$ gap between the two photons are considered for the plot.
+The overlap of the distributions at low $\chi^2$ indicates that there is a finite
+probability for a random pileup vertex to have a $\chi^2$ lower than
+the true diphoton vertex.
+However by ranking the vertices accordingly to their respective $chi^2$ 
+as in Figure~\ref{fig:chi2Hgg} (right) it becomes clear that, in the 95\% of the events,
+the real diphoton vertex lies among the first 10 for $|\Delta\eta|>0.8$ and
+in the first 20 for $|\Delta\eta|<0.8$. This effectively reduces the pileup to
+a level even lower than the current data-taking for which the the kinematic based vertex selection
+has an $80\%$ efficiency.
+
+% The gain in mass resolution has been projected onto  
+% the \Hgg fiducial cross section measurement at HL-LHC (Figure~\ref{hgg_projection}.
+% The projection neglects the increased acceptance provided by the use of timing
+% in the photon isolation which is expected to provide a similar performace gain as
+% for muons. The results of the current \Hgg analysis are projected for an
+% integrated luminosity of 3000\fbinv. 
+
+% is estimated in the context of projections of  the most recent Run 2
+% results~\cite{CMS:2017cwx}.  
+ 
+% The impact on the invariant mass resolution and on the
+% signal-to-background ratio is estimated for different CMS upgrade
+% scenarios.
+% At 140 pileup without timing information, the primary vertex selection
+% efficiency is reduced to 40\% (``S2+ no timing''). 
+% With precision timing available only for the photons from the
+% calorimeters, the vertex is correctly identified for a fraction of the
+% events via triangulation, corresponding to the sample
+% with $|\Delta\eta|>0.8$, and the total vertex selection efficiency is
+% estimated to be about 55\% (``S2+Calorimeter timing''). 
+% With precision timing available both for the photons in the
+% calorimeters as well as for the charged particles in the event,  a
+% fivefold reduction in the effective pileup is assumed for all of the
+% events, and the total primary vertex selection efficiency is increased
+% to 75\% (``S2+Calorimeter and MTD timing''), nearly fully recovering
+% the present Run 2 performance (``S2''). 
+
+% % In this case, four scenarios are compared.  In the first scenario
+% %``S2'', no degradation due to higher pileup is applied, and therefore
+% %the present Run 2 performance of $\sim 80$\% primary vertex selection
+% %efficiency is retained.  
+% %In the ``S2+ Pessimistic'' scenario, a degradation of performance is
+% %applied corresponding to 140~PU conditions, such that the primary
+% %vertex selection efficiency is reduced to 40\%.  
+% %There is also a 5\% reduction in efficiency affecting both the signal and
+% %irreducible background, in order to account for degraded photon
+% %identification performance in the high pileup conditions.  Additional
+% %variations of the S2+ scenario are also considered.  The ``S2+
+% %intermediate'' scenario corresponds to the case where precision timing
+% %is available for the photons from the calorimeters, and therefore a fivefold
+% %reduction in the effective pileup is assumed for 50\% of the events,
+% %corresponding to the sample with $|\Delta\eta|>0.8$, and the total
+% %vertex selection efficiency is therefore increased back to 55\%.  In
+% %the final ``S2+ Optimistic'' scenario, precision timing is assumed to
+% %be available both for the photons in the calorimeters, as well as for
+% %the charged particles in the event.  In this case a fivefold reduction in
+% %the effective pileup is assumed for all of the events, and the total
+% %primary vertex selection efficiency is increased to 75\%, nearly fully
+% %recovering the present Run 2 performance.  
+% The signal lineshapes %and projected uncertainty on the fiducial cross
+% %section measurement 
+% for the four scenarios are shown in Fig.~\ref{fig:hggprojection}.  The
+% improvement from precision timing with the full upgrade scope 
+% corresponds to around 15\% reduction in the statistical uncertainty of
+% the fiducial cross section measurement. 
+% Although there are still significant systematic uncertainties on this
+% measurement at 3000~fb$^{-1}$, the statistical-only uncertainty can
+% serve as a proxy for finely binned differential cross sections and/or
+% differential cross sections measured as a ratio to the fiducial cross
+% section, for which most systematic uncertainties will cancel.  
+% For such statistically limited measurements, the improvements from
+% precision timing correspond to an approximately 30\% increase in
+% equivalent integrated luminosity.
 
 
-
-
-
-
+\clearpage
 \section{Summary}
 \label{sec:upgrade_summary}
 
@@ -692,7 +841,7 @@ perform precision measurement of rare standard model (SM) processes and extend t
 models beyond the SM.
 
 The inclusion of the time information in the event reconstruction has been proved, through simulation studies,
-to provide a unique way to mitigate the deterioration of performance due to pile-up and also open the possibility
+to provide a unique way to mitigate the deterioration of performance due to pileup and also open the possibility
 to measure observable otherwise inaccessible (mass of long lived SUSY particles). The same simulation
 studies underline the importance of an hermetic timing measurement charged particles.
 
