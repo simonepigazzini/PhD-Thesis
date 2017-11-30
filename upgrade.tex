@@ -10,7 +10,7 @@
 In this chapter the upgrade of the LHC complex is briefly introduced in Section~\ref{upgrade_lhc}
 underlining the physics goal and the expected performance of the machine. The CMS experiment is already planning
 a series of upgrades, most of which will be installed during LS3 (Figure~\ref{fig:lhc_plan}).
-The overall upgrade project of CMS upgrade and its scope are reported in ??, with further details on the
+The overall upgrade project of the CMS detector is outplined in Section~\ref{Sec:upgrade_cms}, with further details on the
 foreseen inclusion of time information in the event reconstruction given throughout the rest of the chapter.
 
 \section{High Luminosity LHC}
@@ -84,8 +84,8 @@ has been propose to measure the time of flight of charged particles while the up
 the design of the new endcap calorimeter are being optimized to provide a time measurement with a precision
 of $30$ ps for electrons and photons with an energy greater than $20$ GeV.
 
-Description of the detector technologies and measurements of their time performance are reported in Sections ???,
-while examples of performance improvement obtain with simulation studies are described in Section ??.
+Description of the detector technologies and measurements of their time performance are reported in Sections~\ref{sec:tming_rnd},
+while examples of performance improvement obtain with simulation studies are described in Section~\ref{sec:timing_perormance}.
 
 \begin{figure}[h!]
   \centering
@@ -105,6 +105,7 @@ while examples of performance improvement obtain with simulation studies are des
 
 
 \section{Detector R\&D for precise time measurement in CMS}
+\label{sec:tming_rnd}
 Sub nanosecond precision has already been achieved in high energy physics experiments and at LHC.
 The current best performances are from the ALICE Time Of Flight system~\cite{alice_tof}, the LHCb TORCH
 detector~\cite{lhcb_torch} and the CMS ECAL as described in the following section. The ALICE TOF is
@@ -133,7 +134,7 @@ energy of 50 GeV. The resolution is found to be better than 20 ps for signals wi
 $S$ is the signal amplitude and $\sigma_n$ is the noise RMS. This figure in the final HGCAL will be achieved for
 energy depositions equivalent to 10 MIP. The HGCAL time measurement will also profit from the longitudinal segmentation that will
 allow to combine more than one time measurement. Simulation studies shows that a resolution at the level of 20 ps is
-achieved for electromagnetic showers with energies above 10 GeV and for hadrons above 20 GeV.
+achieved for electromagnetic showers with energies above 2 GeV and for hadrons above 20 GeV.
 
 \begin{figure}[h!]
   \centering
@@ -334,7 +335,7 @@ Incoming charged particles produce Cerenkov radiation in a quartz window coupled
 the photo-electrons produced by the Cerenkov light hitting
 the photo-cathode are amplified by two layers of MCP and collected to the anode. 
 The MCP device used in the test was characterized 
-in a different tests [??] and its time resolution measured to be $25\pm5$ ps.
+in a different tests~\cite{mcp1,mcp2} and its time resolution measured to be $25\pm5$ ps.
 The signal from the MCP was also digitized with the same CAEN board.
 
 \begin{figure}[h!]
@@ -491,6 +492,7 @@ face gives the best timing performance.
 \end{figure}
 
 \section{Impact of timing on physics analysis at HL-LHC}
+\label{sec:timing_perormance}
 The inclusion of per-particle time measurement provide benefits for various physics analysis that are part of
 the HL-LHC physics scope.
 
