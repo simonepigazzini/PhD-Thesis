@@ -1,4 +1,4 @@
-\chapter{The search for diphoton resonaces}
+\chapter{The search for diphoton resonances}
 \label{chapter:diphotons}
 
 In this chapter the search for resonant BSM production of photons pairs is presented.
@@ -7,29 +7,38 @@ the statistical analysis and finally the results.
 
 The analysis has been optimized for searches performed on data collected from proton-proton
 collisions at a center of mass energy of 13 TeV and the results are obtained from the analysis
-of \lumisix of p-p collisions colelcted by the CMS experiment during 2016. 
+of \lumisix of p-p collisions collected by the CMS experiment during 2016. 
 
 % The photon identification optimization has been performed with
 % data collected during 2015 corresponding to an integrated luminosity of \lumififBon.
 
 \section{Analysis approach}
 The analysis is optimized to select a pure sample of diphoton events to fit the resulting
-invariant mass spectrum  
+invariant mass spectrum with a model describing both the background and the hypothetical signal
+coming from BSM resonances. Given the pure signature of the diphoton event the main background
+is the standard model production (see Section~\ref{sec:sm_dipho_prod}) with a marginal contribution
+from events in which one or both photons are mis-identified hadronic jets. The purity of the sample
+is found to be more than $90\%$ but no attempt is made to separate the various background contribution
+and the overall background shape is model with a parametric function.
+
+Both the signal model shape and normalization from simulation are corrected for detector effects using
+data-driven techniques which involves \Zee events. The general assumption is that the CMS ECAL
+responses to electrons and photons are equivalent. 
 
 \section{Data samples}
 \label{sec:diphotons_data_samples}
 The search is perform in data collected by the CMS experiment during the year 2016. The total
 integrated luminosity is \lumisix. Data are reconstructed with a detector calibration optimized
-for the 2016 p-p collision datataking period using data collected in 2015 with the method described in
+for the 2016 p-p collision data-taking period using data collected in 2015 with the method described in
 Section~\ref{sec:calib_2015}. The calibration described in Section~\ref{sec:calib_2016}
 provides an improved ECAL energy scale stability which in turn leads through a better resolution
-to a higher sensitivity of the analysis to narrow resonances and also to an improved stabilty
+to a higher sensitivity of the analysis to narrow resonances and also to an improved stability
 of some the variables included in the photon identification. However the technique was developed
 well after the end of the data-taking and given the limited number of analysis that could potentially
 profit from the improved performance a reconstruction with the new calibration was delayed and will become
 available by the end of 2017. The response variations observed in 2016 and described in details in Section~\ref{sec:calib_2016}
 are corrected with another method described in Section~\ref{sec:dipho_energy},
-which does not correct for the PN diode blocks as the improved technique but only for global scale variations, separatelly
+which does not correct for the PN diode blocks as the improved technique but only for global scale variations, separately
 for the ECAL barrel and endcaps.
 
 The events were recorded with a trigger designed to select events containing a pair of
@@ -64,7 +73,7 @@ Such samples are generated with PYTHIA8 [???] in the mass range $500 < \mgg < 70
 masses below 4 TeV and 500 GeV above it. An additional set of samples without simulation of the detector
 response are used to model the signal spectrum and the acceptance of the kinematic selections.
 Three relative width hypothesis $\Gamma/\mgg$ are taken as benchmarks: $0.014\%$, $1.4\%$ and $5.6\%$ which,
-in the case of \RS gravitons, correspond to a $k/M_{planck}$ of $0.01$, $0.1$, $0.2$ respectively.
+in the case of \RS gravitons, correspond to a $k/M_{Pl}$ of $0.01$, $0.1$, $0.2$ respectively.
 The trigger reconstruction and selections are simulated in these samples and the double photon trigger
 used in the analysis is found to be fully efficient for signal events at all masses (Figure~\ref{fig:trig_eff_sig}).
 
@@ -87,15 +96,15 @@ jets over the whole $p_T$ spectrum.
 
 \subsection{Drell-Yan production of electron-positron pairs}
 Finally a set of Drell-Yan events ($Z \to e^{+}e^{-}$) is generated with aMC@NLO and is
-used to derive data to simulation scale factors for the selections efficiency. This sample is genereted
-as a pure, unphysical, set of Z boson decays, negletting the interference with the photon.
+used to derive data to simulation scale factors for the selections efficiency. This sample is generated
+as a pure, unphysical, set of Z boson decays, neglecting the interference with the photon.
 
 \clearpage
 \section{Events selection}
 \label{sec:dipho_selection}
 Two measurement are needed to build the invariant mass of the diphoton system: the energy of the
 photons and the position of the primary interaction. The former is performed with the ECAL as described in
-Section~\ref{sec:ecal_reco} while the latter is reconstructed with tracks produced in the hard scatering against which
+Section~\ref{sec:ecal_reco} while the latter is reconstructed with tracks produced in the hard scattering against which
 the diphoton system recoils. Additional information from the tracker and the HCAL are used to discriminate
 genuine photon candidates from QCD jets.
 In the following paragraphs the vertex and photon identification algorithms are presented.
@@ -147,7 +156,7 @@ background is considerably higher than in the other categories.
 \subsection{Photon identification}
 Energetic neutral pions found in QCD jets has a signature similar to that of a photon since they decay into two collimated
 photons. A dedicated set of selection is applied to each photon candidate in the analysis to select a pure
-sample of diphotons events. These criteria were optimized for photons with high transverse
+sample of diphoton events. These criteria were optimized for photons with high transverse
 momentum and based on the following variables:
 
 \begin{itemize}  
@@ -212,7 +221,7 @@ photons in the EB(EE).
 The \phoIso distribution is found to depend on the event pile-up and the $p_T$ of the
 photon candidate (Figure~\ref{fig:phoiso_qtiles}).
 These dependencies leads to a variation of the selection efficiency with time and also
-for different values of \mgg. In order to keep a flat effiency an effective correction is used, its expression is:
+for different values of \mgg. In order to keep a flat efficiency an effective correction is used, its expression is:
 \[
   \phoIso^{corr} = \phoIso - \kappa\cdot p_T - A \cdot \rho + \alpha
 \]
@@ -226,9 +235,9 @@ that the bulk of the corrected isolation distribution for signal photons peaks a
   \centering
   \includegraphics[width = .45\textwidth]{figures/diphotons/qtiles_phoIso03_outerEB.png}
   \includegraphics[width = .45\textwidth]{figures/diphotons/qtiles_phoIso03_outerEB.png}
-  \caption{\phoIso quintiles distribution as a function of the pile-up energy density for canditates in th EB  (left) and
+  \caption{\phoIso quantile distribution as a function of the pile-up energy density for candidates in the EB  (left) and
     EE (right). The lines are fit to the points and are used to derive the correction described in the text.
-  The slope at the 0.9 quitile is steeper than the one of the median, thus the need of the scale parameter $\alpha$}
+  The slope at the 0.9 quantile is steeper than the one of the median, thus the need of the scale parameter $\alpha$}
   \label{fig:phoiso_qtiles}
 \end{figure}
 
@@ -255,6 +264,9 @@ to fully correct the $\rho$ and $\pt$ dependency of \phoIso.
     }
 \end{table}
 
+% The reason behind the pile-up dependency is quite clear: neutral particles from pile-up cannot be filtered out
+% by a particle vertex maching since no tracking infromation is available for neutral. A variation in the pile-up thus
+% leads to a different average contribution of pile-up energy to the isolation cone around a candidate photon.
 
 \subsection{Selection efficiency measurement}
 \label{sec:dipho_eff}
@@ -263,17 +275,17 @@ using the \Zee control sample. The measurement of the selection efficiency in da
 compared to the one measured in the simulation and in case of discrepancy the signal normalization
 derived from the simulation is corrected for the measured scale factor.
 
-The efficiency is measured with a tag-and-probe technique exploting the well known Z decay to electrons.
+The efficiency is measured with a tag-and-probe technique exploiting the well known Z decay to electrons.
 For this study the response of the ECAL and HCAL is assumed to be identical for electrons and photons.
-The tag-and-probe method is used both for the data and simulation mesurement, the \Zee control sample
+The tag-and-probe method is used both for the data and simulation measurement, the \Zee control sample
 in data is selected using events recorded with a single electron trigger (as described in Section~\ref{sec:diphotons_data_samples}).
 Dielectron candidates
 are further filtered with an invariant mass selection ($70 < \mee < 110$ GeV) centered around the Z mass peak,
 the invariant mass window is applied also to the simulated events.
 
 The method then requires one of the two electrons (the ``tag'') coming from the Z boson to pass a very tight selection
-(this tight working point is developped by a dedicated group within CMS and provide high purity electrons
-with an effiency of $70\%$).
+(this tight working point is developed by a dedicated group within CMS and provide high purity electrons
+with an efficiency of $70\%$).
 The second electron is required to pass a loose identification and is assumed to be unbiased
 with respect the variables being studied (the ``probe''). The photon selection efficiency is studied using
 this unbiased sample inverting the electron veto request.
@@ -297,7 +309,7 @@ is applied to the predicted signal yield.
   \centering
   \includegraphics[width = .45\textwidth]{figures/diphotons/sf_vs_pt_EB.pdf}
   \includegraphics[width = .45\textwidth]{figures/diphotons/sf_vs_pt_EE.pdf}
-  \caption{Efficency measurement with \Zee events for electrons in the EB (left) and in the EE (right).
+  \caption{Efficiency measurement with \Zee events for electrons in the EB (left) and in the EE (right).
     The error bars on the data points
     account for the uncertainty originated from the choice of the fit model as described in the text.
     The bottom panels show the ratio between the efficiencies measured in data and simulation, the scale factor is
@@ -314,13 +326,13 @@ is applied to the predicted signal yield.
 \section{Photon energy scale and resolution corrections}
 \label{sec:dipho_energy}
 The detector response is simulated with fixed pile-up distribution, detector noise and transparency loss.
-The pile-up distribution is reweighted to match the one in data as explained in Sec~\ref{sec:diphotons_data_samples}.
-The detector noise and crystal trnasparency instead varies over the datataking period and so a discrepancy
+The pile-up distribution is re-weighted to match the one in data as explained in Sec~\ref{sec:diphotons_data_samples}.
+The detector noise and crystal transparency instead varies over the data-taking period and so a discrepancy
 in the energy response of the ECAL may arise between data and simulation since in the latter no time evolution
 of the detector conditions is simulated. The effect of this discrepancy translate in shift of the energy
 scale in data with respect to the MC simulation (as described in Section~\ref{calib_2016}),
 furthermore any residual mis-calibration of the detector
-is not simulated and thus the energy resolution in data is worse than in the MC simuation.
+is not simulated and thus the energy resolution in data is worse than in the MC simulation.
 These two effects are corrected on one hand by
 scaling the photon energy in data events
 to correct the time dependent energy scale variations (see Section~\ref{sec:calib_2016})
@@ -328,11 +340,11 @@ and match the energy scale of the simulation and,
 on the other hand, by smearing the energy in simulated events to match the resolution observed in data.
 
 The time-dependent scale corrections and the smearing are derived with the \Zee control sample.
-Again since the energy for both photons and electrons is primarly reconstructed from the ECAL, electrons
+Again since the energy for both photons and electrons is primarily reconstructed from the ECAL, electrons
 are used as a proxy of photons. The reader may notice that the energy reconstruction formula outlined in
 Equation~\ref{eq:sc_energy} differs for electrons and photons in the supercluster energy correction term ($F_{e,\gamma}$).
 Electrons used to derive the corrections described in this section are reconstructed the electron $F_e$ correction,
-while both electrons used in the final data to simulation comaprison and photons selected for the analysis
+while both electrons used in the final data to simulation comparison and photons selected for the analysis
 are reconstructed with the $F_{\gamma}$ correction factor.
 
 The corrections are derived in two steps: in the first, the energy scale is corrected by
@@ -362,12 +374,12 @@ Gaussian distribution, centered at $1 + \Delta P$ and with resolution $\Delta C$
 The resolution $\Delta C$ denotes the additional constant term of the energy resolution which
 is added to the MC prediction.
 
-The additional constant term needed to match the energy reasolution measured with data varies as a function
+The additional constant term needed to match the energy resolution measured with data varies as a function
 of \scEta, as the scale correction, but it also different between electrons that showers in the tracker volume
 and those that don't.
 The \rnine variable is used to discriminate between showering and non-showering electrons: this variables is used
-instead of others since can also be applied to dfiscriminate between converted and un-converted photons and
-so is suitable to mantain the analogy between the analysis object (photons) and the control sample ones (electrons).
+instead of others since can also be applied to discriminate between converted and un-converted photons and
+so is suitable to maintain the analogy between the analysis object (photons) and the control sample ones (electrons).
 Thus maximum likelihood fit is performed in eight categories: four \scEta regions times two \rnine categories.
 
 The comparison between the predicted and observed dielectron invariant mass spectrum around the Z boson peak,
@@ -383,7 +395,7 @@ is reported if Figure~\ref{z_peaks}.
     The left figure refers to events where both electrons are detected in the ECAL barrel while the right one
     to events with one of the two electrons detected in the EB and the other in the EE.
     The simulation distribution is scaled to match the integrated luminosity of the data.
-    The descrepancy in the right tail of both plots comes from the fact that the simulation do not include
+    The discrepancy in the right tail of both plots comes from the fact that the simulation do not include
   the non resonant Drell-Yan dielectron production and its interference with the Z boson.}
   \label{z_peaks}
 \end{figure}  
@@ -450,19 +462,19 @@ is defined as:
 \end{equation}
 
 In this formula, $S$ and $B$ denote the signal and standard model background shape respectively. Both
-models are $p.d.f$ that depends on \mgg and on nuissance parameters ($\theta$) that rappresent the systematic uncertainties.
+models are $p.d.f$ that depends on \mgg and on nuisance parameters ($\theta$) that represent the systematic uncertainties.
 
 The selected events are split in two categories as described in Sec.~\ref{subsec:event_cats}.
-Thus two different likelihood are built: each categories has different nuissance parameters, signal and background shapes,
-while the signal strengh $\mu $ is a common parameter.
+Thus two different likelihood are built: each categories has different nuisance parameters, signal and background shapes,
+while the signal strength $\mu $ is a common parameter.
 A simultaneous fit to the data in the two category is performed.
 
 \clearpage
 
 \subsection{Background parametrization}
 \label{sec:background}
-The background parametrization is extracted from a fit to the data performed separatelly for the two analysis
-categories. The fit is performed assuming the absence of any signal, so the signal strengh $\mu$ is set
+The background parametrization is extracted from a fit to the data performed separately for the two analysis
+categories. The fit is performed assuming the absence of any signal, so the signal strength $\mu$ is set
 to zero in the likelihood~\ref{eq:likelihood}.
 The choice of a data-driven techniques to define the background shape eliminates the need of high order
 QCD calculation for simulated samples and also a precise knowledge of the ratio between the different
@@ -470,7 +482,7 @@ components of the background.
 
 A parametric form is chosen out of an arbitrary set of possible function.
 To ensure that the particular choice of the functional form does not introduce any biases in the
-background shape prediction, the accurancy of the chosen function is evaluated with the following
+background shape prediction, the accuracy of the chosen function is evaluated with the following
 procedure:
 
 \begin{itemize}
@@ -496,9 +508,9 @@ The chosen background parametrization has the form:
 \end{equation}
 \label{eq:bkg_dijet}
 This parametrization gives the least bias among the whole invariant mass spectrum.
-The $a$ and $b$ coefficients maximized by a likelihoodfit of \mgg in data, for each event category and each dataset separately. The coefficients entered the hypotheses tests as unconstrained nuisance parameters and are of statistical
+The $a$ and $b$ coefficients maximized by a likelihood fit of \mgg in data, for each event category and each dataset separately. The coefficients entered the hypotheses tests as unconstrained nuisance parameters and are of statistical
 nature.
-The background only fit to the data in the two event categories is shwon in Figure~\ref{fig:bkg_fits}.
+The background only fit to the data in the two event categories is shown in Figure~\ref{fig:bkg_fits}.
 
 \begin{figure}
   \centering
@@ -510,7 +522,7 @@ The background only fit to the data in the two event categories is shwon in Figu
   \label{fig:bkg_fits}
 \end{figure}
 
-A representative set of alternative functions, used to evaluate the accurancy of the chosen parametrization,
+A representative set of alternative functions, used to evaluate the accuracy of the chosen parametrization,
 is selected within the set of families shown in Table~\ref{tab:bias_func}.
 First, for a given family, the lowest order function in that family is fit to a single category. Then, the next highest order function is fit to the data in the same category and the difference $2 \Delta NLL_{N+1} = 2(NLL_{N+1} - NLL_{N})$, indicates whether or not the data support the hypothesis of the higher order function. This is quantitatively expressed using the fact that $ 2 \Delta NLL_{N+1}$ should be distributed as a $\chi^2$ with M degrees of freedom where M is the difference in the number of free parameters in the N + 1 function and N function. For example, for exponentials, $M = 4 - 2 = 2$, while for the polynomials $M = 3 - 2 = 1$. A p-value is then calculated as
 
@@ -529,7 +541,7 @@ $$ \text{p-value} = p(2 \Delta NLL > 2 \Delta NLL_{N+1}| \chi^2(M)). $$
 \end{tabular}
 \caption{
   List of truth models chosen for the bias determination and the order selected within the family for the two categories.
-  $p(\mgg)$ rappresents the polynomial and the order is the order of the $p(\mgg)$ polinomial.
+  $p(\mgg)$ represents the polynomial and the order is the order of the $p(\mgg)$ polynomial.
   \label{tab:bias_func}
 }
 \end{table}
@@ -704,7 +716,7 @@ In Figure~\ref{fig:fitRes1250} the fit to the reduced mass is shown for one of t
 
 \item The convolved model obtained in the previous step is used to throw an Asimov dataset which is fitted with a double-sided crystal-ball. This ultimate fitting model represents the final description of the mass resonance for a given mass and width. The closure test fit to the asimov dataset is shown in Figure~\ref{fig:final1250} for $m_X=1250$ GeV  narrow width.
 
-\item The signal model derived in the previous steps depends continuously upon  $m_X$ through the parameters which describes the model itself: mean, $sigma$, $\alpha_{L/R}$, $n_{L/R}$. For each category and for each width hypothesis the trend of these parameters is studied and modelled with a polynomial function with $m_X$ as the only independent variable. Figures~\ref{fig:fitmean} show an example fit to one of the  double-sided crystal-ball parameters for the $\Gamma / \mgg = 1.4\%$ width hypothesis. The width of the gaussian core is, among the model parameters, the one that affect the most the final results since
+\item The signal model derived in the previous steps depends continuously upon  $m_X$ through the parameters which describes the model itself: mean, $sigma$, $\alpha_{L/R}$, $n_{L/R}$. For each category and for each width hypothesis the trend of these parameters is studied and modelled with a polynomial function with $m_X$ as the only independent variable. Figures~\ref{fig:fitmean} show an example fit to one of the  double-sided crystal-ball parameters for the $\Gamma / \mgg = 1.4\%$ width hypothesis. The width of the Gaussian core is, among the model parameters, the one that affect the most the final results since
   a change in the width (i.e. better or worse resolution) directly impact the local signal over background ratio.
 
 \end{itemize}
@@ -771,8 +783,8 @@ visible trends are mainly driven by the signal acceptance.
   \centering
   \includegraphics[width = 0.7\textwidth]{figures/diphotons/avg_eff_reco.png}
   \caption{diphoton identification selection efficiency as a function of the generated resonance mass.
-    The effiency used in the signal model normalization is parametrized with a second order polinomial (black curve)
-    separetely for the EBEB (red) and EBEE (blue) categories.}
+    The efficiency used in the signal model normalization is parametrized with a second order polynomial (black curve)
+    separately for the EBEB (red) and EBEE (blue) categories.}
   \label{fig:eff_reco_sig}
 \end{figure}
 
@@ -802,7 +814,7 @@ the effect is compensated by a larger production through quark-antiquark annihil
 \clearpage
 \subsection{Source of systematic uncertainties}
 \label{sec:syst}
-Altought the dominant uncertainty of the analysis is of statistical origin, various sources of systematic
+Although the dominant uncertainty of the analysis is of statistical origin, various sources of systematic
 uncertainty are considered.
 
 All normalization uncertainties are assigned to the signal yield and are
@@ -815,7 +827,7 @@ reported in the following list:
     normalization was included to reflect the uncertainty on the knowledge of the
     data/simulation scale factors. This value is equivalent to two times the total uncertainty of the last $p_T$ bin of
     Figure~\ref{fig:tnp}. Although the chosen value is very conservative the effect on the final results is very
-    small given ther relative larger statistical uncertanty.
+    small given their relative larger statistical uncertainty.
 \item {\bf Parton distribution functions: } a 6\% uncertainty on the signal normalization
     was assigned in order to account for the variation in the kinematic acceptance of the
     analysis coming from the use of alternative PDF sets.
@@ -894,7 +906,7 @@ Throughout the calculations the asymptotic formulas described in~\cite{Cowan:201
 
 \clearpage
 \subsection{Exclusion limits on the production of spin-0 and spin-1 resonances}
-As previously stated two models are considered as beachmarks in this search for reonances decaying to two photos:
+As previously stated two models are considered as benchmarks in this search for resonances decaying to two photos:
 \begin{itemize}
 \item \RS gravitons (spin-2).
 \item spin-0 resonances produced via gluon-fusion.
@@ -903,7 +915,7 @@ As previously stated two models are considered as beachmarks in this search for 
 For each of the hypotheses, three different width $\Gamma / M$ are considered:
 0.014\%, 1.4\% and 5.6\%. In the case of the RS graviton resonances, the width is
 parametrized as $\Gamma / M = 1.4 k^2$ and thus k=0.01,0.1,0.2. The three values are representative of
-three different scenario: the narrowest reflect the case of an intrisic width negligible with respect to the
+three different scenario: the narrowest reflect the case of an intrinsic width negligible with respect to the
 detector resolution (i.e. the ECAL energy resolution), the second reflect the case of a resonance width
 comparable to the detector resolution and the third the case of a resonance with a intrinsic width larger than
 the mass resolution.
@@ -923,17 +935,17 @@ Figure~\ref{fig:limits} for \RS graviton and gluon-fusion-produced spin-0 resona
       Expected and observed upper limit for \RS graviton (left) and gluon-fusion-produced spin-0
       (right) resonances of different widths decaying to two photons:
       narrower (top) to wider (bottom). For \RS graviton the expected cross-section times branching fraction
-      for the dacay to two photons is shwon by the dashed red curve. The limits are shown as a function of
+      for the decay to two photons is shown by the dashed red curve. The limits are shown as a function of
       the reconstructed diphoton invariant mass.
     }
     \label{fig:limits}
 \end{figure}
 
-\subsection{Exclusion limits on the fiducail cross-section for resonant diphoton production}
+\subsection{Exclusion limits on the fiducial cross-section for resonant diphoton production}
 The same set of events can be interpreted setting a limit on the resonant diphoton production cross-section.
-This approch allows one to compare the experimental results with the prediction from any model; the
+This approach allows one to compare the experimental results with the prediction from any model; the
 only assumption are dictated by the width of the resonance and the shape of the signal, which is assumed to
-be the same double-sided crystal ball funtion described in Section~\ref{sec:signal_shape}.
+be the same double-sided crystal ball function described in Section~\ref{sec:signal_shape}.
 
 The limits are set independently for the EBEB and EBEE categories and the
 fiducial volume is defined by a set of selections applied to the simulated signal sample on generator
@@ -956,7 +968,7 @@ results (Section~\ref{sec:syst}) except for the uncertainty introduced by the va
 is irrelevant in this case.
 
 The median expected and observed exclusion limits for the model independent diphoton resonant production 
-are shown in Figure~\ref{fig:limits} for te two event categories and the three relative width considered in the analysis
+are shown in Figure~\ref{fig:limits} for the two event categories and the three relative width considered in the analysis
 
 \begin{figure}[h!]
   \centering
@@ -976,4 +988,17 @@ are shown in Figure~\ref{fig:limits} for te two event categories and the three r
 
 \section{Summary}
 \label{sec:dipho_summary}
+The search for local excesses in the diphoton spectrum compatible with the prediction of wrapped extra dimension models
+for the production of a massive spin-2 boson and spin-0 Higgs-like boson predicted by MSSM models
+has been performed using data collected by the CMS experiment during 2016.
 
+The observed data are compatible with the standard model prediction through all the analyzed part of the diphoton
+spectrum. In particular the results exclude the existence of a RS-graviton with masses below $2.1$ TeV and $\kappa = 0.01$.
+The excluded region extends more than $\sim 4$ TeV for wider resonances with $\kappa =$ 0.1 and 0.2.
+The results are compatible with those presented by a similar search performed by the ATLAS collaboration with
+data collected during the same period~\cite{atlas_dipho_2016}.
+These results extend the sensitivity of those previously published by CMS with data collected at both 8 and 13 TeV
+LHC center of mass energies~\cite{cms_dipho_2015, cms_dipho_2012_1, cms_dipho_2012_2}.
+
+No combination of the results with those collected at 8 TeV is done since with an integrated luminosity of \lumisix
+the sensitivity of the analysis performed with data at 13 TeV dominates over the 8 TeV one.
