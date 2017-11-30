@@ -25,10 +25,14 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
+%\captionsetup{font=small,labelfont={sf}}
+
+%\input{mydefinitions.sty}
+
 %% HEP stuff
 \usepackage{hepunits}
-\providecommand{\fbinv}{\ensuremath{fb^{-1}\xspace}}
-\providecommand{\pbinv}{\ensuremath{pb^{-1}\xspace}}
+\providecommand{\fbinv}{\ensuremath{\mathrm{\,fb}^{-1}\xspace}}
+\providecommand{\pbinv}{\ensuremath{\mathrm{\,pb}^{-1}\xspace}}
 \providecommand{\mgg}{\ensuremath{m_{\gamma\gamma}}\xspace}
 \providecommand{\mee}{\ensuremath{m_{e^-e^+}}\xspace}
 \providecommand{\phoIso}{\ensuremath{\mathrm{Iso}_\gamma}\xspace}
@@ -64,11 +68,11 @@
 \providecommand{\CLs}{\ensuremath{\mathrm{CL_{s}}}\xspace}
 \providecommand{\chisq}{\ensuremath{\chi^2}\xspace}
 
-\providecommand{\lumisix}{\ensuremath{35.9\invfb}\xspace}
-\providecommand{\lumisixICHEP}{\ensuremath{12.9\invfb}\xspace}
-\providecommand{\lumifif}{\ensuremath{3.3\invfb}\xspace}
-\providecommand{\lumififBon}{\ensuremath{2.7\invfb}\xspace}
-\providecommand{\lumififBoff}{\ensuremath{0.6\invfb}\xspace}
+\providecommand{\lumisix}{\ensuremath{35.9\fbinv}\xspace}
+\providecommand{\lumisixICHEP}{\ensuremath{12.9\fbinv}\xspace}
+\providecommand{\lumifif}{\ensuremath{3.3\fbinv}\xspace}
+\providecommand{\lumififBon}{\ensuremath{2.7\fbinv}\xspace}
+\providecommand{\lumififBoff}{\ensuremath{0.6\fbinv}\xspace}
 
 \providecommand{\mgg}{\ensuremath{m_{\gamma\gamma}}\xspace}
 \providecommand{\phoIso}{\ensuremath{\mathrm{Iso}_\gamma}\xspace}
@@ -111,6 +115,8 @@
 \tableofcontents
 
 \mainmatter
+
+\clearpage\input{introduction}
 
 \clearpage\input{cms}
 

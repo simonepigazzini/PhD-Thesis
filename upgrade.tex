@@ -2,7 +2,7 @@
 \providecommand{\threebythree}{\ensuremath{3\times 3\mathrm{~cm}^{2}}\xspace}
 \providecommand{\twobytwo}{\ensuremath{2\times 2\mathrm{~cm}^{2}}\xspace}
 \providecommand{\onebyone}{\ensuremath{1\times 1\mathrm{~cm}^{2}}\xspace}
-\providecommand{\refChIso}{\ensuremath{Ch_{iso}/p_T^{muon}}}
+\providecommand{\relChIso}{\ensuremath{Ch_{iso}/p_T^{muon}}}
 
 \chapter{The HL-LHC upgrade of CMS}
 \label{chapter:cms_upgrade}
@@ -180,7 +180,7 @@ The time measurement in the barrel sensors is found to depend on the MIP impact 
 the effect can be corrected to reach a 30 ps time resolution with a spatial precition of 1 mm on the impact point.
 Such precition is achived only for tracks with $p_T > 2$ GeV thus altervative geometries are being investigated.
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width = 0.45\textwidth]{figures/upgrade/c_posProfile.png}
   \includegraphics[width = 0.45\textwidth]{figures/upgrade/c_CTR_posCorr.png}
@@ -395,7 +395,7 @@ for each crystal. Two template examples are shown in Figure~\ref{fig:apd_templat
 shaping times. The template fit gives the best time performance for APD signals which has a smaller $dV/dt$ compared
 to the MCP one.
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width = 0.7\textwidth]{figures/upgrade/wf_shaping_times.png}
   \caption{APD signal average shape for 21.5 ns and 43 ns shaping times.}
@@ -558,7 +558,8 @@ has a gaussian shape both in $z$ and $t$ directions, with standard deviations of
     The solid (dashed) line refers to the start (end) of the LHC fill (left).
     Probability density function of the vertex density along the beam axis:
     the modes and the means of the three distributions are 0.3, 1.3, and 1.9~mm$^{-1}$ and 0.2, 0.9, and 1.4~mm$^{-1}$ (right).} 
-\label{fig:vtx_density}
+  \label{fig:vtx_density}
+\end{figure}
 
 \subsection{Muon isolation with precision timing}
 As explained at the beginning of the chapter one of the goals of the HL-LHC is the precise measurement
@@ -605,7 +606,7 @@ The 1 mm and 2 mm values are found to provide the best performances, as shown in
 for barrel and endcap muons. The 1 mm selection is chosen as baseline for the study since it also provide the
 best performances for jets and $E_T^{miss}$ studies.
 
-%\begin{figure}[h!]
+%% FIXME
 
 The comparison between the timing and no-timing scenario is shown in Figures~\ref{fig:roc_iso_ratio} and highlight
 a clear benefit from the use of timing for working points with $\epsilon_{prompt}> 80\%$.
@@ -652,10 +653,10 @@ projection are for a charged isolation working point that provides $\epsilon_{pr
 The gain introduced by the use of timing is equivalent to a $20\%$ increase in the signal over square-root of the background
 ratio.
 
-\begin{itemize}
+\begin{figure}
   \centering
   \includegraphics[width = 1.\textwidth]{figures/upgrade/HZZRapidity_TimingStudy_200PU.pdf}
-  \caption{Projections for yield enhancement in $H\toZZ\to4\mu$ as a function of the Higgs boson rapidity.
+  \caption{Projections for yield enhancement in $H\to ZZ\to 4\mu$ as a function of the Higgs boson rapidity.
     The distributions are normalized to the no-timing case.}
   \label{fig:H_4mu_gain}
 \end{figure}
