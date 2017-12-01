@@ -83,7 +83,7 @@ used in the analysis is found to be fully efficient for signal events at all mas
   \includegraphics[width = .45\textwidth]{figures/diphotons/eff_dipho60_EBEE_vs_mass.pdf}
   \caption{HLT trigger selection efficiency as a function of the simulated resonance mass. Only events where the two photons are
     in the detector acceptance are considered. The left (right) plot refers to events in the EBEB (EBEE)
-    category (see Section~\ref{sec:event_cats}}
+    category (see Section~\ref{sec:event_cats})}
   \label{fig:trig_eff_sig}
 \end{figure}
 
@@ -120,7 +120,7 @@ other quantities related to the $p_T$ balance between the diphoton system and th
 Using this method the interaction vertex is correctly assigned for about $90\%$ of the signal events.
 
 \subsection{Kinematic selections and event categorization}
-\label{subsec:event_cats}
+\label{sec:event_cats}
 Photons candidates are reconstructed from energy deposit in the ECAL with no associated track.
 A set of kinematic selection is applied to avoid detector inefficiencies and shaping of the mass
 spectrum due to trigger level selections:
@@ -326,11 +326,11 @@ is applied to the predicted signal yield.
 \section{Photon energy scale and resolution corrections}
 \label{sec:dipho_energy}
 The detector response is simulated with fixed pile-up distribution, detector noise and transparency loss.
-The pile-up distribution is re-weighted to match the one in data as explained in Sec~\ref{sec:diphotons_data_samples}.
+The pile-up distribution is re-weighted to match the one in data.
 The detector noise and crystal transparency instead varies over the data-taking period and so a discrepancy
 in the energy response of the ECAL may arise between data and simulation since in the latter no time evolution
 of the detector conditions is simulated. The effect of this discrepancy translate in shift of the energy
-scale in data with respect to the MC simulation (as described in Section~\ref{calib_2016}),
+scale in data with respect to the MC simulation (as described in Section~\ref{sec:calib_2016}),
 furthermore any residual mis-calibration of the detector
 is not simulated and thus the energy resolution in data is worse than in the MC simulation.
 These two effects are corrected on one hand by
@@ -412,7 +412,7 @@ is found to be stable within $0.5\%$. Electrons detected in the endcap region of
 detector are found to provide a stability of better than $0.8\%$.
 A final $1\%$ uncertainty on the energy scale stability is assigned.
 The smearing terms applied to the simulation in order to match the resolution observed in data are reported in
-Table~\ref{esmear_2016}. The additional constant term on the energy resolution varies from $0.96\%$ for
+Table~\ref{tab:esmear_2016}. The additional constant term on the energy resolution varies from $0.96\%$ for
 non-showering electrons in the barrel to $2.61\%$ for showering electrons in the forward region.
 
 \begin{table}[!h]
@@ -464,7 +464,7 @@ is defined as:
 In this formula, $S$ and $B$ denote the signal and standard model background shape respectively. Both
 models are $p.d.f$ that depends on \mgg and on nuisance parameters ($\theta$) that represent the systematic uncertainties.
 
-The selected events are split in two categories as described in Sec.~\ref{subsec:event_cats}.
+The selected events are split in two categories as described in Section~\ref{sec:event_cats}.
 Thus two different likelihood are built: each categories has different nuisance parameters, signal and background shapes,
 while the signal strength $\mu $ is a common parameter.
 A simultaneous fit to the data in the two category is performed.

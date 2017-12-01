@@ -10,7 +10,7 @@
 In this chapter the upgrade of the LHC complex is briefly introduced in Section~\ref{upgrade_lhc}
 underlining the physics goal and the expected performance of the machine. The CMS experiment is already planning
 a series of upgrades, most of which will be installed during LS3 (Figure~\ref{fig:lhc_plan}).
-The overall upgrade project of the CMS detector is outplined in Section~\ref{Sec:upgrade_cms}, with further details on the
+The overall upgrade project of the CMS detector is outlined in Section~\ref{sec:upgrade_cms}, with further details on the
 foreseen inclusion of time information in the event reconstruction given throughout the rest of the chapter.
 
 \section{High Luminosity LHC}
@@ -39,7 +39,7 @@ the radiation resistance of the detectors components.
 
 \clearpage
 \section{HL-LHC upgrade of CMS}
-\label{upgrade_cms}
+\label{sec:upgrade_cms}
 The CMS detector will be upgraded to match the operation environment of HL-LHC in order to fully exploit the
 larger dataset delivered by the accelerator complex.
 The major points are the complete replacement of the current tracker~\cite{trk_phase2_tdr}, the new system will maintain
@@ -74,7 +74,7 @@ properties through its decay in four muons ($H\to ZZ\to 4 \mu$).
 The CMS experiment is also investigating the possible benefits arising from the inclusion of the particles
 time of flight information into the event reconstruction. The gain is related to the fact that
 collisions overlaps in space within the luminous region but can be separated in time provided a resolution of the
-order of $10 ps$ (Figure~\ref{hllhc_beamspot}.
+order of $10$ ps (Figure~\ref{fig:hllhc_beamspot}).
 From the knowledge of the production time at the interaction point that of the energy deposits from neutral
 particles in the calorimeters these are assigned to the correct collision exploiting the time information.
 The improvements is thus bounded to
@@ -347,7 +347,7 @@ The signal from the MCP was also digitized with the same CAEN board.
     The \PbWO crystal is drawn in green and the shape is simplified with
     respect the real trapezoidal one. The plastic scintillators described in the text are not drawn and were placed
     upstream of the hodoscope (to the left of HODO in the picture). As in the standard ECAL crystals the signals from the two APDs
-    glued on the rear face are merged before the preamplifier (VFE in the scheme).}
+    glued on the rear face are merged before the pre-amplifier (VFE in the scheme).}
   \label{fig:tb_setup}
 \end{figure}
   
@@ -446,7 +446,7 @@ The test with the HL-LHC electronics prototype again proves a time resolution wi
 better than $20$ ps ($17.9\pm 0.1$ ps, Figure~\ref{fig:tia_tres}) with also an improved noise term, as expected
 from the TIA.
 As explained above the TIA output signal was digitized at 5 GHz and the lower sampling frequency were emulated at the
-analysis level. In Figure~\ref{fig:tia_res} the different sampling frequency performance are compared:
+analysis level. In Figure~\ref{fig:tia_tres} the different sampling frequency performance are compared:
 the 160 MHz sampling is identical to the one obtained with 5 GHz while at 80 MHz the time resolution
 depends on the sampling phase as expected given the typical APD signal frequency spectrum. 
 
@@ -515,7 +515,7 @@ Improvements are found in many areas:
   a performance comparable to that of zero pileup. The b-tagging improved performance translates into
   a direct gain for the measurement of the Higgs boson self coupling since the most sensitive channels
   are $HH\to b\bar{b}b\bar{b}$ and $HH \to b\bar{b}\gamma\gamma$. 
-\item Lepton identification through a better resolution on the charged isolation (Section~\ref{sec:muon_iso}.
+\item Lepton identification through a better resolution on the charged isolation (Section~\ref{sec:muon_iso}).
 \item Reconstruction of the diphoton interaction vertex in $H\to\gamma\gamma$ events thanks to both the photon time
   provided by the ECAL and the vertex time from charged particles detected in the MTD. Search for long lived particles
   decaying in a photon and undetected particle will also profit from the precise identification of the primary and
@@ -543,7 +543,7 @@ The method used to assign tracks to a primary vertex (PV) based on the distance 
 method within CMS, a typical selection 
 requires $|\Delta z(track, PV)| < 1$ mm, which means that for collision closer than 1 mm the reconstructed tracks are
 considered as if they were originating from the same interaction. The time selection is introduced in a similar
-fashion by requiring $|\Delta t(track, PV)| < N\times\sigma_t$, where $\sigma_t = sqrt{\sigma_t^{track 2}+\sigma_t^{vertex 2}}$
+fashion by requiring $|\Delta t(track, PV)| < N\times\sigma_t$, where $\sigma_t = \sqrt{\sigma_t^{track 2}+\sigma_t^{vertex 2}}$
 and $N=3$ is chosen for the current study.
 
 One of the benefits of the time-aware event reconstruction is to separate in time events not resolved by
@@ -567,6 +567,7 @@ has a Gaussian shape both in $z$ and $t$ directions, with standard deviations of
 \end{figure}
 
 \subsection{Muon isolation with precision timing}
+\label{sec:muon_iso}
 As explained at the beginning of the chapter one of the goals of the HL-LHC is the precise measurement
 of the Higgs boson properties. The four muons final state is the purest decay mode from the experimental point of
 view as already demonstrated by the analysis that contributed to the first observation of the Higgs boson.
@@ -611,7 +612,14 @@ The 1 mm and 2 mm values are found to provide the best performances, as shown in
 for barrel and endcap muons. The 1 mm selection is chosen as baseline for the study since it also provide the
 best performances for jets and $E_T^{miss}$ studies.
 
-%% FIXME
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/roc_iso_comparison_BTL.pdf}
+  \includegraphics[width = 0.45\textwidth]{figures/upgrade/roc_iso_comparison_ETL.pdf}  \
+  \caption{ROC curve comparison for different $\Delta z$ selections. In both BTL (left) and ETL (right) acceptance
+    regions the 1 and 2 mm selections provide the best performance}
+  \label{fig:muon_dz_comp}
+\end{figure}
 
 The comparison between the timing and no-timing scenario is shown in Figures~\ref{fig:roc_iso_ratio} and highlight
 a clear benefit from the use of timing for working points with $\epsilon_{prompt}> 80\%$.
@@ -684,7 +692,7 @@ In low pileup conditions such as those of the current LHC the diphoton vertex id
 the kinematic properties of the tracks associated with the reconstructed vertices and their correlation with the diphoton
 kinematics as explained in Section~\ref{sec:dipho_selection}.
 For the \Hgg decay vertex the identification efficiency if this method is less $80\%$ at 30 pileup events,
-as shwon in Figure~\ref{fig:hgg_vtx_run2}.
+as shown in Figure~\ref{fig:hgg_vtx_run2}.
 
 \begin{figure}[h!]
   \centering
@@ -704,7 +712,7 @@ which enables the vertex position along the beam direction to be determined via 
 The vertex position
 is located with a precision better than 1 cm only for events in which the opening angle between the two
 photons is such that the $\eta$ separation is more than 0.8. For events in which $|\Delta\eta|<0.8$ the position
-resolution achived through tringulation only is comparable to the beamspot size (Figure~\ref{fig:dipho_deta}.
+resolution achieved through triangulation only is comparable to the beamspot size (Figure~\ref{fig:dipho_deta}.
 For this sample, photon timing alone does not provide sufficient information to locate the \Hgg
 decay vertex.
 The ability to correctly identify the vertex in events with a small pseudorapidity gap between
@@ -726,13 +734,16 @@ time calculated at the location of each track-reconstructed vertex and the verte
 A quantitative measure of  the compatibility of the photon pair with
 the space-time position of each reconstructed vertex is obtained from
 a $\chi^2$ statistics defined as:
-% \[
+\[
+  \chi^2(t_0, z_0) = \frac{ (t_0 - t_{\gamma_1, vtx})^2 }{\sigma_{t, \gamma_1}^2 + \sigma_{t, vtx}^2} +
+  \frac{ (t_0 - t_{\gamma_2, vtx})^2 }{\sigma_{t, \gamma_2}^2 + \sigma_{t, vtx}^2} +
+  \frac{z_0^2}{\sigma_{BS, z}^2} + \frac{2\rho \cdot (t_0 - t_{\gamma_1, vtx})(t_0 - t_{\gamma_2, vtx})}{\sigma_t^2 + \sigma_{t,vtx}^2}
+\]
 
-%   \]
 The simulation parameters differs slightly from the one described in the previous section:
 a 20 ps vertex time resolution is simulated by smearing the generator-level time instead of
 performing the full space-time vertex reconstruction described above. This is however
-comparable to the resolution achived with the full simulation of the track timing.
+comparable to the resolution achieved with the full simulation of the track timing.
 The ECAL time resolution is assumed to be 30 ps for every photon regardless of their $p_T$. This
 is in agreement with the beam test results reported in Section~\ref{sec:tb_2015} given that only
 events in which the two photons have $p_T>30$ GeV are considered in the analysis.
@@ -743,7 +754,7 @@ a mean number of pileup events of 140 instead of 200.
 \centering
 \includegraphics[width=0.48\linewidth]{figures/upgrade/chi2.pdf}
 \includegraphics[width=0.48\linewidth]{figures/upgrade/Rank.pdf}
-\caption{Distribution of the $\chi^2$ (left) ofthe true \Hgg (red) and pileup vertices (blue) for 30~ps
+\caption{Distribution of the $\chi^2$ (left) of the true \Hgg (red) and pileup vertices (blue) for 30~ps
   time resolution in the calorimeters, 20~ps resolution in vertex timing,
   and a $|\Delta\eta|<0.8$ between the two photons. Fraction
   of events in which the diphoton vertex has a rank equal or lower

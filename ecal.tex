@@ -128,7 +128,17 @@ The underlying principle is similar for ECAL endcaps; however, laser light is in
 at a corner of each endcap crystal’s rear face, and the light is collected (as for scintillation) via
 a VPT glued on the crystal’s rear face. The intensity of the injected laser is monitored through a set of PN diodes,
 the ratio between the APDs amplitude and the one measured with
-the PN diode is used to monitor the transparency variation. Each PN diode monitors a region composed by 100 to 200 crystals.
+the PN diode is used to monitor the transparency variation.
+Each PN diode monitors a region composed by 100 to 200 crystals (Figure~\ref{fig:laser_scheme}.
+
+\begin{figure}[hb!]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{figures/ecal/pn_regions.png}
+  \caption{PN monitoring regions within an ECAL barrel supermodule. Supermodules in the barrel
+    covers half of the pseudorapidity barrel acceptance and $20^{\circ}$ degree in $\phi$ with
+    a total of 20 crystals. The supermodules are further split in smaller mechnical structure called ``modules''.}
+  \label{fig:laser_scheme}
+\end{figure}
 
 The energy correction factor extracted by means of the laser monitoring system depends on
 the light collection mechanisms of both electromagnetic showers and injected laser.
@@ -202,6 +212,35 @@ is reported in Section~\ref{sec:calib_2016}.
 
 \section{ECAL single channel intercalibration and response monitoring}
 \label{sec:minchia_la_calibrazione}
+
+The electromagnetic calorimeter of CMS has been specifically designed to provide optimal
+energy resolution for photons coming from Higgs boson decays,
+so that the advantages of such a narrow resonance are maintained.
+The ECAL energy resolution is parametrized by:
+
+\begin{equation}
+\dfrac{\sigma_{E}}{E} = \dfrac{A}{\sqrt{E(GeV)}} \oplus
+                        \dfrac{B}{E(GeV)}        \oplus
+                        C
+\end{equation} 
+
+the values of the stochastic and noise term are respectively $A \simeq 2.8\%$ and $B \simeq 12\%$, it
+follows that the energy resolution for electrons or photons with
+$E_{\textnormal{e,\textgamma}} > 50$GeV is dominated by the constant term $C$ (see
+Figure~\ref{fig:ECALResolution}). This last term, whose target value in CMS is 0.55\%, depends on
+the non-uniformity of the longitudinal light collection, the energy leakage from the rear face of
+the crystals (addressed with the supercluster energy correction),
+instabilities in the operation of ECAL and the intercalibration constants accuracy. This last two aspects
+are the focus of this section and of the current calibration work performed by the ECAL collaboration.
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[scale=0.7]{figures/ecal/ECALResolution.pdf}
+  \caption{Different contributions to the energy resolution of the CMS \PbWO electromagnetic
+           calorimeter.}
+  \label{fig:ECALResolution}
+\end{center}
+\end{figure}
 
 The laser monitoring system provide a way to equalize the response over time but does not allow to
 correct for absolute response differences among the ECAL channels. The crystal-by-crystal response variation
@@ -297,7 +336,7 @@ while is stable in the EE (Figure~\ref{fig:ecal_noise}, bottom).
 \end{figure}
 
 During 2015 and 2016 the calibration stream recorded events at a variable rate between 1 and 3 kHz with peaks of 20 kHz during
-commissioning periods. The rate is kept under control by prescaling zero-bias events (whose rate is almost 40 MHz).
+commissioning periods. The rate is kept under control by pre-scaling zero-bias events (whose rate is almost 40 MHz).
 
 The loss of transparency occurring in the crystals increases the equivalent noise (expressed in GeV) since the
 signal amplitude in ADC count is multiplied by the transparency correction derived with the laser system.
@@ -333,7 +372,7 @@ The $RMS$ of the crystals $(IC_{even}-IC_{odd})/(IC_{even}+IC_{odd})$ distributi
 uncertainty on the $IC$ obtained with the full dataset (the uncertainty value is common for all crystals in the EB and EE).
 Typically a new set of $IC$ is derived for each LHC fill (1-2 days) with a relative statistical uncertainty of about $0.4\%$.
 
-The $\Phi$-symmetry method extensevely uses data driven techniques since the large dataset collected from soft collisions
+The $\Phi$-symmetry method extensively uses data driven techniques since the large dataset collected from soft collisions
 at LHC and the variable condition of the detector are hardly reproducible with the simulation.
 
 \subsection{Energy calibration of the ECAL in 2015}
@@ -358,11 +397,11 @@ ratio between the two set of $IC$.
     of the $\eta$ and $\phi$ position of the crystals. In this and following figures instead of the absolute
     $\eta$ and $\phi$ coordinates the crystal indices $i\eta$ and $i\phi$ are used, this notation
     allow to identify easily the boundaries of the ECAL barrel partitions (modules and supermodules).
-    The $IC$ variation from unity is in general less in 2012 since the inter-calibration coeffient used
+    The $IC$ variation from unity is in general less in 2012 since the inter-calibration coefficient used
     in the energy reconstruction were derived with the same dataset, therefore the $IC$ shown in the left figure
-    reppresent the residual mis-calibration observed with $\Phi$-symmetry. The ``transport factors'' values
-    are shown in the bottom plot. White regions rappresent dead channels: either single faulty channels or
-  entire mulfunctioning $5\times 5$ read-out regions.}
+    represent the residual mis-calibration observed with $\Phi$-symmetry. The ``transport factors'' values
+    are shown in the bottom plot. White regions represent dead channels: either single faulty channels or
+  entire malfunctioning $5\times 5$ read-out regions.}
   \label{fig:ic_phisym}
 \end{figure}
 
@@ -448,7 +487,7 @@ The corrected barrel $IC$ values are shown in Figure~\ref{fig:ic_corrected},
 the channel-by-channel ratio of the two $IC$ set %(computed with
 % data from the last period of data-taking in 2012 and the first one in 2015)
 has been used as ``transport factor'' to translate the intercalibration
-derived by combining the three methods in 2012 to the detector codition of 2015.
+derived by combining the three methods in 2012 to the detector condition of 2015.
 % The $\eta$-ring response variations has also been adjusted with the method described in Section~\ref{sec:minchia_la_calibrazione}.
 The ``transport factors'' values varies across barrel following a patter that matches that of the laser monitoring
 partitions from no correction up to $5\%$ of the $IC$ value. % This behaviour is compatible with a crystal-to-crystal
