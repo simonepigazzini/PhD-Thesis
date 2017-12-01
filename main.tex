@@ -1,8 +1,5 @@
 \documentclass[a4paper,titlepage,11pt,twoside,openright]{book}
 
-\usepackage{lineno}
-\linenumbers
-
 %\setlength\textwidth{15cm}
 \usepackage[margin=1.2in]{geometry}
 % \usepackage{vmargin}
@@ -21,6 +18,8 @@
 \usepackage[euler]{textgreek} % upright greek
 
 \usepackage[usenames,dvipsnames]{xcolor}
+
+\usepackage{pdfpages}
 
 % \evensidemargin=1.5cm
 % \oddsidemargin=2.5cm
@@ -115,6 +114,8 @@
 \providecommand{\PbWO}{PbWO\ensuremath{_4}\xspace}
 
 \begin{document}
+
+\includepdf[pages=-]{frontespiziodef1.pdf}
 
 \clearpage\input{abstract}
 
